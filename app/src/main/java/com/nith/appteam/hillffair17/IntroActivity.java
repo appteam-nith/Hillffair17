@@ -8,9 +8,10 @@ import android.support.v4.app.Fragment;
 
 import com.github.paolorotolo.appintro.AppIntro2;
 import com.github.paolorotolo.appintro.AppIntro2Fragment;
+import com.nith.appteam.hillffair17.util.Preferences;
 
 /**
- * Created by shasha on 25/8/17.
+ * Created by octacode on 25/8/17.
  */
 
 public class IntroActivity extends AppIntro2 {
@@ -24,17 +25,24 @@ public class IntroActivity extends AppIntro2 {
         addSlide(AppIntro2Fragment.newInstance("Hillfair", getString(R.string.dummy_desc), R.mipmap.ic_launcher, Color.RED));
         addSlide(AppIntro2Fragment.newInstance("Hillfair", getString(R.string.dummy_desc), R.mipmap.ic_launcher, Color.BLUE));
         addSlide(AppIntro2Fragment.newInstance("Hillfair", getString(R.string.dummy_desc), R.mipmap.ic_launcher, Color.CYAN));
+        setFlowAnimation();
     }
 
     @Override
     public void onSkipPressed(Fragment currentFragment) {
         super.onSkipPressed(currentFragment);
+        setFirstRun();
         startActivity(new Intent(this, MainActivity.class));
     }
 
     @Override
     public void onDonePressed(Fragment currentFragment) {
         super.onDonePressed(currentFragment);
+        setFirstRun();
         startActivity(new Intent(this, MainActivity.class));
+    }
+
+    private void setFirstRun() {
+        Preferences.setFirstRun(this);
     }
 }
