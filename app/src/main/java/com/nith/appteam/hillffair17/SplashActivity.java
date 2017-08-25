@@ -16,7 +16,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         /*Note-@octacode:- Code for Starting Introduction Activity goes here.*/
-        if(Preferences.getFirstRun(this))
+        if (Preferences.getFirstRun(this))
             startActivity(new Intent(this, IntroActivity.class));
         else
             startActivity(new Intent(this, MainActivity.class));

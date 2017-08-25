@@ -3,4 +3,17 @@
     <string name="dummy_desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquam amet assumenda at atque beatae, consequatur culpa eligendi est explicabo ipsam libero officia omnis, quae reprehenderit vel voluptatum? Accusamus, ea.</string>
     <string name="preference">PREFERENCE</string>
     <string name="is_first_run">isFirstRun</string>
+    <!--INTRODUCTION ACTIVITY STRINGS-->
+    <string name="intro_title_hillfair">Hillffair 2k17</string>
+    <string name="intro_desc_hillfair">Hill\'ffair is not just a cultural festival but an excitement with inspiration, motivation, and a pinch of creativity.</string>
+    <string name="intro_title_quiz">Quiz</string>
+    <string name="intro_desc_quiz">App Team is back with the much awaited Quiz 3.0 where each question is as random as you are ;)</string>
+    <string name="intro_title_news">Newsfeed</string>
+    <string name="intro_desc_news">Regular feed of the events happening around our campus during Hill\'ffair</string>
+    <string name="intro_title_treasure_hunt">Treasure Hunt!</string>
+    <string name="intro_desc_treasure_hunt">App team is back with the treasure hunt</string>
+    <string name="intro_title_notification">Notification support</string>
+    <string name="intro_desc_notification">Now don\'t miss any updates with the android notifications. However you can disable notifications later.</string>
+    <string name="intro_title_ready">Ready</string>
+    <string name="intro_desc_ready">You\'re all set to go. Hope you have a great Hill\'ffair :)</string>
 </resources>

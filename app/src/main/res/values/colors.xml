@@ -3,4 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="intro1">#0277bd</color>
+    <color name="intro_quiz">#ff5bff</color>
+    <color name="intro_news">#26a69a</color>
 </resources>
