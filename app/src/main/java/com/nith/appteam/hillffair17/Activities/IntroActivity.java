@@ -1,4 +1,4 @@
-package com.nith.appteam.hillffair17;
+package com.nith.appteam.hillffair17.Activities;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -9,7 +9,8 @@ import android.support.v4.content.ContextCompat;
 
 import com.github.paolorotolo.appintro.AppIntro;
 import com.github.paolorotolo.appintro.AppIntro2Fragment;
-import com.nith.appteam.hillffair17.util.Preferences;
+import com.nith.appteam.hillffair17.R;
+import com.nith.appteam.hillffair17.Utils.SharedPref;
 
 /**
  * Created by octacode on 25/8/17.
@@ -33,17 +34,17 @@ public class IntroActivity extends AppIntro {
     public void onSkipPressed(Fragment currentFragment) {
         super.onSkipPressed(currentFragment);
         setFirstRun();
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, HomeActivity.class));
     }
 
     @Override
     public void onDonePressed(Fragment currentFragment) {
         super.onDonePressed(currentFragment);
         setFirstRun();
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, HomeActivity.class));
     }
 
     private void setFirstRun() {
-        Preferences.setFirstRun(this);
+        SharedPref.setFirstRun(this);
     }
 }
