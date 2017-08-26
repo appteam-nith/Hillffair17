@@ -14,8 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-
-
         <activity android:name=".Activities.SplashActivity"
 
             android:theme="@style/SplashTheme">
@@ -31,20 +29,22 @@
         </activity>
 
 
-
         <activity
             android:name=".Activities.ContributorsActivity"
-            android:exported="true" />
+            android:parentActivityName=".Activities.HomeActivity" />
+
         <activity
             android:name=".Activities.SponsorActivity"
-            android:exported="true" />
-        <activity android:name=".Activities.CoreTeamActivity"
-            android:exported="true"
-            />
+            android:parentActivityName=".Activities.HomeActivity" />
+
+        <activity
+            android:name=".Activities.CoreTeamActivity"
+            android:parentActivityName=".Activities.HomeActivity" />
 
         <activity android:name=".Activities.HomeActivity"
             android:label="Hill'ffair 2k17"
             android:theme="@style/AppTheme"/>
+
         <activity android:name=".Activities.IntroActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
 
