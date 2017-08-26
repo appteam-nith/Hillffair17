@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/profile"
+            android:icon="@android:drawable/ic_menu_camera"
+            android:title="Profile" />
+        <item
+            android:id="@+id/settings"
+            android:icon="@android:drawable/ic_menu_gallery"
+            android:title="Settings" />
+        <item
+            android:id="@+id/aboutus"
+            android:icon="@drawable/ic_action_about"
+            android:title="About Us" />
+        <item
+            android:id="@+id/report"
+            android:icon="@drawable/ic_report"
+            android:title="Report a bug" />
+        <item
+            android:id="@+id/license"
+            android:icon="@drawable/ic_action_labels"
+            android:title="License" />
+        <item
+            android:id="@+id/notification"
+            android:icon="@drawable/ic_action_alarms"
+            android:title="Notifications" />
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/logout"
+
+            android:title="Logout" />
+
+    </group>
+
+</menu>
