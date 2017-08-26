@@ -15,11 +15,13 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
+
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.Manifest;
 import android.widget.TextView;
@@ -28,6 +30,7 @@ import android.widget.Toast;
 import com.nith.appteam.hillffair17.Adapters.HomeAdapter;
 import com.nith.appteam.hillffair17.Models.HomeModel;
 import com.nith.appteam.hillffair17.R;
+import com.nith.appteam.hillffair17.Utils.RecyclerItemClickListener;
 
 import java.util.ArrayList;
 
@@ -65,15 +68,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 //            profileBasicInfo(pref.getUserId());
 
         recyclerView = (RecyclerView) findViewById(R.id.list);
-        ArrayList<HomeModel> list=new ArrayList<>();
-        list.add(new HomeModel(R.drawable.swords_crossed,"Battle Day",R.color.battleday));
-        list.add(new HomeModel(R.drawable.quiz,"Quiz",R.color.quiz));
-        list.add(new HomeModel(R.drawable.sponsor,"Sponsors",R.color.sponsor));
-        list.add(new HomeModel(R.drawable.news_feed,"NewsFeed",R.color.newsFeed));
-        list.add(new HomeModel(R.drawable.core,"Core Team",R.color.coreTeam));
-        list.add(new HomeModel(R.drawable.clubs,"Clubs",R.color.club));
-        list.add(new HomeModel(R.drawable.about,"About Hill'ffair",R.color.about));
-        list.add(new HomeModel(R.drawable.contributors,"Contributors",R.color.contributors));
+        ArrayList<HomeModel> list = new ArrayList<>();
+        list.add(new HomeModel(R.drawable.swords_crossed, "Battle Day", R.color.battleday));
+        list.add(new HomeModel(R.drawable.quiz, "Quiz", R.color.quiz));
+        list.add(new HomeModel(R.drawable.sponsor, "Sponsors", R.color.sponsor));
+        list.add(new HomeModel(R.drawable.news_feed, "NewsFeed", R.color.newsFeed));
+        list.add(new HomeModel(R.drawable.core, "Core Team", R.color.coreTeam));
+        list.add(new HomeModel(R.drawable.clubs, "Clubs", R.color.club));
+        list.add(new HomeModel(R.drawable.about, "About Hill'ffair", R.color.about));
+        list.add(new HomeModel(R.drawable.contributors, "Contributors", R.color.contributors));
 
         adapter = new HomeAdapter(list, this);
         GridLayoutManager staggeredGridLayoutManager = new GridLayoutManager(this, 2);
@@ -89,35 +92,28 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-//        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(View view, int position) {
-//                if (position == 6) {
-//                    startActivity(new Intent(HomeActivity.this,aboutHillffairActivity.class));
-//                }
-//                else if(position==0){
-//                    startActivity(new Intent(HomeActivity.this,BattleDayActivity.class));
-//                }
-//                else if (position==3){
-//                    startActivity(new Intent(HomeActivity.this, NewsfeedActivity.class));
-//                }
-//                else if (position==1){
-//                    startActivity(new Intent(HomeActivity.this,QuizActivity.class));
-//                }
-//                else if(position==2){
-//                    startActivity(new Intent(HomeActivity.this,SponsorActivity.class));
-//                }
-//                else if(position==4){
-//                    startActivity(new Intent(HomeActivity.this,CoreTeamActivity.class));
-//                }
-//                else if(position==5){
-//                    startActivity(new Intent(HomeActivity.this, EventActivity.class));
-//                }
-//                else if(position==7){
-//                    startActivity(new Intent(HomeActivity.this, ContributorsActivity.class));
-//                }
-//            }
-//        }));
+        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                if (position == 6) {
+                    //    startActivity(new Intent(HomeActivity.this,aboutHillffairActivity.class));
+                } else if (position == 0) {
+                    //   startActivity(new Intent(HomeActivity.this,BattleDayActivity.class));
+                } else if (position == 3) {
+                    //   startActivity(new Intent(HomeActivity.this, NewsfeedActivity.class));
+                } else if (position == 1) {
+                    // startActivity(new Intent(HomeActivity.this,QuizActivity.class));
+                } else if (position == 2) {
+                    startActivity(new Intent(HomeActivity.this, SponsorActivity.class));
+                } else if (position == 4) {
+                    startActivity(new Intent(HomeActivity.this, CoreTeamActivity.class));
+                } else if (position == 5) {
+                    //startActivity(new Intent(HomeActivity.this, EventActivity.class));
+                } else if (position == 7) {
+                    startActivity(new Intent(HomeActivity.this, ContributorsActivity.class));
+                }
+            }
+        }));
 
 
     }
