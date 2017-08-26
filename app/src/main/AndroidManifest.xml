@@ -9,21 +9,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity"
+        <activity
+            android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <!--Note: @octacode- Done to suppress high resolution warning during publishing for phones like S8-->
+            <!-- Note: @octacode- Done to suppress high resolution warning during publishing for phones like S8 -->
             <meta-data
                 android:name="android.max_aspect"
                 android:value="2.1" />
         </activity>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".IntroActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".IntroActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".ContributorsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SponsorActivity"
+            android:exported="true" />
+        <activity android:name=".CoreTeamActivity"
+            android:exported="true"
+            />
     </application>
 
 </manifest>
