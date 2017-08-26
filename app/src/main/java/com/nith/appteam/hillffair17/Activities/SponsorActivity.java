@@ -1,4 +1,4 @@
-package com.nith.appteam.hillffair17;
+package com.nith.appteam.hillffair17.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,8 +6,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
-import com.nith.appteam.hillffair17.adapters.SponsorAdapter;
-import com.nith.appteam.hillffair17.models.SponsorItem;
+import com.nith.appteam.hillffair17.R;
+import com.nith.appteam.hillffair17.Adapters.SponsorAdapter;
+import com.nith.appteam.hillffair17.Models.SponsorItem;
 
 import java.util.ArrayList;
 

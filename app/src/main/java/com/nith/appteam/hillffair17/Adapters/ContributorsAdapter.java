@@ -1,4 +1,4 @@
-package com.nith.appteam.hillffair17.adapters;
+package com.nith.appteam.hillffair17.Adapters;
 
 /**
  * Created by jatin on 26/8/17.
@@ -20,7 +20,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.ImageViewTarget;
 import com.nith.appteam.hillffair17.R;
-import com.nith.appteam.hillffair17.models.contributorsItem;
+import com.nith.appteam.hillffair17.Models.contributorsItem;
 
 import java.util.ArrayList;
 

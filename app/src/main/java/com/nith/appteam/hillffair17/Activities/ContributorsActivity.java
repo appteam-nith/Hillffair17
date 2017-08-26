@@ -1,4 +1,4 @@
-package com.nith.appteam.hillffair17;
+package com.nith.appteam.hillffair17.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,8 +6,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
-import com.nith.appteam.hillffair17.adapters.ContributorsAdapter;
-import com.nith.appteam.hillffair17.models.contributorsItem;
+import com.nith.appteam.hillffair17.R;
+import com.nith.appteam.hillffair17.Adapters.ContributorsAdapter;
+import com.nith.appteam.hillffair17.Models.contributorsItem;
 
 import java.util.ArrayList;
 

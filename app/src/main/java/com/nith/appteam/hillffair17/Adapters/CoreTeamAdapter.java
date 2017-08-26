@@ -1,4 +1,4 @@
-package com.nith.appteam.hillffair17.adapters;
+package com.nith.appteam.hillffair17.Adapters;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -15,7 +15,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.ImageViewTarget;
 import com.nith.appteam.hillffair17.R;
-import com.nith.appteam.hillffair17.models.CoreTeamItem;
+import com.nith.appteam.hillffair17.Models.CoreTeamItem;
 
 import java.util.ArrayList;
 

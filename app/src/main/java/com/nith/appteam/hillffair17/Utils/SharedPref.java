@@ -1,4 +1,4 @@
-package com.nith.appteam.hillffair17.util;
+package com.nith.appteam.hillffair17.Utils;
 
 import android.content.Context;
 
@@ -10,7 +10,7 @@ import static android.content.Context.MODE_PRIVATE;
  * Created by octacode on 25/8/17.
  */
 
-public class Preferences {
+public class SharedPref {
     public static boolean getFirstRun(Context context) {
         return context.getSharedPreferences(context.getString(R.string.preference), MODE_PRIVATE).getBoolean(context.getString(R.string.is_first_run), true);
     }

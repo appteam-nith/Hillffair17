@@ -1,4 +1,4 @@
-package com.nith.appteam.hillffair17.models;
+package com.nith.appteam.hillffair17.Models;
 
 /**
  * Created by Jatin on 9/28/16.
