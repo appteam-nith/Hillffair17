@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nith.appteam.hillffair17">
 
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,12 +16,20 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyByIUspPrtzSN1TGWXi2zXn7zaeTGr6850" />
-        <activity android:name=".MainActivity">
+
+
+        <activity android:name=".Activities.SplashActivity"
+
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <!-- Note: @octacode- Done to suppress high resolution warning during publishing for phones like S8 -->
+            <meta-data
+                android:name="android.max_aspect"
+                android:value="2.1" />
         </activity>
         <activity android:name=".MapActivity">
             <intent-filter>
@@ -26,6 +38,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
     </activity>
+
+
+
+        <activity
+            android:name=".Activities.ContributorsActivity"
+            android:parentActivityName=".Activities.HomeActivity" />
+
+        <activity
+            android:name=".Activities.SponsorActivity"
+            android:parentActivityName=".Activities.HomeActivity" />
+
+        <activity
+            android:name=".Activities.CoreTeamActivity"
+            android:parentActivityName=".Activities.HomeActivity" />
+
+        <activity android:name=".Activities.HomeActivity"
+            android:label="Hill'ffair 2k17"
+            android:theme="@style/AppTheme"/>
+
+        <activity android:name=".Activities.IntroActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+
     </application>
 
 </manifest>

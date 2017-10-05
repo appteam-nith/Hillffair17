@@ -3,4 +3,22 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!-- App Intro -->
+    <color name="intro1">#0277bd</color>
+    <color name="intro_quiz">#ff5bff</color>
+    <color name="intro_news">#26a69a</color>
+
+    <!-- Home Activity -->
+    <color name="newsFeed">#FFFFCDD2</color>
+    <color name="club">#FFF8BBD0</color>
+    <color name="quiz">#FFD1C4E9</color>
+    <color name="coreTeam">#FFBBDEFB</color>
+    <color name="sponsor">#FFFFCC80</color>
+    <color name="about" >#FFFFF59D</color>
+    <color name="battleday" >#9dffa4</color>
+    <color name="contributors" >#c6c1fa</color>
+
+
+
 </resources>
