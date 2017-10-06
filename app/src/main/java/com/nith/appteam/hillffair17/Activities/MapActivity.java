@@ -1,4 +1,4 @@
-package com.nith.appteam.hillffair17;
+package com.nith.appteam.hillffair17.Activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
