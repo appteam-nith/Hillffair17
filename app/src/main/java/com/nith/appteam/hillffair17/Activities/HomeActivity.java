@@ -96,7 +96,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onItemClick(View view, int position) {
                 if (position == 6) {
-                    //    startActivity(new Intent(HomeActivity.this,aboutHillffairActivity.class));
+                        startActivity(new Intent(HomeActivity.this,AboutActivity.class));
                 } else if (position == 0) {
                     //   startActivity(new Intent(HomeActivity.this,BattleDayActivity.class));
                 } else if (position == 3) {
@@ -108,7 +108,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 } else if (position == 4) {
                     startActivity(new Intent(HomeActivity.this, CoreTeamActivity.class));
                 } else if (position == 5) {
-                    //startActivity(new Intent(HomeActivity.this, EventActivity.class));
+                    startActivity(new Intent(HomeActivity.this, EventActivity.class));
                 } else if (position == 7) {
                     startActivity(new Intent(HomeActivity.this, ContributorsActivity.class));
                 }

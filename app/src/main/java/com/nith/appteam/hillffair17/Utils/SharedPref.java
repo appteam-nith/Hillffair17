@@ -2,6 +2,7 @@ package com.nith.appteam.hillffair17.Utils;
 
 import android.content.Context;
 
+import com.nith.appteam.hillffair17.Activities.EventActivity;
 import com.nith.appteam.hillffair17.R;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -11,6 +12,9 @@ import static android.content.Context.MODE_PRIVATE;
  */
 
 public class SharedPref {
+    public SharedPref(EventActivity eventActivity) {
+    }
+
     public static boolean getFirstRun(Context context) {
         return context.getSharedPreferences(context.getString(R.string.preference), MODE_PRIVATE).getBoolean(context.getString(R.string.is_first_run), true);
     }
