@@ -2,12 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nith.appteam.hillffair17">
 
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
+        android:name=".Utils.MyApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -17,9 +18,8 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyByIUspPrtzSN1TGWXi2zXn7zaeTGr6850" />
 
-
-        <activity android:name=".Activities.SplashActivity"
-
+        <activity
+            android:name=".Activities.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,32 +31,37 @@
                 android:name="android.max_aspect"
                 android:value="2.1" />
         </activity>
-
-
         <activity
             android:name=".Activities.MapActivity"
-            android:parentActivityName=".Activities.HomeActivity"
-            android:exported="true"/>
-
-
+            android:exported="true"
+            android:parentActivityName=".Activities.HomeActivity" />
         <activity
             android:name=".Activities.ContributorsActivity"
             android:parentActivityName=".Activities.HomeActivity" />
-
         <activity
             android:name=".Activities.SponsorActivity"
             android:parentActivityName=".Activities.HomeActivity" />
-
         <activity
             android:name=".Activities.CoreTeamActivity"
             android:parentActivityName=".Activities.HomeActivity" />
+        <activity
+            android:name=".Activities.HomeActivity"
+            android:label="Hill&apos;ffair 2k17"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Activities.IntroActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
 
-        <activity android:name=".Activities.HomeActivity"
-            android:label="Hill'ffair 2k17"
-            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".Activities.AboutActivity"
+            android:exported="true"
+            android:parentActivityName=".Activities.HomeActivity"></activity>
 
-        <activity android:name=".Activities.IntroActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+
+        <activity
+            android:name=".Activities.EventActivity"
+            android:exported="true"
+            android:parentActivityName=".Activities.HomeActivity"></activity>
 
     </application>
 
