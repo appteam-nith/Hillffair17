@@ -22,20 +22,21 @@ public class SponsorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sponsor);
-        String BASE_URL="https://s3.ap-south-1.amazonaws.com/hillffair2016/images/";
+//        String BASE_URL="https://s3.ap-south-1.amazonaws.com/hillffair2016/images/";
+        String BASE_URL="https://github.com/";
         rvSponsor = (RecyclerView)findViewById(R.id.rvSponsor);
 
         sponsorItems = new ArrayList<>();
 
-        sponsorItems.add(new SponsorItem("SkyCandle.in",BASE_URL+"sponsor-22.png"));
-        sponsorItems.add(new SponsorItem("Board Of School Education, H.P.",BASE_URL+"sponsor-16.png"));
-        sponsorItems.add(new SponsorItem("Tata Shaktee",BASE_URL+"sponsor-17.png"));
-        sponsorItems.add(new SponsorItem("Cad Desk",BASE_URL+"sponsor-18.png"));
-        //  sponsorItems.add(new SponsorItem("",BASE_URL+"sponsor-4.png"));
-        sponsorItems.add(new SponsorItem("HPSEDC",BASE_URL+"sponsor-19.png"));
-        sponsorItems.add(new SponsorItem("Ratan Jewellers",BASE_URL+"sponsor-20.png"));
-        sponsorItems.add(new SponsorItem("Chankya The Guru",BASE_URL+"sponsor-21.png"));
-        sponsorItems.add(new SponsorItem("L'OREAL",BASE_URL+"sponsor-7.png"));
+        sponsorItems.add(new SponsorItem("SkyCandle.in",BASE_URL+"appteam-nith.png"));
+        sponsorItems.add(new SponsorItem("Board Of School Education, H.P.",BASE_URL+"appteam-nith.png"));
+        sponsorItems.add(new SponsorItem("Tata Shaktee",BASE_URL+"appteam-nith.png"));
+        sponsorItems.add(new SponsorItem("Cad Desk",BASE_URL+"appteam-nith.png"));
+        //  sponsorItems.add(new SponsorItem("",BASE_URL+"appteam-nith4.png"));
+        sponsorItems.add(new SponsorItem("HPSEDC",BASE_URL+"appteam-nith.png"));
+        sponsorItems.add(new SponsorItem("Ratan Jewellers",BASE_URL+"appteam-nith.png"));
+        sponsorItems.add(new SponsorItem("Chankya The Guru",BASE_URL+"appteam-nith.png"));
+        sponsorItems.add(new SponsorItem("L'OREAL",BASE_URL+"appteam-nith.png"));
 
         sponsorAdapter = new SponsorAdapter(sponsorItems,SponsorActivity.this);
         rvSponsor.setAdapter(sponsorAdapter);
