@@ -70,7 +70,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         recyclerView = (RecyclerView) findViewById(R.id.list);
         ArrayList<HomeModel> list = new ArrayList<>();
         list.add(new HomeModel(R.drawable.swords_crossed, "Battle Day", R.color.battleday));
-        list.add(new HomeModel(R.drawable.quiz, "Quiz", R.color.quiz));
+        list.add(new HomeModel(R.drawable.quiz, "Map", R.color.quiz));
         list.add(new HomeModel(R.drawable.sponsor, "Sponsors", R.color.sponsor));
         list.add(new HomeModel(R.drawable.news_feed, "NewsFeed", R.color.newsFeed));
         list.add(new HomeModel(R.drawable.core, "Core Team", R.color.coreTeam));
@@ -102,7 +102,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 } else if (position == 3) {
                     //   startActivity(new Intent(HomeActivity.this, NewsfeedActivity.class));
                 } else if (position == 1) {
-                    // startActivity(new Intent(HomeActivity.this,QuizActivity.class));
+                     startActivity(new Intent(HomeActivity.this,MapActivity.class));
                 } else if (position == 2) {
                     startActivity(new Intent(HomeActivity.this, SponsorActivity.class));
                 } else if (position == 4) {

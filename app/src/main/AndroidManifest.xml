@@ -63,6 +63,12 @@
             android:exported="true"
             android:parentActivityName=".Activities.HomeActivity"></activity>
 
+        <activity
+            android:name=".Activities.ClubActivity"
+            android:exported="true"
+            android:parentActivityName=".Activities.EventActivity">
+        </activity>>
+
     </application>
 
 </manifest>
