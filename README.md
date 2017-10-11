@@ -1,9 +1,6 @@
-#### Hillffair17
+## Hillffair17
 
-#### This is the online repository for Hillffair-cultural fest of NIT Hamirpur
-Screencast link: [https://youtu.be/7imGYIVipXY](https://youtu.be/7imGYIVipXY)
-
-Google Play link: https://play.google.com/store/apps/details?id=com.appteam.nith.hillffair17
+This is the online repository for Hillffair-cultural fest of NIT Hamirpur
 
 ## How to setup this project in Android Studio :-
 

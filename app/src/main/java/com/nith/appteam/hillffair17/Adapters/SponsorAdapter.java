@@ -53,7 +53,8 @@ public class SponsorAdapter extends RecyclerView.Adapter<SponsorAdapter.ViewHold
                 @Override
                 protected void setResource(Bitmap resource) {
                     RoundedBitmapDrawable drawable= RoundedBitmapDrawableFactory.create(context.getResources(),resource);
-                    drawable.setCircular(false);
+                    drawable.setCircular(true);
+                    holder.sponsorimage.setScaleType(ImageView.ScaleType.FIT_CENTER);
                     holder.sponsorimage.setImageDrawable(drawable);
                 }
             });
