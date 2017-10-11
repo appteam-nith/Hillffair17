@@ -4,6 +4,7 @@ package com.nith.appteam.hillffair17.Utils;
 
 import com.nith.appteam.hillffair17.Activities.ClubActivity;
 import com.nith.appteam.hillffair17.Activities.EventActivity;
+import com.nith.appteam.hillffair17.Models.BattleDayModel;
 import com.nith.appteam.hillffair17.Models.ClubModel2;
 
 import retrofit2.Call;
@@ -32,6 +33,11 @@ public interface APIINTERFACE {
     Call<ClubModel2> getClubInfo(@Path("club_name") String club_name);
 
 
+    @GET("events/special")
+    Call<BattleDayModel> getSpecialEvents();
+
+    @GET("events/special/event")
+    Call<com.nith.appteam.hillffair17.Activities.ClubActivity.BattleResponseEvent> getEventData(@Query("id") String id);
 
 
 
