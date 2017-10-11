@@ -17,6 +17,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.gson.annotations.SerializedName;
+import com.nith.appteam.hillffair17.Activities.EventActivity;
+import com.nith.appteam.hillffair17.Models.BattleEventResponse;
 import com.nith.appteam.hillffair17.Models.ClubModel;
 import com.nith.appteam.hillffair17.Models.ClubModel2;
 import com.nith.appteam.hillffair17.R;
@@ -29,6 +31,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Created by sahil ramola on 5/10/16.
+ */
 
 public class ClubActivity extends AppCompatActivity {
     private String club_name;
@@ -43,7 +48,7 @@ public class ClubActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-
+        SharedPref pref= new SharedPref(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_club);
 
@@ -54,12 +59,12 @@ public class ClubActivity extends AppCompatActivity {
         clubName= (TextView) findViewById(R.id.grup_name);
         description= (TextView) findViewById(R.id.desc_club);
         setSupportActionBar(toolbar);
-       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Intent i = getIntent();
         if (i != null) {
             if (i.hasExtra(EventActivity.CLUB_NAME)){
-               club_name = i.getStringExtra(EventActivity.CLUB_NAME);
+                club_name = i.getStringExtra(EventActivity.CLUB_NAME);
                 showData(club_name);
 
             }else if(i.hasExtra("battleday")){
@@ -69,8 +74,8 @@ public class ClubActivity extends AppCompatActivity {
                 if(name!=null)
                     club_name=name;
 
-//                if(id!=null)
-//                    showSpecialData(id);
+                if(id!=null)
+                    showSpecialData(id);
 
             }
             initCollapsingToolbar();
@@ -111,41 +116,41 @@ public class ClubActivity extends AppCompatActivity {
             }
         });
     }
-//
-//    private void showSpecialData(String id){
-//
-//        Call<BattleResponseEvent> battleResponseEventCall=Utils.getRetrofitService().getEventData(id);
-//        battleResponseEventCall.enqueue(new Callback<BattleResponseEvent>() {
-//            @Override
-//            public void onResponse(Call<BattleResponseEvent> call, Response<BattleResponseEvent> response) {
-//                progressBar.setVisibility(View.INVISIBLE);
-//                frameLayout.setVisibility(View.VISIBLE);
-//                BattleResponseEvent data=response.body();
-//                if(data!=null&&response.isSuccess()){
-//                    if(data.isSuccess()){
-//                        BattleEventResponse clubdata = data.getData();
-//                        clubName.setText(clubdata.getEventname());
-//                        description.setText(clubdata.getEventdescription()+"\n\n"+"Rules:-\n"+clubdata.getRules()+"\n\n"+"Contact:-\n "+"Deepak Kumar Jain 9882654141 \n"+"Rishab Bhandari 988852966");
-//                        Glide.with(MyApplication.getAppContext()).load(clubdata.getPhoto()).diskCacheStrategy(DiskCacheStrategy.ALL).error(R.drawable.person_icon).into(grup_img);
-//                    }
-//                    else {
-//                        progressBar.setVisibility(View.INVISIBLE);
-//                        frameLayout.setVisibility(View.INVISIBLE);
-//                        Toast.makeText(ClubActivity.this,"Please Check Your Internet Connection",Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<BattleResponseEvent> call, Throwable t) {
-//                progressBar.setVisibility(View.INVISIBLE);
-//                frameLayout.setVisibility(View.INVISIBLE);
-//                t.printStackTrace();
-//                Toast.makeText(ClubActivity.this,"Please Check Your Internet Connection",Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//    }
+
+    private void showSpecialData(String id){
+
+        Call<ClubActivity.BattleResponseEvent> battleResponseEventCall=Utils.getRetrofitService().getEventData(id);
+        battleResponseEventCall.enqueue(new Callback<BattleResponseEvent>() {
+            @Override
+            public void onResponse(Call<BattleResponseEvent> call, Response<BattleResponseEvent> response) {
+                progressBar.setVisibility(View.INVISIBLE);
+                frameLayout.setVisibility(View.VISIBLE);
+                BattleResponseEvent data=response.body();
+                if(data!=null&&response.isSuccess()){
+                    if(data.isSuccess()){
+                        BattleEventResponse clubdata=data.getData();
+                        clubName.setText(clubdata.getEventname());
+                        description.setText(clubdata.getEventdescription()+"\n\n"+"Rules:-\n"+clubdata.getRules()+"\n\n"+"Contact:-\n "+"Deepak Kumar Jain 9882654141 \n"+"Rishab Bhandari 988852966");
+                        Glide.with(MyApplication.getAppContext()).load(clubdata.getPhoto()).diskCacheStrategy(DiskCacheStrategy.ALL).error(R.drawable.news_intro).into(grup_img);
+                    }
+                    else {
+                        progressBar.setVisibility(View.INVISIBLE);
+                        frameLayout.setVisibility(View.INVISIBLE);
+                        Toast.makeText(ClubActivity.this,"Please Check Your Internet Connection",Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BattleResponseEvent> call, Throwable t) {
+                progressBar.setVisibility(View.INVISIBLE);
+                frameLayout.setVisibility(View.INVISIBLE);
+                t.printStackTrace();
+                Toast.makeText(ClubActivity.this,"Please Check Your Internet Connection",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
 
     private void initCollapsingToolbar() {
         final CollapsingToolbarLayout collapsingToolbar =
@@ -176,44 +181,44 @@ public class ClubActivity extends AppCompatActivity {
     }
 
 
-//    public  class BattleResponseEvent{
-//        @SerializedName("profile")
-//        private BattleEventResponse data;
-//
-//        @SerializedName("success")
-//        private boolean success;
-//
-//        @SerializedName("msg")
-//        private String message;
-//
-//        public BattleResponseEvent(BattleEventResponse data, boolean success, String message) {
-//            this.data = data;
-//            this.success = success;
-//            this.message = message;
-//        }
-//
-//        public BattleEventResponse getData() {
-//            return data;
-//        }
-//
-//        public void setData(BattleEventResponse data) {
-//            this.data = data;
-//        }
-//
-//        public boolean isSuccess() {
-//            return success;
-//        }
-//
-//        public void setSuccess(boolean success) {
-//            this.success = success;
-//        }
-//
-//        public String getMessage() {
-//            return message;
-//        }
-//
-//        public void setMessage(String message) {
-//            this.message = message;
-//        }
-//    }
+    public  class BattleResponseEvent{
+        @SerializedName("profile")
+        private BattleEventResponse data;
+
+        @SerializedName("success")
+        private boolean success;
+
+        @SerializedName("msg")
+        private String message;
+
+        public BattleResponseEvent(BattleEventResponse data, boolean success, String message) {
+            this.data = data;
+            this.success = success;
+            this.message = message;
+        }
+
+        public BattleEventResponse getData() {
+            return data;
+        }
+
+        public void setData(BattleEventResponse data) {
+            this.data = data;
+        }
+
+        public boolean isSuccess() {
+            return success;
+        }
+
+        public void setSuccess(boolean success) {
+            this.success = success;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
+    }
 }

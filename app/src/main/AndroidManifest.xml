@@ -67,7 +67,12 @@
             android:name=".Activities.ClubActivity"
             android:exported="true"
             android:parentActivityName=".Activities.EventActivity">
-        </activity>>
+        </activity>
+
+        <activity android:name=".Activities.BattleDayActivity"
+            android:parentActivityName=".Activities.HomeActivity"
+            android:exported="true">
+        </activity>
 
     </application>
 
