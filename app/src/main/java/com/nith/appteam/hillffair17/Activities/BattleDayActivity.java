@@ -1,14 +1,18 @@
 
 package com.nith.appteam.hillffair17.Activities;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -69,6 +73,54 @@ public class BattleDayActivity extends AppCompatActivity {
 
     }
 
+    public void openBottomSheet(View v) {
+        View view = getLayoutInflater().inflate(R.layout.bottom_sheet, null);
+        TextView txtBackup = (TextView) view.findViewById(R.id.txt_backup);
+        TextView txtDetail = (TextView) view.findViewById(R.id.txt_detail);
+        TextView txtOpen = (TextView) view.findViewById(R.id.txt_open);
+        final TextView txtUninstall = (TextView) view.findViewById(R.id.txt_uninstall);
+        final Dialog mBottomSheetDialog = new Dialog(BattleDayActivity.this, R.style.MaterialDialogSheet);
+        mBottomSheetDialog.setContentView(view);
+        mBottomSheetDialog.setCancelable(true);
+        mBottomSheetDialog.getWindow().setLayout(LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        mBottomSheetDialog.getWindow().setGravity(Gravity.BOTTOM);
+        mBottomSheetDialog.show();
+        txtBackup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Toast.makeText(ContributorsActivity.this, "Clicked Backup", Toast.LENGTH_SHORT).show();
+                Intent i1 = new Intent(BattleDayActivity.this, BattleDayActivity.class);
+                startActivity(i1);
+                mBottomSheetDialog.dismiss();
+            }
+        });
+        txtDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(BattleDayActivity.this, "Clicked Detail", Toast.LENGTH_SHORT).show();
+                mBottomSheetDialog.dismiss();
+            }
+        });
+        txtOpen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Toast.makeText(ContributorsActivity.this, "Clicked Open", Toast.LENGTH_SHORT).show();
+                Intent i3 = new Intent(BattleDayActivity.this, ClubActivity.class);
+                startActivity(i3);
+                mBottomSheetDialog.dismiss();
+            }
+        });
+        txtUninstall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Toast.makeText(ContributorsActivity.this, "Clicked Uninstall", Toast.LENGTH_SHORT).show();
+                Intent i4 = new Intent(BattleDayActivity.this, SponsorActivity.class);
+                startActivity(i4);
+                mBottomSheetDialog.dismiss();
+            }
+        });
+    }
     public void retrofit(){
 
         APIINTERFACE apiservice= Utils.getRetrofitService();
