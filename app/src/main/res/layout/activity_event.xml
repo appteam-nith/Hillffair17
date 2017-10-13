@@ -9,16 +9,18 @@ android:orientation="vertical">
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/menu_icon"
-        android:layout_gravity="center|bottom"
-        app:elevation="6dp"
-        app:pressedTranslationZ="12dp"
-        android:layout_marginBottom="26dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:onClick="openBottomSheet"/>
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="26dp"
+        android:background="@color/colorPrimary"
+        android:onClick="openBottomSheet"
+        android:src="@drawable/threelines"
+        app:backgroundTint="@color/colorPrimary"
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp" />
 
-<android.support.v7.widget.Toolbar
+    <android.support.v7.widget.Toolbar
     android:id="@+id/my_toolbar"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
