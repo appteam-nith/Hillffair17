@@ -5,9 +5,9 @@
     <color name="colorAccent">#FF4081</color>
 
     <!-- App Intro -->
-    <color name="intro1">#0277bd</color>
+    <color name="intro1">#000000</color>
     <color name="intro_quiz">#ff5bff</color>
-    <color name="intro_news">#26a69a</color>
+    <color name="intro_news">#208020</color>
 
     <!-- Home Activity -->
     <color name="newsFeed">#FFFFCDD2</color>
@@ -19,6 +19,29 @@
     <color name="battleday" >#9dffa4</color>
     <color name="contributors" >#c6c1fa</color>
 
+    <color name="dot_dark_screen1">#3F51B5</color>
+    <color name="dot_dark_screen2">#303F9F</color>
+    <color name="dot_dark_screen3">#FF4081</color>
+    <color name="dot_dark_screen4">#3F51B5</color>
+
+    <color name="dot_light_screen1">#303F9F</color>
+    <color name="dot_light_screen2">#FF4081</color>
+    <color name="dot_light_screen3">#303F9F</color>
+    <color name="dot_light_screen4">#FF4081</color>
+
+
+    <array name="array_dot_active">
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen2</item>
+        <item>@color/dot_light_screen3</item>
+        <item>@color/dot_light_screen4</item>
+    </array>
+    <array name="array_dot_inactive">
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen2</item>
+        <item>@color/dot_dark_screen3</item>
+        <item>@color/dot_dark_screen4</item>
+    </array>
 
 
 </resources>
