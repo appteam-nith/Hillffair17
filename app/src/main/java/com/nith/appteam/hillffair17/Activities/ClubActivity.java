@@ -1,5 +1,6 @@
 package com.nith.appteam.hillffair17.Activities;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,9 +8,11 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -81,6 +84,56 @@ public class ClubActivity extends AppCompatActivity {
             initCollapsingToolbar();
 
         }
+    }
+
+    public void openBottomSheet(View v) {
+        View view = getLayoutInflater().inflate(R.layout.bottom_sheet, null);
+        TextView txtBackup = (TextView) view.findViewById(R.id.txt_backup);
+        TextView txtDetail = (TextView) view.findViewById(R.id.txt_detail);
+        TextView txtOpen = (TextView) view.findViewById(R.id.txt_open);
+        final TextView txtUninstall = (TextView) view.findViewById(R.id.txt_uninstall);
+        final Dialog mBottomSheetDialog = new Dialog(ClubActivity.this, R.style.MaterialDialogSheet);
+        mBottomSheetDialog.setContentView(view);
+        mBottomSheetDialog.setCancelable(true);
+        mBottomSheetDialog.getWindow().setLayout(LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        mBottomSheetDialog.getWindow().setGravity(Gravity.BOTTOM);
+        mBottomSheetDialog.show();
+        txtBackup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Toast.makeText(ContributorsActivity.this, "Clicked Backup", Toast.LENGTH_SHORT).show();
+                Intent i1 = new Intent(ClubActivity.this, BattleDayActivity.class);
+                startActivity(i1);
+                finish();
+                mBottomSheetDialog.dismiss();
+            }
+        });
+        txtDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ClubActivity.this, "Clicked Detail", Toast.LENGTH_SHORT).show();
+                mBottomSheetDialog.dismiss();
+            }
+        });
+        txtOpen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Toast.makeText(ContributorsActivity.this, "Clicked Open", Toast.LENGTH_SHORT).show();
+
+                mBottomSheetDialog.dismiss();
+            }
+        });
+        txtUninstall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Toast.makeText(ContributorsActivity.this, "Clicked Uninstall", Toast.LENGTH_SHORT).show();
+                Intent i4 = new Intent(ClubActivity.this, SponsorActivity.class);
+                startActivity(i4);
+                finish();
+                mBottomSheetDialog.dismiss();
+            }
+        });
     }
 
     private void showData(final String club_name){

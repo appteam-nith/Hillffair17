@@ -8,6 +8,21 @@
     android:fitsSystemWindows="true"
     tools:context="com.nith.appteam.hillffair17.Activities.ContributorsActivity">
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="26dp"
+        android:background="@color/colorPrimary"
+        android:onClick="openBottomSheet"
+        android:src="@drawable/threelines"
+        app:backgroundTint="@color/colorPrimary"
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp" />
+
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
