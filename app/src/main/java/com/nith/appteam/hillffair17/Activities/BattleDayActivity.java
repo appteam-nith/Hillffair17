@@ -98,7 +98,6 @@ public class BattleDayActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(BattleDayActivity.this, "Clicked Detail", Toast.LENGTH_SHORT).show();
                 mBottomSheetDialog.dismiss();
-                finish();
             }
         });
         txtOpen.setOnClickListener(new View.OnClickListener() {
