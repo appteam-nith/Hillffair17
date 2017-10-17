@@ -10,6 +10,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [manifestApplicationId          : "${applicationId}",
+                                onesignal_app_id               : "bc7ba5e0-7da9-4655-896a-7adcc1b967c5",
+                                onesignal_google_project_number: "1049024080842"]
     }
     buildTypes {
         release {
@@ -45,5 +48,6 @@ dependencies {
     compile 'com.google.android.gms:play-services-location:10.2.0'
     compile 'com.github.jd-alexander:LikeButton:0.2.0'
     compile 'com.github.Cutta:ContinuousScrollableImageView:1.0'
+    compile 'com.onesignal:OneSignal:3.+@aar'
     testCompile 'junit:junit:4.12'
 }
