@@ -62,14 +62,14 @@
         <activity
             android:name=".Activities.ClubActivity"
             android:exported="true"
-            android:parentActivityName=".Activities.EventActivity">
+            android:parentActivityName=".Activities.EventActivity" />
         <activity
             android:name=".Activities.BattleDayActivity"
             android:exported="true"
-            android:parentActivityName=".Activities.HomeActivity">
+            android:parentActivityName=".Activities.HomeActivity" />
         <activity
             android:name=".Activities.HomescreenNew"
-            android:exported="true">
+            android:exported="true" />
     </application>
 
 </manifest>
