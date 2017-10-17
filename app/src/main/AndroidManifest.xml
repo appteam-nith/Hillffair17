@@ -2,9 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nith.appteam.hillffair17">
 
-    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
 
     <application
         android:name=".Utils.MyApplication"
@@ -17,6 +20,9 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyByIUspPrtzSN1TGWXi2zXn7zaeTGr6850" />
+        <meta-data
+            android:name="com.onesignal.NotificationOpened.DEFAULT"
+            android:value="DISABLE" />
 
         <activity
             android:name=".Activities.SplashActivity"
@@ -80,6 +86,7 @@
         <activity
             android:name=".Activities.HomescreenNew"
             android:exported="true" />
+        <activity android:name=".Notification.NotificationActivity"/>
 
         <activity
             android:name=".Activities.ProfileActivity"

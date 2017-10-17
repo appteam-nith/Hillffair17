@@ -29,6 +29,7 @@ import android.widget.Toast;
 
 import com.nith.appteam.hillffair17.Adapters.HomeAdapter;
 import com.nith.appteam.hillffair17.Models.HomeModel;
+import com.nith.appteam.hillffair17.Notification.NotificationActivity;
 import com.nith.appteam.hillffair17.R;
 import com.nith.appteam.hillffair17.Utils.RecyclerItemClickListener;
 
@@ -100,7 +101,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 } else if (position == 0) {
                        startActivity(new Intent(HomeActivity.this,BattleDayActivity.class));
                 } else if (position == 3) {
-                    //   startActivity(new Intent(HomeActivity.this, NewsfeedActivity.class));
+//                      startActivity(new Intent(HomeActivity.this, NewsFeedActivity.class));
                 } else if (position == 1) {
                      startActivity(new Intent(HomeActivity.this,MapActivity.class));
                 } else if (position == 2) {
@@ -225,7 +226,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 ((TextView) welcomeAlert2.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
                 break;
             case R.id.notification:
-//                startActivity(new Intent(HomeActivity.this, NotificationActivity.class));
+               startActivity(new Intent(HomeActivity.this, NotificationActivity.class));
                 break;
             case R.id.logout:
 //                pref.setUserId(null);
