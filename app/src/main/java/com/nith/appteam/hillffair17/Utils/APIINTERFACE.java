@@ -8,6 +8,8 @@ import com.nith.appteam.hillffair17.Models.BattleDayModel;
 import com.nith.appteam.hillffair17.Models.CategoryQuizModel;
 import com.nith.appteam.hillffair17.Models.CategoryQuizSingleModel;
 import com.nith.appteam.hillffair17.Models.ClubModel2;
+import com.nith.appteam.hillffair17.Models.GalleryDetailResponse;
+import com.nith.appteam.hillffair17.Models.GalleryResponse;
 import com.nith.appteam.hillffair17.Models.Likecount;
 import com.nith.appteam.hillffair17.Models.NewsFeedResponse;
 import com.nith.appteam.hillffair17.Models.ProfileDataModel;
@@ -74,6 +76,14 @@ public interface APIINTERFACE {
 
     @GET("profile/newsfeed/{student_id}")
     Call<NewsFeedResponse> getUserNews(@Path("student_id") String userId);
+
+    @GET("gallery/{id}")
+    Call<GalleryDetailResponse> getGalleryResponse(@Path("id") String id);
+
+    @GET("galleryAll")
+    Call<GalleryResponse> getGalleryAll();
+
+
 }
 
 

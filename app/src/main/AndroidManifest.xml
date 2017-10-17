@@ -89,7 +89,13 @@
         <activity android:name=".Notification.NotificationActivity"/>
 
         <activity
+            android:parentActivityName=".Activities.HomeActivity"
             android:name=".Activities.ProfileActivity"
+            android:exported="true" />
+
+        <activity
+            android:parentActivityName=".Activities.HomeActivity"
+            android:name=".Activities.GalleryActivity"
             android:exported="true" />
 
     </application>
