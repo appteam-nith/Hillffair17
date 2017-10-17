@@ -20,6 +20,7 @@ public class SharedPref {
 
     private static final String PREF_NAME="UserInfo";
     private static final String LOGIN_STATUS="loginstatus";
+    private static final String SKIP_STATUS="skipstatus";
     private static final String USER_ID="apikey";
     private static final String IS_FIRST_TIME="isfirstTime";
     private static final  String USER_NAME="name";
@@ -63,6 +64,15 @@ public class SharedPref {
 
     public static void setFirstRun(Context context) {
         context.getSharedPreferences(context.getString(R.string.preference), MODE_PRIVATE).edit().putBoolean(context.getString(R.string.is_first_run), false).apply();
+    }
+
+    public void setSkipStatus(boolean isSkip){
+        editor.putBoolean(SKIP_STATUS,isSkip);
+        editor.commit();
+    }
+
+    public boolean getSkipStatus(){
+        return sharedPreferences.getBoolean(SKIP_STATUS,false);
     }
 
     public void setUserId(String userId){
