@@ -4,6 +4,7 @@ package com.nith.appteam.hillffair17.Utils;
 
 import com.nith.appteam.hillffair17.Activities.ClubActivity;
 import com.nith.appteam.hillffair17.Activities.EventActivity;
+import com.nith.appteam.hillffair17.Fragments.FbLoginFragment;
 import com.nith.appteam.hillffair17.Models.BattleDayModel;
 import com.nith.appteam.hillffair17.Models.CategoryQuizModel;
 import com.nith.appteam.hillffair17.Models.CategoryQuizSingleModel;
@@ -82,6 +83,12 @@ public interface APIINTERFACE {
 
     @GET("galleryAll")
     Call<GalleryResponse> getGalleryAll();
+
+    @POST("register")
+
+    @FormUrlEncoded
+    Call<FbLoginFragment.UserSentResponse> sendFbUserData(@Field("name") String name, @Field("email") String email, @Field("pic_url")String picUrl);
+
 
 
 }
