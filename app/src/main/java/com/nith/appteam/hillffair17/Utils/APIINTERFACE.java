@@ -4,6 +4,7 @@ package com.nith.appteam.hillffair17.Utils;
 
 import com.nith.appteam.hillffair17.Activities.ClubActivity;
 import com.nith.appteam.hillffair17.Activities.EventActivity;
+import com.nith.appteam.hillffair17.Activities.UploadNewsFeedActivity;
 import com.nith.appteam.hillffair17.Fragments.FbLoginFragment;
 import com.nith.appteam.hillffair17.Models.BattleDayModel;
 import com.nith.appteam.hillffair17.Models.CategoryQuizModel;
@@ -16,6 +17,7 @@ import com.nith.appteam.hillffair17.Models.NewsFeedResponse;
 import com.nith.appteam.hillffair17.Models.ProfileDataModel;
 import com.nith.appteam.hillffair17.Models.ProfileEventModel;
 import com.nith.appteam.hillffair17.Models.QuizQuestionsModel;
+import com.nith.appteam.hillffair17.Models.RegisterResponse;
 import com.nith.appteam.hillffair17.Models.SubCategoryQuizModel;
 
 import retrofit2.Call;
@@ -65,6 +67,11 @@ public interface APIINTERFACE {
     @GET("newsfeed/getall/{id}")
     Call<NewsFeedResponse> getAllNews(@Path("id") String userId, @Query("from") int from);
 
+    @FormUrlEncoded
+    @POST("newsfeed/post/{student_id}")
+    Call<UploadNewsFeedActivity.UploadResponse> uploadNews(@Field("title") String title, @Field("desc") String description, @Path("student_id") String userId, @Field("name") String userName, @Field("photo") String imageUrl);
+
+
     @GET("quiz/get/{id}")
     Call<QuizQuestionsModel> getQuiz(@Path("id") String id,@Query("category") String category,@Query("topic") String topic);
 
@@ -89,7 +96,8 @@ public interface APIINTERFACE {
     @FormUrlEncoded
     Call<FbLoginFragment.UserSentResponse> sendFbUserData(@Field("name") String name, @Field("email") String email, @Field("pic_url")String picUrl);
 
-
+    @POST("update/rollno/{id}")
+    Call<RegisterResponse> updateRollNo(@Path("id") String id, @Query("roll_no") String rollNo);
 
 }
 
