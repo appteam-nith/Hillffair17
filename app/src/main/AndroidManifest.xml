@@ -74,14 +74,23 @@
             android:exported="true"
             android:parentActivityName=".Activities.HomeActivity" />
 
-        <activity android:name=".Activities.QuizCategoryActivity" />
-        <activity android:name=".Activities.QuizSubCategoryActivity" />
-        <activity android:name=".Activities.NewsFeedActivity"/>
+        <activity
+            android:name=".Activities.QuizCategoryActivity" />
+
+        <activity
+            android:name=".Activities.QuizSubCategoryActivity" />
+
+        <activity
+            android:name=".Activities.NewsFeedActivity"/>
 
         <activity
             android:name=".Activities.HomescreenNew"
             android:exported="true" />
         <activity android:name=".Notification.NotificationActivity"/>
+
+        <activity
+            android:name=".Activities.ProfileActivity"
+            android:exported="true" />
 
     </application>
 

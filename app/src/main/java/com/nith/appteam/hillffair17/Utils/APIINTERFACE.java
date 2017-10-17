@@ -10,6 +10,8 @@ import com.nith.appteam.hillffair17.Models.CategoryQuizSingleModel;
 import com.nith.appteam.hillffair17.Models.ClubModel2;
 import com.nith.appteam.hillffair17.Models.Likecount;
 import com.nith.appteam.hillffair17.Models.NewsFeedResponse;
+import com.nith.appteam.hillffair17.Models.ProfileDataModel;
+import com.nith.appteam.hillffair17.Models.ProfileEventModel;
 import com.nith.appteam.hillffair17.Models.QuizQuestionsModel;
 import com.nith.appteam.hillffair17.Models.SubCategoryQuizModel;
 
@@ -62,6 +64,16 @@ public interface APIINTERFACE {
 
     @GET("quiz/get/{id}")
     Call<QuizQuestionsModel> getQuiz(@Path("id") String id,@Query("category") String category,@Query("topic") String topic);
+
+
+    @GET("profile/{id}")
+    Call<ProfileDataModel> profileBasicInfo(@Path("id") String id);
+
+    @GET("profile/event/{id}")
+    Call<ProfileEventModel> profileEventList(@Path("id") String id);
+
+    @GET("profile/newsfeed/{student_id}")
+    Call<NewsFeedResponse> getUserNews(@Path("student_id") String userId);
 }
 
 
