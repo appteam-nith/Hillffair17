@@ -29,6 +29,11 @@
         \t<a href="https://square.github.io/retrofit/#license">Android Retrofit Library</a>\n\n
         \t<a href="https://github.com/code-mc/loadtoast">Load Toast</a>\n\n
     </string>
+    <!--Quiz-->
+    <string name="sample_question">What was the question?</string>
+    <string name="quiz_comment">*Make sure to read all instructions before attempting the quiz</string>
+
+
     <string name="AboutHillffair">
         It is a name which needs no introduction up here in the hills, it is the reason why most of northern India awaits the month of November,
 it is the name whose mention alone excites the listener to his core. \n\nHill’ffair is around the corner once again. And needless to say,

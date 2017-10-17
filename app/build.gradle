@@ -43,6 +43,7 @@ dependencies {
     compile 'com.cloudinary:cloudinary-android:1.2.2'
     compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
     compile 'com.google.android.gms:play-services-location:10.2.0'
+    compile 'com.github.jd-alexander:LikeButton:0.2.0'
     compile 'com.github.Cutta:ContinuousScrollableImageView:1.0'
     testCompile 'junit:junit:4.12'
 }
