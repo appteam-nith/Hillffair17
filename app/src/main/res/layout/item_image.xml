@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent">
     xmlns:android="http://schemas.android.com/apk/res/android" />
-<com.nith.appteam.nimbus.CustomView.EditorImageView
+
+<com.nith.appteam.hillffair17.CustomView.EditorImageView
     android:id="@+id/editorImageView"
     android:layout_width="match_parent" android:layout_height="match_parent"/>
 

@@ -4,14 +4,14 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.nith.appteam.nimbus.CustomView.GalleryView
+    <com.nith.appteam.hillffair17.CustomView.GalleryView
         android:layout_margin="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/galleryView">
 
 
-    </com.nith.appteam.nimbus.CustomView.GalleryView>
+    </com.nith.appteam.hillffair17.CustomView.GalleryView>
 
 
 

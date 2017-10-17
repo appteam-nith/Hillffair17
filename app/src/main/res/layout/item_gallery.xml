@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:custom="http://schemas.android.com/apk/res-auto/com.nith.appteam.nimbus.CustomView.AspectRatioImageView"
+    xmlns:custom="http://schemas.android.com/apk/res-auto/com.nith.appteam.hillffair17.CustomView.AspectRatioImageView"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
-<com.nith.appteam.nimbus.CustomView.AspectRatioImageView
+<com.nith.appteam.hillffair17.CustomView.AspectRatioImageView
     custom:dominantMeasurement="width"
     android:layout_width="match_parent"
     android:layout_height="match_parent"

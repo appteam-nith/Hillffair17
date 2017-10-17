@@ -111,6 +111,9 @@
             android:name=".Activities.LoginActivity"
             android:exported="true" />
 
+        <activity android:name=".Activities.UploadNewsFeedActivity"
+            android:exported="true" />
+
     </application>
 
 </manifest>
