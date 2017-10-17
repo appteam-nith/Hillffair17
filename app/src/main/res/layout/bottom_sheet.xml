@@ -4,45 +4,64 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="bottom|center"
-    android:background="@android:color/white"
+    android:background="@color/colorPrimary"
+    android:alpha="0.8"
     android:padding="10dp"
     android:orientation="vertical">
     <TextView
         android:id="@+id/txt_backup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@android:drawable/ic_media_play"
-
+        android:background="@color/colorPrimary"
+        android:textColor="#E3F2FD"
         android:gravity="center"
         android:padding="15dp"
         android:text="Battle Day"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#9FA8DA"/>
+
     <TextView
         android:id="@+id/txt_detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@android:drawable/ic_media_play"
-
+        android:background="@color/colorPrimary"
+        android:textColor="#E3F2FD"
         android:gravity="center"
         android:padding="15dp"
         android:text="News Feed"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#9FA8DA"/>
+
     <TextView
         android:id="@+id/txt_open"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@android:drawable/ic_media_play"
-
+        android:background="@color/colorPrimary"
+        android:textColor="#E3F2FD"
         android:gravity="center"
         android:padding="15dp"
         android:text="Clubs"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#9FA8DA"/>
+
     <TextView
         android:id="@+id/txt_uninstall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@android:drawable/ic_media_play"
-
+        android:background="@color/colorPrimary"
+        android:textColor="#E3F2FD"
         android:gravity="center"
         android:padding="15dp"
         android:text="Sponsors"

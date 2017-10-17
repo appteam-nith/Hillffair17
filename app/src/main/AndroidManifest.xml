@@ -67,9 +67,15 @@
             android:name=".Activities.BattleDayActivity"
             android:exported="true"
             android:parentActivityName=".Activities.HomeActivity" />
+
         <activity android:name=".Activities.QuizCategoryActivity" />
         <activity android:name=".Activities.QuizSubCategoryActivity" />
-        <activity android:name=".Activities.NewsFeedActivity"></activity>
+        <activity android:name=".Activities.NewsFeedActivity"/>
+
+        <activity
+            android:name=".Activities.HomescreenNew"
+            android:exported="true" />
+
     </application>
 
 </manifest>
