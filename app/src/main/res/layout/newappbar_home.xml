@@ -1,34 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nith.appteam.hillffair17.Activities.HomescreenNew">
+    android:background="@android:color/white">
 
-    <LinearLayout
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:weightSum="1">
+        android:layout_height="298dp"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-
-        <RelativeLayout
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:background="#E7F4F7"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="#b9000000"
+            app:expandedTitleTextAppearance="@android:color/transparent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <com.cunoraz.continuouscrollable.ContinuousScrollableImageView
-                android:layout_marginTop="20dp"
-                android:id="@+id/image"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                app:direction="left"
-                app:duration="15000"
-                app:imageSrc="@drawable/cloud" />
+                android:layout_height="300dp"
+                android:background="#E7F4F7">
 
-            <!--<com.cunoraz.continuouscrollable.ContinuousScrollableImageView-->
+                <com.cunoraz.continuouscrollable.ContinuousScrollableImageView
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/image"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:direction="left"
+                    app:duration="15000"
+                    app:imageSrc="@drawable/cloud" />
+
+                <!--<com.cunoraz.continuouscrollable.ContinuousScrollableImageView-->
                 <!--android:layout_marginTop="50dp"-->
                 <!--android:layout_width="match_parent"-->
                 <!--android:layout_height="40dp"-->
@@ -37,30 +45,45 @@
                 <!--app:imageSrc="@drawable/plane"-->
                 <!--app:scaleType="fitCenter" />-->
 
-            <com.cunoraz.continuouscrollable.ContinuousScrollableImageView
-                android:layout_marginTop="30dp"
+                <com.cunoraz.continuouscrollable.ContinuousScrollableImageView
+                    android:layout_marginTop="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    app:direction="right"
+                    app:duration="8000"
+                    app:imageSrc="@drawable/banner"
+                    app:scaleType="fitCenter" />
+
+
+
+                <com.cunoraz.continuouscrollable.ContinuousScrollableImageView
+                    android:layout_marginTop="220dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    app:direction="left"
+                    app:duration="8000"
+                    app:imageSrc="@drawable/monument"
+                    app:scaleType="fitXy">
+
+                </com.cunoraz.continuouscrollable.ContinuousScrollableImageView>
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                app:direction="right"
-                app:duration="8000"
-                app:imageSrc="@drawable/banner"
-                app:scaleType="fitCenter" />
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
+        </android.support.design.widget.CollapsingToolbarLayout>
 
+    </android.support.design.widget.AppBarLayout>
 
-            <com.cunoraz.continuouscrollable.ContinuousScrollableImageView
-                android:layout_marginTop="220dp"
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                app:direction="left"
-                app:duration="8000"
-                app:imageSrc="@drawable/monument"
-                app:scaleType="fitXy">
-
-            </com.cunoraz.continuouscrollable.ContinuousScrollableImageView>
-
-        </RelativeLayout>
-
+    <android.support.v4.widget.NestedScrollView
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_marginTop="-5dp"
@@ -68,7 +91,7 @@
             android:layout_width="match_parent"
             android:background="@drawable/homescreen_bg"
             android:orientation="vertical"
-            android:layout_marginBottom="-170dp">
+            android:layout_marginBottom="-70dp">
 
 
             <LinearLayout
@@ -581,8 +604,6 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 
-
-
-</ScrollView>
+</android.support.design.widget.CoordinatorLayout>

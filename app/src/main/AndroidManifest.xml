@@ -90,6 +90,7 @@
         <activity
             android:name=".Activities.HomescreenNew"
             android:exported="true" />
+
         <activity android:name=".Notification.NotificationActivity"/>
 
         <activity
