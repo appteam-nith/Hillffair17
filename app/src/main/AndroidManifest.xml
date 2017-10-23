@@ -2,21 +2,31 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nith.appteam.hillffair17">
 
-    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
 
     <application
-        android:allowBackup="true"
         android:name=".Utils.MyApplication"
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyByIUspPrtzSN1TGWXi2zXn7zaeTGr6850" />
+        <meta-data
+            android:name="com.onesignal.NotificationOpened.DEFAULT"
+            android:value="DISABLE" />
 
         <activity
             android:name=".Activities.SplashActivity"
@@ -51,28 +61,58 @@
         <activity
             android:name=".Activities.IntroActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-
         <activity
             android:name=".Activities.AboutActivity"
             android:exported="true"
-            android:parentActivityName=".Activities.HomeActivity"></activity>
-
-
+            android:parentActivityName=".Activities.HomeActivity" />
         <activity
             android:name=".Activities.EventActivity"
             android:exported="true"
-            android:parentActivityName=".Activities.HomeActivity"></activity>
-
+            android:parentActivityName=".Activities.HomeActivity" />
         <activity
             android:name=".Activities.ClubActivity"
             android:exported="true"
-            android:parentActivityName=".Activities.EventActivity">
-        </activity>
+            android:parentActivityName=".Activities.EventActivity" />
+        <activity
+            android:name=".Activities.BattleDayActivity"
+            android:exported="true"
+            android:parentActivityName=".Activities.HomeActivity" />
 
-        <activity android:name=".Activities.BattleDayActivity"
+        <activity
+            android:name=".Activities.QuizCategoryActivity" />
+
+        <activity
+            android:name=".Activities.QuizSubCategoryActivity" />
+
+        <activity
+            android:name=".Activities.NewsFeedActivity"/>
+
+        <activity
+            android:name=".Activities.HomescreenNew"
+            android:exported="true" />
+        <activity android:name=".Notification.NotificationActivity"/>
+
+        <activity
             android:parentActivityName=".Activities.HomeActivity"
-            android:exported="true">
-        </activity>
+            android:name=".Activities.ProfileActivity"
+            android:exported="true" />
+
+        <activity
+            android:parentActivityName=".Activities.HomeActivity"
+            android:name=".Activities.GalleryActivity"
+            android:exported="true" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+
+        <activity
+            android:name=".Activities.LoginActivity"
+            android:exported="true" />
+
+        <activity android:name=".Activities.UploadNewsFeedActivity"
+            android:exported="true" />
 
     </application>
 

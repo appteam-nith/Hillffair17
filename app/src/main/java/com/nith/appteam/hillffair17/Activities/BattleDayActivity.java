@@ -90,8 +90,6 @@ public class BattleDayActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(ContributorsActivity.this, "Clicked Backup", Toast.LENGTH_SHORT).show();
-                Intent i1 = new Intent(BattleDayActivity.this, BattleDayActivity.class);
-                startActivity(i1);
                 mBottomSheetDialog.dismiss();
             }
         });
@@ -106,8 +104,9 @@ public class BattleDayActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(ContributorsActivity.this, "Clicked Open", Toast.LENGTH_SHORT).show();
-                Intent i3 = new Intent(BattleDayActivity.this, ClubActivity.class);
+                Intent i3 = new Intent(BattleDayActivity.this, EventActivity.class);
                 startActivity(i3);
+                finish();
                 mBottomSheetDialog.dismiss();
             }
         });
@@ -117,6 +116,7 @@ public class BattleDayActivity extends AppCompatActivity {
 //                Toast.makeText(ContributorsActivity.this, "Clicked Uninstall", Toast.LENGTH_SHORT).show();
                 Intent i4 = new Intent(BattleDayActivity.this, SponsorActivity.class);
                 startActivity(i4);
+                finish();
                 mBottomSheetDialog.dismiss();
             }
         });

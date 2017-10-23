@@ -1,7 +1,22 @@
 package com.nith.appteam.hillffair17.Utils;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+
+import com.nith.appteam.hillffair17.R;
+import com.nith.appteam.hillffair17.Service.UploadService;
+
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
@@ -17,6 +32,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by Jatin on 9/13/2016.
  */
 public class Utils {
+
+    private static  final String ROLL_NO="rollNo";
+    private static final String REGISTER_ROLL_NO="rollNoRegister";
 
     public static boolean checkData(String string) {
         return !string.isEmpty() && string.trim().length() != 0;
@@ -50,6 +68,59 @@ public class Utils {
         APIINTERFACE service = retrofit.create(APIINTERFACE.class);
         return service;
     }
+
+
+    public static  int random(){
+        Random r=new Random();
+        return  r.nextInt(10000000);
+    }
+
+
+    public static AlertDialog promptRollNo(final AppCompatActivity context){
+        final SharedPref sharedPref=new SharedPref(context);
+        AlertDialog.Builder alertDialogBuilder=new AlertDialog.Builder(context);
+        LayoutInflater inflater=context.getLayoutInflater();
+        LinearLayout l= (LinearLayout) inflater.inflate(R.layout.dialog_register_rollno,null);
+        alertDialogBuilder.setView(l);
+        final CheckBox checkBox= (CheckBox) l.findViewById(R.id.checkbox_register);
+        final EditText rollNoEditText= (EditText) l.findViewById(R.id.rollno_register);
+        final EditText phoneNoEditText= (EditText) l.findViewById(R.id.phone_register);
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    rollNoEditText.setVisibility(View.VISIBLE);
+                    phoneNoEditText.setVisibility(View.VISIBLE);
+                }
+                else {
+                    rollNoEditText.setVisibility(View.GONE);
+                    phoneNoEditText.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        alertDialogBuilder.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent i=new Intent(context, UploadService.class);
+                i.putExtra(REGISTER_ROLL_NO,true);
+                i.putExtra(ROLL_NO,rollNoEditText.getText().toString());
+                if(checkBox.isChecked()){
+                    sharedPref.setNitianStatus(true);
+                    sharedPref.setUserRollno(rollNoEditText.getText().toString());
+                    context.startService(i);
+                }
+                else{
+                    sharedPref.setNitianStatus(false);
+                    sharedPref.setUserRollno("");
+                }
+
+
+            }
+        });
+        return alertDialogBuilder.create();
+    }
+
 }
 
 
