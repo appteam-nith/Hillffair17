@@ -59,11 +59,16 @@ public class SharedPref {
 
 
     public static boolean getFirstRun(Context context) {
-        return false;
+        return context.getSharedPreferences(context.getString(R.string.preference), MODE_PRIVATE).getBoolean(context.getString(R.string.is_first_run), true);
     }
 
     public static void setFirstRun(Context context) {
         context.getSharedPreferences(context.getString(R.string.preference), MODE_PRIVATE).edit().putBoolean(context.getString(R.string.is_first_run), false).apply();
+    }
+
+
+    public boolean showIsFirstTime(){
+        return sharedPreferences.getBoolean(IS_FIRST_TIME,false);
     }
 
     public void setSkipStatus(boolean isSkip){
@@ -83,13 +88,10 @@ public class SharedPref {
         return sharedPreferences.getString(USER_ID,"");
     }
 
+
     public void setIsFirstTime(){
         editor.putBoolean(IS_FIRST_TIME,true);
         editor.commit();
-    }
-
-    public boolean showIsFirstTime(){
-        return sharedPreferences.getBoolean(IS_FIRST_TIME,false);
     }
 
     public void setUserName(String name){
@@ -108,7 +110,6 @@ public class SharedPref {
     public String getUserRollno(){
         return sharedPreferences.getString(USER_ROLLNO,"");
     }
-
 
     public void setUserEmail(String email){
         editor.putString(USER_EMAIL,email);
