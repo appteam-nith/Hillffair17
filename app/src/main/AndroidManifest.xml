@@ -44,16 +44,16 @@
         <activity
             android:name=".Activities.MapActivity"
             android:exported="true"
-            android:parentActivityName=".Activities.HomeActivity" />
+            android:parentActivityName=".Activities.HomescreenNew" />
         <activity
             android:name=".Activities.ContributorsActivity"
-            android:parentActivityName=".Activities.HomeActivity" />
+            android:parentActivityName=".Activities.HomescreenNew" />
         <activity
             android:name=".Activities.SponsorActivity"
-            android:parentActivityName=".Activities.HomeActivity" />
+            android:parentActivityName=".Activities.HomescreenNew" />
         <activity
             android:name=".Activities.CoreTeamActivity"
-            android:parentActivityName=".Activities.HomeActivity" />
+            android:parentActivityName=".Activities.HomescreenNew" />
         <activity
             android:name=".Activities.HomeActivity"
             android:label="Hill&apos;ffair 2k17"
@@ -64,11 +64,11 @@
         <activity
             android:name=".Activities.AboutActivity"
             android:exported="true"
-            android:parentActivityName=".Activities.HomeActivity" />
+            android:parentActivityName=".Activities.HomescreenNew" />
         <activity
             android:name=".Activities.EventActivity"
             android:exported="true"
-            android:parentActivityName=".Activities.HomeActivity" />
+            android:parentActivityName=".Activities.HomescreenNew" />
         <activity
             android:name=".Activities.ClubActivity"
             android:exported="true"
@@ -76,7 +76,7 @@
         <activity
             android:name=".Activities.BattleDayActivity"
             android:exported="true"
-            android:parentActivityName=".Activities.HomeActivity" />
+            android:parentActivityName=".Activities.HomescreenNew" />
 
         <activity
             android:name=".Activities.QuizCategoryActivity" />
@@ -89,16 +89,19 @@
 
         <activity
             android:name=".Activities.HomescreenNew"
+            android:label="Hill&apos;ffair 2k17"
+            android:theme="@style/AppTheme"
             android:exported="true" />
+
         <activity android:name=".Notification.NotificationActivity"/>
 
         <activity
-            android:parentActivityName=".Activities.HomeActivity"
+            android:parentActivityName=".Activities.HomescreenNew"
             android:name=".Activities.ProfileActivity"
             android:exported="true" />
 
         <activity
-            android:parentActivityName=".Activities.HomeActivity"
+            android:parentActivityName=".Activities.HomescreenNew"
             android:name=".Activities.GalleryActivity"
             android:exported="true" />
 

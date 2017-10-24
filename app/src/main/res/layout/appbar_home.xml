@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:src="@drawable/spectrum_intro"
+                    android:src="@drawable/hillffair_org"
                     android:alpha="0.4"
                     android:id="@+id/backdrop"
                     android:layout_width="match_parent"

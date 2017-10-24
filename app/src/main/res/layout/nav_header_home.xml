@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:scaleType="centerInside"
-        android:src="@drawable/spectrum_intro" />
+        android:src="@drawable/hillffair_org" />
 
     <TextView
         android:visibility="gone"
@@ -33,6 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="appteam.nith@gmail.com" />
+
     <View
         android:background="#000"
         android:layout_marginTop="8dp"
