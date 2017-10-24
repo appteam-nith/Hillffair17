@@ -85,7 +85,9 @@
             android:name=".Activities.QuizSubCategoryActivity" />
 
         <activity
-            android:name=".Activities.NewsFeedActivity"/>
+            android:name=".Activities.NewsFeedActivity"
+            android:parentActivityName=".Activities.WallIntroActivity"
+            />
 
         <activity
             android:name=".Activities.HomescreenNew"
@@ -109,10 +111,18 @@
 
         <activity
             android:name=".Activities.LoginActivity"
-            android:exported="true" />
+            android:exported="true"
+
+            />
 
         <activity android:name=".Activities.UploadNewsFeedActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".Activities.WallIntroActivity"
+            />
+
+        <activity android:name=".Activities.WallIntroActivity"
+            android:exported="true"
+            />
 
     </application>
 

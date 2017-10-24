@@ -42,6 +42,7 @@ public class QuizCategoryActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
+        getCategories();
     }
     public void getCategories()
     {
