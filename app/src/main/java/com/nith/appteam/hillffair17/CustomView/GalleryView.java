@@ -167,7 +167,7 @@ public class GalleryView extends LinearLayout {
     public void setImageNormalView(String imageUrl){
         AspectRatioImageView imageView= (AspectRatioImageView) normalView.findViewById(R.id.image_head_normal);
         if(imageView!=null){
-            Glide.with(getContext()).load(imageUrl).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.drawable.spectrum_intro).into(imageView);
+            Glide.with(getContext()).load(imageUrl).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.drawable.hillffair_org).into(imageView);
         }
     }
 
@@ -177,9 +177,9 @@ public class GalleryView extends LinearLayout {
         AspectRatioImageView image3= (AspectRatioImageView) expandedView.findViewById(R.id.image_more);
         if(image1!=null&&image2!=null){
             Log.d("hi","hi");
-            Glide.with(getContext()).load(image[0]).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.drawable.spectrum_intro).into(image1);
-            Glide.with(getContext()).load(image[1]).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.drawable.spectrum_intro).into(image2);
-            Glide.with(getContext()).load(image[2]).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.drawable.spectrum_intro).into(image3);
+            Glide.with(getContext()).load(image[0]).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.drawable.hillffair_org).into(image1);
+            Glide.with(getContext()).load(image[1]).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.drawable.hillffair_org).into(image2);
+            Glide.with(getContext()).load(image[2]).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.drawable.hillffair_org).into(image3);
         }
     }
 
