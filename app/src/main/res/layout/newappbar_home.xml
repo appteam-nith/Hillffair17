@@ -86,12 +86,10 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_marginTop="0dp"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:background="@drawable/homescreen_bg"
-            android:orientation="vertical"
-            android:layout_marginBottom="-70dp">
+            android:orientation="vertical">
 
 
             <LinearLayout
@@ -366,19 +364,19 @@
 
                     <TextView
                         android:layout_centerVertical="true"
-                        android:layout_width="130dp"
+                        android:layout_width="135dp"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:text="Core Team"
+                        android:text="Notifications"
                         android:paddingRight="15dp"
                         android:paddingLeft="10dp"
                         android:textSize="17sp"
                         android:paddingTop="8dp"
                         android:paddingBottom="8dp"
                         android:background="@drawable/tag_bg_pink"
-                        android:layout_marginStart="30dp"
+                        android:layout_marginStart="25dp"
                         android:id="@+id/tag5"
-                        android:onClick="openCoreteam" />
+                        android:onClick="openNotification" />
 
                     <ImageView
                         android:layout_marginLeft="80dp"
@@ -388,7 +386,7 @@
                         android:src="@drawable/pinkdotr"
                         android:layout_centerVertical="true"
                         android:layout_alignParentStart="true"
-                        android:layout_marginStart="130dp" />
+                        android:layout_marginStart="135dp" />
 
 
                     <ImageView
@@ -398,10 +396,10 @@
                         android:layout_height="70dp"
                         android:background="@drawable/cirular_icon_bg"
                         android:layout_alignParentTop="true"
-                        android:src="@drawable/core"
-                        android:padding="10dp"
-                        android:layout_marginStart="190dp"
-                        android:onClick="openCoreteam" />
+                        android:src="@drawable/notif_icon"
+                        android:padding="5dp"
+                        android:layout_marginStart="196dp"
+                        android:onClick="openNotification" />
 
 
                 </RelativeLayout>
@@ -427,17 +425,17 @@
                     android:gravity="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="0dp"
-                    android:layout_marginRight="10dp">
+                    android:layout_marginRight="35dp">
 
 
                     <TextView
                         android:gravity="end"
                         android:layout_centerVertical="true"
-                        android:layout_width="120dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:text="Battle Day"
-                        android:paddingRight="12dp"
+                        android:text="Polls"
+                        android:paddingRight="15dp"
                         android:paddingLeft="15dp"
                         android:textSize="17sp"
                         android:paddingTop="8dp"
@@ -445,7 +443,7 @@
                         android:layout_marginStart="130dp"
                         android:background="@drawable/tag_bg_orange"
                         android:id="@+id/tag6"
-                        android:onClick="openBattleday" />
+                        android:onClick="openPolls" />
 
                     <ImageView
                         android:id="@+id/node6"
@@ -464,10 +462,10 @@
                         android:layout_height="70dp"
                         android:background="@drawable/cirular_icon_bg"
                         android:layout_alignParentTop="true"
-                        android:src="@drawable/battleday_icon"
+                        android:src="@drawable/polls_icon"
                         android:padding="10dp"
                         android:layout_marginStart="15dp"
-                        android:onClick="openBattleday" />
+                        android:onClick="openPolls" />
 
 
                 </RelativeLayout>
@@ -491,25 +489,25 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="00dp"
+                    android:layout_marginLeft="0dp"
                     android:layout_marginRight="40dp">
 
 
                     <TextView
                         android:layout_centerVertical="true"
-                        android:layout_width="110dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:text="Sponsors"
+                        android:text="Map"
                         android:paddingRight="15dp"
-                        android:paddingLeft="12dp"
+                        android:paddingLeft="15dp"
                         android:textSize="17sp"
                         android:paddingTop="8dp"
                         android:paddingBottom="8dp"
                         android:background="@drawable/tag_bg_green"
-                        android:layout_marginStart="40dp"
+                        android:layout_marginStart="60dp"
                         android:id="@+id/tag7"
-                        android:onClick="openSponsors" />
+                        android:onClick="openMap" />
 
                     <ImageView
                         android:id="@+id/node7"
@@ -528,10 +526,134 @@
                         android:layout_height="70dp"
                         android:background="@drawable/cirular_icon_bg"
                         android:layout_alignParentTop="true"
-                        android:src="@drawable/sponsors_icon"
+                        android:src="@drawable/map_icon"
                         android:padding="10dp"
                         android:layout_marginStart="190dp"
-                        android:onClick="openSponsors" />
+                        android:onClick="openMap" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:gravity="center">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ">
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="38dp">
+
+
+                    <TextView
+                        android:gravity="end"
+                        android:layout_centerVertical="true"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="Clubs"
+                        android:paddingRight="15dp"
+                        android:paddingLeft="15dp"
+                        android:textSize="17sp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:layout_marginStart="130dp"
+                        android:background="@drawable/tag_bg_blue"
+                        android:id="@+id/tag8"
+                        android:onClick="openClubs"/>
+
+                    <ImageView
+                        android:id="@+id/node8"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/bluedotl"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="50dp" />
+
+
+                    <ImageView
+                        android:layout_marginLeft="60dp"
+                        android:id="@+id/icon8"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/cirular_icon_bg"
+                        android:layout_alignParentTop="true"
+                        android:src="@drawable/clubs"
+                        android:scaleType="centerInside"
+                        android:layout_marginStart="15dp"
+                        android:onClick="openClubs" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:gravity="center">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="40dp">
+
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="Core Team"
+                        android:paddingRight="15dp"
+                        android:paddingLeft="10dp"
+                        android:textSize="17sp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:background="@drawable/tag_bg_pink"
+                        android:id="@+id/tag9"
+                        android:onClick="openCoreteam" />
+
+                    <ImageView
+                        android:layout_marginLeft="80dp"
+                        android:id="@+id/node9"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/pinkdotr"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="100dp" />
+
+
+                    <ImageView
+                        android:layout_marginLeft="60dp"
+                        android:id="@+id/icon9"
+                        android:src="@drawable/core"
+                        android:padding="10dp"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/cirular_icon_bg"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="165dp"
+                        android:onClick="openCoreteam" />
 
 
                 </RelativeLayout>
@@ -570,15 +692,15 @@
                         android:paddingTop="8dp"
                         android:paddingBottom="8dp"
                         android:layout_marginStart="130dp"
-                        android:background="@drawable/tag_bg_blue"
-                        android:id="@+id/tag8"
-                        android:onClick="openContributors"/>
+                        android:background="@drawable/tag_bg_orange"
+                        android:id="@+id/tag10"
+                        android:onClick="openContributors" />
 
                     <ImageView
-                        android:id="@+id/node8"
+                        android:id="@+id/node10"
                         android:layout_width="100dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/bluedotl"
+                        android:src="@drawable/orangedotl"
                         android:layout_centerVertical="true"
                         android:layout_alignParentStart="true"
                         android:layout_marginStart="50dp" />
@@ -586,13 +708,14 @@
 
                     <ImageView
                         android:layout_marginLeft="60dp"
-                        android:id="@+id/icon8"
+                        android:id="@+id/icon10"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@drawable/cirular_icon_bg"
-                        android:layout_alignParentTop="true"
-                        android:src="@drawable/contributors_icon"
                         android:scaleType="centerInside"
+                        android:src="@drawable/contributors_icon"
+                        android:padding="0dp"
+                        android:layout_alignParentTop="true"
                         android:layout_marginStart="15dp"
                         android:onClick="openContributors" />
 

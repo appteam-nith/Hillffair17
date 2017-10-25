@@ -110,7 +110,7 @@ public class EventActivity extends AppCompatActivity {
     }
 
     public  class ClubResponse{
-        @SerializedName("clubs")
+        @SerializedName("clubs_data")
         private ArrayList<ClubEvent> list;
 
         @SerializedName("success")
@@ -158,7 +158,7 @@ public class EventActivity extends AppCompatActivity {
                 recyclerView.setVisibility(View.VISIBLE);
                 progressBar.setVisibility(View.GONE);
                 ClubResponse clubResponse=response.body();
-                if(clubResponse!=null&&response.isSuccess()){
+                if(clubResponse!=null && response.isSuccess() ){
                     if(clubResponse.isSuccess()){
                         list=clubResponse.getList();
                         adapter.refresh(list);
