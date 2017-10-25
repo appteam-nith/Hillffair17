@@ -232,24 +232,25 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="70dp"
+                    android:layout_marginLeft="0dp"
                     android:layout_marginRight="40dp">
 
 
                     <TextView
                         android:layout_centerVertical="true"
-                        android:layout_width="90dp"
+                        android:layout_width="130dp"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:text="Map"
+                        android:text="Battle Day"
                         android:paddingRight="15dp"
-                        android:paddingLeft="15dp"
+                        android:paddingLeft="10dp"
                         android:textSize="17sp"
                         android:paddingTop="8dp"
                         android:paddingBottom="8dp"
                         android:background="@drawable/tag_bg_green"
+                        android:layout_marginStart="30dp"
                         android:id="@+id/tag3"
-                        android:onClick="openMap" />
+                        android:onClick="openBattleday" />
 
                     <ImageView
                         android:layout_marginLeft="80dp"
@@ -259,7 +260,7 @@
                         android:src="@drawable/greendotr"
                         android:layout_centerVertical="true"
                         android:layout_alignParentStart="true"
-                        android:layout_marginStart="65dp" />
+                        android:layout_marginStart="130dp" />
 
 
                     <ImageView
@@ -268,11 +269,11 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@drawable/cirular_icon_bg"
-                        android:src="@drawable/map_icon"
+                        android:src="@drawable/battleday_icon"
                         android:padding="10dp"
                         android:layout_alignParentTop="true"
-                        android:layout_marginStart="130dp"
-                        android:onClick="openMap" />
+                        android:layout_marginStart="190dp"
+                        android:onClick="openBattleday" />
 
 
                 </RelativeLayout>
@@ -295,17 +296,17 @@
                     android:gravity="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="0dp"
-                    android:layout_marginRight="40dp">
+                    android:layout_marginRight="15dp">
 
 
                     <TextView
                         android:gravity="end"
                         android:layout_centerVertical="true"
-                        android:layout_width="90dp"
+                        android:layout_width="115dp"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:text="Clubs"
-                        android:paddingRight="15dp"
+                        android:text="Sponsors"
+                        android:paddingRight="12dp"
                         android:paddingLeft="15dp"
                         android:textSize="17sp"
                         android:paddingTop="8dp"
@@ -313,7 +314,7 @@
                         android:layout_marginStart="130dp"
                         android:background="@drawable/tag_bg_blue"
                         android:id="@+id/tag4"
-                        android:onClick="openClubs" />
+                        android:onClick="openSponsors" />
 
                     <ImageView
                         android:id="@+id/node4"
@@ -332,10 +333,10 @@
                         android:layout_height="70dp"
                         android:background="@drawable/cirular_icon_bg"
                         android:layout_alignParentTop="true"
-                        android:src="@drawable/clubs"
+                        android:src="@drawable/sponsors_icon"
                         android:padding="10dp"
                         android:layout_marginStart="15dp"
-                        android:onClick="openClubs" />
+                        android:onClick="openSponsors" />
 
 
                 </RelativeLayout>

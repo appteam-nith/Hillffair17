@@ -4,8 +4,8 @@
     <string name="preference">PREFERENCE</string>
     <string name="is_first_run">isFirstRun</string>
 
-    <string name="facebook_app_id">1834013936864907</string>
-    <string name="fb_login_protocol_scheme">fb1834013936864907</string>
+    <string name="facebook_app_id">1742624906043723</string>
+    <string name="fb_login_protocol_scheme">fb1742624906043723</string>
 
     <!--APP INTRO ACTIVITY STRINGS-->
     <string name="intro_title_hillfair">Hillffair 2k17</string>
