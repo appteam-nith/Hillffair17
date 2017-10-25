@@ -83,14 +83,19 @@
         <activity
             android:name=".Activities.QuizCategoryActivity" />
         <activity android:name=".Activities.QuizActivity"
+            android:parentActivityName=".Activities.HomescreenNew"
             android:exported="true"/>
 
         <activity
-            android:name=".Activities.QuizSubCategoryActivity" />
+            android:name=".Activities.QuizSubCategoryActivity"
+            android:exported="true"
+            android:parentActivityName=".Activities.QuizCategoryActivity"
+            />
 
         <activity
             android:name=".Activities.NewsFeedActivity"
             android:parentActivityName=".Activities.WallIntroActivity"
+            android:exported="true"
             />
 
 
@@ -100,8 +105,9 @@
             android:theme="@style/AppTheme"
             android:exported="true" />
 
-
-        <activity android:name=".Notification.NotificationActivity"/>
+        <activity android:name=".Notification.NotificationActivity"
+            android:exported="true"
+            />
 
         <activity
             android:parentActivityName=".Activities.HomescreenNew"
@@ -152,7 +158,6 @@
             android:parentActivityName=".Activities.HomescreenNew">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -161,6 +166,19 @@
 
         </activity>
         <activity android:name=".Activities.PastPolls"></activity>
+
+        <activity android:name=".Notification.Notification2"
+            android:parentActivityName=".Notification.NotificationActivity"
+            android:exported="true"
+            />
+
+
+        <activity android:name=".Activities.QuizQuestionActivity"
+            android:parentActivityName=".Activities.HomescreenNew"
+            android:exported="true"
+            />
+        <activity android:name=".Activities.QuizScoreActivity"
+            />
     </application>
 
 </manifest>

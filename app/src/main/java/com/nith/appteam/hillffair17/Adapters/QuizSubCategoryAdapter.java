@@ -64,7 +64,7 @@ public class QuizSubCategoryAdapter extends RecyclerView.Adapter<QuizSubCategory
             super(view);
             categoryname = (TextView) view.findViewById(R.id.name_subcategory);
             categoryphoto = (ImageView) view.findViewById(R.id.img_subcategory);
-            cardView = (CardView) view.findViewById(R.id.quiz_category_cardview);
+            cardView = (CardView) view.findViewById(R.id.subcategory_cardview);
 
         }
 

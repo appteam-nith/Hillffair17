@@ -91,6 +91,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                         truncated = original.substring(0,29);
                         non_truncated = original.substring(30,original.length()-1);
                         h.user_msg.setText(truncated);
+                        h.user_name.setText(card.getUsername());
                         h.see_more.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -180,7 +181,8 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     }
 
                     @Override
-                    public void unLiked(LikeButton likeButton) {
+                    public void unLiked(final LikeButton likeButton) {
+                        System.out.println("hello");
                         APIINTERFACE mApiService = Utils.getRetrofitService();
                         Call<Likecount> mservice = mApiService.likecount(card.get_id(),new SharedPref(MyApplication.getAppContext()).getUserId());
 
@@ -188,17 +190,24 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                             @Override
                             public void onResponse(Call<Likecount> call, Response<Likecount> response) {
                                 Likecount likes = response.body();
+
                                 if (likes != null && response.isSuccess()) {
+
                                     if (likes.isSuccess()) {
-                                        card.setStatus(false);
+                                        //card.setStatus(false);
                                         Log.d("id",card.get_id());
                                         Toast.makeText(mContext, "Post Disliked", Toast.LENGTH_SHORT).show();
+                                        System.out.println(likes.getLikes());
                                         card.setLikes(likes.getLikes());
                                         h.no_of_likes.setText("" + likes.getLikes());
                                     } else {
                                         Toast.makeText(mContext, "Internal Error", Toast.LENGTH_SHORT).show();
 
                                     }
+                                }
+                                else
+                                {
+                                    System.out.println("Its not working");
                                 }
                             }
 

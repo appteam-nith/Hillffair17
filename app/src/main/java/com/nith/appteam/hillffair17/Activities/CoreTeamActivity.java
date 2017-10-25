@@ -24,28 +24,63 @@ public class CoreTeamActivity extends AppCompatActivity {
     CoreTeamAdapter core_team_adapter;
     ArrayList<CoreTeamItem> array_list;
     Toolbar core_team_toolbar;
-    private static final String BASE_URL="https://api-hillfair-2k16.herokuapp.com/";
+    private static final String BASE_URL="http://hillffair.com/other/images/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_core_team);
         recycler_view=(RecyclerView)findViewById(R.id.core_team_list);
         array_list=new ArrayList<>();
-        array_list.add(new CoreTeamItem("Ajay k. Sharma","Director",BASE_URL+"photos/director.jpg"));
-        array_list.add(new CoreTeamItem("Dr. Raman Parti","Dean Student Welfare","https://s3-ap-southeast-1.amazonaws.com/nimbus2k16/nimbusteam/raman_parti.png"));
-        array_list.add(new CoreTeamItem("Dr. Surender Soni","Faculty Coordinator","https://s3-ap-southeast-1.amazonaws.com/nimbus2k16/nimbusteam/surender_soni.png"));
-        array_list.add(new CoreTeamItem("Deepak Kumar Jain","Hillffair Secretary",BASE_URL+"photos/deepak_kumar_jain.jpg"));
-        array_list.add(new CoreTeamItem("Rishabh Bhandari","Clubs Secretary",BASE_URL+"photos/rishabh_bhandari.jpg"));
-        array_list.add(new CoreTeamItem("Sourabh Thakur","Jt. Secretary(Dramatics)",BASE_URL+"photos/sourabh_thakur.jpg"));
-        array_list.add(new CoreTeamItem("Mukul Chandel","Creative Head(Pixonoids)",BASE_URL+"photos/mukul_chandel.jpg"));
-        array_list.add(new CoreTeamItem("Avantika Sharma","Graphic Head(Pixonoids)",BASE_URL+"photos/avantika_sharma.jpg"));
-        array_list.add(new CoreTeamItem("Bhanu Pratap Singh","Jt. Secretary(Music Club)",BASE_URL+"photos/bhanu_pratap.jpg"));
-        array_list.add(new CoreTeamItem("Medha Agrawal","Jt. Secretary(PR Club)",BASE_URL+"photos/medha_agrawal.jpg"));
-        array_list.add(new CoreTeamItem("Aprajit Pandit","Jt. Secretary(Dance Club)",BASE_URL+"photos/aprajit_pandit.jpg"));
-        array_list.add(new CoreTeamItem("Aanchal Negi","Jt. Secretary(Fashion Prade)",BASE_URL+"photos/aanchal_negi.jpg"));
-        array_list.add(new CoreTeamItem("Aditya Verma","Jt. Secretary(Discipline committee)",BASE_URL+"photos/aditya_verma.jpg"));
-        array_list.add(new CoreTeamItem("Shikhar Shrivastava","Jt. Secretary(Organization)",BASE_URL+"photos/shikhar_shrivastava.jpg"));
-        array_list.add(new CoreTeamItem("Naveen Banyal","Jt. Secretary(Technical Committee)",BASE_URL+"photos/naveen_banyal.jpg"));
+
+        array_list.add(new CoreTeamItem("Dr. Saroj Thakur","Faculty Coordinator",BASE_URL+"saroj_thakur.jpg"));
+        array_list.add(new CoreTeamItem("Dr. Gargi Khanna","Faculty Co-Coordinator",BASE_URL+"gargi_khanna.jpg"));
+        array_list.add(new CoreTeamItem("Dr. Aniket Sharma","Faculty Co-Coordinator",BASE_URL+"aniket_sharma.jpg"));
+
+        array_list.add(new CoreTeamItem("Aditya Khurana","Event Manager",BASE_URL+"aditya_khurana.jpg"));
+        array_list.add(new CoreTeamItem("Utkarsh Singh","Cultural Secretary","utkarsh_singh.jpg"));
+        array_list.add(new CoreTeamItem("Shivam Kansra","Club Management Secretary","shivam_kansra.jpeg"));
+        array_list.add(new CoreTeamItem("Pankaj Thakur","Club Secretary for Performing Arts",BASE_URL+"pankaj_thakur.jpg"));
+        array_list.add(new CoreTeamItem("Abhinav Kumar","Finance Secretary",BASE_URL+"abhinav_kumar.jpg"));
+        array_list.add(new CoreTeamItem("Shivam Nag","Finance and Treasury",BASE_URL+"shivam_nag.jpg"));
+        array_list.add(new CoreTeamItem("Paras","Logistics Secretary",BASE_URL+"paras_dhiman.jpeg"));
+        array_list.add(new CoreTeamItem("Setu Sharma","Quality Manger",BASE_URL+"setu_sharma.jpg"));
+        array_list.add(new CoreTeamItem("Chandan Shah","Quality Control Secretary",BASE_URL+"chandan_shah.jpeg"));
+        array_list.add(new CoreTeamItem("Akhilesh","Organization Secretary",BASE_URL+"akhilesh.jpg"));
+        array_list.add(new CoreTeamItem("Sudhanshu Goyal","Jt. Secretary (Organization)",BASE_URL+"sudhanshu_goyal.jpeg"));
+        array_list.add(new CoreTeamItem("Aman Shukla","Jt. Secretary (PR)",BASE_URL+"aman_shukla.jpg"));
+        array_list.add(new CoreTeamItem("Kashish Dhiman","Jt. Secretary (INS & Control)",BASE_URL+"kashish_dhiman.jpeg"));
+        array_list.add(new CoreTeamItem("Aditya Jhakkar","Jt. Secretary(Dramatics)",BASE_URL+"aditya_jhakkar.jpeg"));
+        array_list.add(new CoreTeamItem("Kashish Verma","Jt. Secretary(Dance)",BASE_URL+"kashish_verma.jpg"));
+        array_list.add(new CoreTeamItem("Nikhil Kumar","Jt. Secretary (Technical Club)",BASE_URL+"nikhil_kumar.jpeg"));
+        array_list.add(new CoreTeamItem("Shivam Dhiman","Jt. Secretary (Discipline)",BASE_URL+"shivam_dhiman.jpeg"));
+        array_list.add(new CoreTeamItem("Konika Thakur","Jt. Secretary (Fash p)",BASE_URL+"konika_thakur.jpg"));
+        array_list.add(new CoreTeamItem("Ankush Sharma","Jt. Secretary(Decoration)",BASE_URL+"ankush_sharma.jpg"));
+        array_list.add(new CoreTeamItem("Chanchrik Bhardwaj","Jt. Secretary(Music)",BASE_URL+"chanchrik_bhardwaj.jpeg"));
+        array_list.add(new CoreTeamItem("Abhishek Negi","Creative Head",BASE_URL+"abhishek_negi.jpg"));
+        array_list.add(new CoreTeamItem("Shivam Tripathi","Graphics Head","shivam_tripathi.jpeg"));
+        array_list.add(new CoreTeamItem("Goutham Reddy","Convener (App Team)",BASE_URL+"goutham_reddy.jpg"));
+        array_list.add(new CoreTeamItem("Neha Singh","Convener (Organization Club)","neha_singh.jpeg"));
+        array_list.add(new CoreTeamItem("Himanshu Tailor","Convener (Hindi Samiti)",BASE_URL+"himanshu_tailor.jpeg"));
+        array_list.add(new CoreTeamItem("Agni Thakur","Convener (Dance Club)",BASE_URL+"agni_thakur.jpg"));
+        array_list.add(new CoreTeamItem("Aditya Singh Bisht","Convener (Music Club)",BASE_URL+"aditya_singh_bisht.jpeg"));
+
+
+        array_list.add(new CoreTeamItem("Akhil Verma","Convener (Discipline)",BASE_URL+"akhil_verma.jpg"));
+        array_list.add(new CoreTeamItem("Akshay Sharma","Convener (Discipline)",BASE_URL+"akshay_sharma.jpeg"));
+        array_list.add(new CoreTeamItem("Saurabh Kumar","Convener (Web Team)",BASE_URL+"saurabh_kumar.jpg"));
+        array_list.add(new CoreTeamItem("Anand Atwal","Convener (INS & Control)",BASE_URL+"anand_atwal.jpg"));
+        array_list.add(new CoreTeamItem("Didhiti Dhiman","Convener (Fine Arts)",BASE_URL+"didhiti_dhiman.jpeg"));
+        array_list.add(new CoreTeamItem("Deepanshu Kohli","Convener (In4mals)","deepanshu_kohli.jpg"));
+        array_list.add(new CoreTeamItem("Arpit Chaudhary","Convener (In4mals)",BASE_URL+"arpit_chaudhary.jpg"));
+//        array_list.add(new CoreTeamItem("Shivam Mahajan","Convener (Fash P)",BASE_URL+"photos/rishabh_bhandari.jpg"));
+        array_list.add(new CoreTeamItem("Navanshu Aggarwal","Convener (English Club)",BASE_URL+"navanshu_agarwal.jpeg"));
+        array_list.add(new CoreTeamItem("Vikas","Convener (Decoration)",BASE_URL+"vikas_thapar.jpeg"));
+        array_list.add(new CoreTeamItem("Shreshth Talwar","Convener (Public Relations)",BASE_URL+"shreshth_talwar.jpeg"));
+        array_list.add(new CoreTeamItem("Vinay Bhatia","Convener (Technical Club)",BASE_URL+"vinay_bhatia.jpg"));
+
+
+
+
         core_team_adapter=new CoreTeamAdapter(array_list,CoreTeamActivity.this);
         recycler_view.setAdapter(core_team_adapter);
         LinearLayoutManager liner_layout_manager=new LinearLayoutManager(this);
