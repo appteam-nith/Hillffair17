@@ -44,7 +44,7 @@ public class NewsFeedActivity extends AppCompatActivity implements SwipeRefreshL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_feed);
-
+        pref = new SharedPref(getApplicationContext());
         coordinatorLayout= (CoordinatorLayout) findViewById(R.id.core_view);
         swipeRefreshLayout= (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
         swipeRefreshLayout.setOnRefreshListener(this);
@@ -94,7 +94,7 @@ public class NewsFeedActivity extends AppCompatActivity implements SwipeRefreshL
                 Snackbar.make(coordinatorLayout,"Please Login To See The Content",Snackbar.LENGTH_INDEFINITE).setAction("Login", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(NewsFeedActivity.this,HomeActivity.class));
+                        startActivity(new Intent(NewsFeedActivity.this,LoginActivity.class));
                     }
                 }).show();
             }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hillffair17</string>
+    <string name="app_name">Hillffair\'17</string>
     <string name="dummy_desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquam amet assumenda at atque beatae, consequatur culpa eligendi est explicabo ipsam libero officia omnis, quae reprehenderit vel voluptatum? Accusamus, ea.</string>
     <string name="preference">PREFERENCE</string>
     <string name="is_first_run">isFirstRun</string>
@@ -39,7 +39,13 @@
     <string name="sample_question">What was the question?</string>
     <string name="quiz_comment">*Make sure to read all instructions before attempting the quiz</string>
 
-
+    <!--News Feed-->
+    <string name="wall_info">
+        * Keep yourself updated with all the happenings of NIMBUS 2k17.\n\n
+        * Add your Nimbus projects along with a description and image of same.\n\n
+        * Add important news and announcement of various events organised during Nimbus.\n\n
+        * Exciting cash prizes for the posts with maximum likes.
+    </string>
     <string name="AboutHillffair">
         It is a name which needs no introduction up here in the hills, it is the reason why most of northern India awaits the month of November,
 it is the name whose mention alone excites the listener to his core. \n\nHill’ffair is around the corner once again. And needless to say,

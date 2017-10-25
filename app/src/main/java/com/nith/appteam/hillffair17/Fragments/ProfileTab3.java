@@ -99,6 +99,7 @@ public class ProfileTab3 extends Fragment {
                         if(data.getFeed()!=null){
                             list.addAll(data.getFeed());
                             if(list.size()>0){
+                                System.out.println(list.size());
                                 recyclerView.setVisibility(View.VISIBLE);
                                 progress.setVisibility(View.GONE);
                                 adapter.refresh(list);

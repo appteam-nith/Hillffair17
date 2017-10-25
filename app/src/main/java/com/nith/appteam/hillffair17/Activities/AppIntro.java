@@ -108,7 +108,7 @@ public class AppIntro extends AppCompatActivity {
 
     private void launchHomeScreen() {
         prefManager.setIsFirstTime();
-        startActivity(new Intent(AppIntro.this,HomeActivity.class));
+        startActivity(new Intent(AppIntro.this,HomescreenNew.class));
         finish();
     }
 

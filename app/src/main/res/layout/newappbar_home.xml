@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="298dp"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="#b9000000"
+            app:expandedTitleTextAppearance="@android:color/transparent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="#E7F4F7">
+
+                <com.cunoraz.continuouscrollable.ContinuousScrollableImageView
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/image"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:direction="left"
+                    app:duration="15000"
+                    app:imageSrc="@drawable/cloud" />
+
+                <!--<com.cunoraz.continuouscrollable.ContinuousScrollableImageView-->
+                <!--android:layout_marginTop="50dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="40dp"-->
+                <!--app:direction="right"-->
+                <!--app:duration="5000"-->
+                <!--app:imageSrc="@drawable/plane"-->
+                <!--app:scaleType="fitCenter" />-->
+
+                <com.cunoraz.continuouscrollable.ContinuousScrollableImageView
+                    android:layout_marginTop="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    app:direction="right"
+                    app:duration="8000"
+                    app:imageSrc="@drawable/banner"
+                    app:scaleType="fitCenter" />
+
+
+
+                <!--<com.cunoraz.continuouscrollable.ContinuousScrollableImageView-->
+                    <!--android:layout_marginTop="220dp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="90dp"-->
+                    <!--app:direction="left"-->
+                    <!--app:duration="8000"-->
+                    <!--app:imageSrc="@drawable/monument"-->
+                    <!--app:scaleType="fitXy">-->
+
+                <!--</com.cunoraz.continuouscrollable.ContinuousScrollableImageView>-->
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_marginTop="0dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:background="@drawable/homescreen_bg"
+            android:orientation="vertical"
+            android:layout_marginBottom="-70dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:gravity="center">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginRight="40dp">
+
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="Quiz"
+                        android:paddingRight="15dp"
+                        android:paddingLeft="15dp"
+                        android:textSize="17sp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:background="@drawable/tag_bg_pink"
+                        android:id="@+id/tag1"
+                        android:onClick="openQuiz" />
+
+                    <ImageView
+                        android:layout_marginLeft="80dp"
+                        android:id="@+id/node1"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/pinkdotr"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="65dp" />
+
+
+                    <ImageView
+                        android:layout_marginLeft="60dp"
+                        android:id="@+id/icon1"
+                        android:src="@drawable/quiz_icon"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/cirular_icon_bg"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="130dp"
+                        android:onClick="openQuiz" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:gravity="center">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ">
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="15dp">
+
+
+                    <TextView
+                        android:gravity="end"
+                        android:layout_centerVertical="true"
+                        android:layout_width="115dp"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="Newsfeed"
+                        android:paddingRight="12dp"
+                        android:paddingLeft="15dp"
+                        android:textSize="17sp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:layout_marginStart="130dp"
+                        android:background="@drawable/tag_bg_orange"
+                        android:id="@+id/tag2"
+                        android:onClick="openNewsfeed" />
+
+                    <ImageView
+                        android:id="@+id/node2"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/orangedotl"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="50dp" />
+
+
+                    <ImageView
+                        android:layout_marginLeft="60dp"
+                        android:id="@+id/icon2"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/cirular_icon_bg"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/newsfeed_icon"
+                        android:padding="13dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="15dp"
+                        android:onClick="openNewsfeed" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:gravity="center">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ">
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginRight="40dp">
+
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="Map"
+                        android:paddingRight="15dp"
+                        android:paddingLeft="15dp"
+                        android:textSize="17sp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:background="@drawable/tag_bg_green"
+                        android:id="@+id/tag3"
+                        android:onClick="openMap" />
+
+                    <ImageView
+                        android:layout_marginLeft="80dp"
+                        android:id="@+id/node3"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/greendotr"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="65dp" />
+
+
+                    <ImageView
+                        android:layout_marginLeft="60dp"
+                        android:id="@+id/icon3"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/cirular_icon_bg"
+                        android:src="@drawable/map_icon"
+                        android:padding="10dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="130dp"
+                        android:onClick="openMap" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:gravity="center">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ">
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="40dp">
+
+
+                    <TextView
+                        android:gravity="end"
+                        android:layout_centerVertical="true"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="Clubs"
+                        android:paddingRight="15dp"
+                        android:paddingLeft="15dp"
+                        android:textSize="17sp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:layout_marginStart="130dp"
+                        android:background="@drawable/tag_bg_blue"
+                        android:id="@+id/tag4"
+                        android:onClick="openClubs" />
+
+                    <ImageView
+                        android:id="@+id/node4"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/bluedotl"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="50dp" />
+
+
+                    <ImageView
+                        android:layout_marginLeft="60dp"
+                        android:id="@+id/icon4"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/cirular_icon_bg"
+                        android:layout_alignParentTop="true"
+                        android:src="@drawable/clubs"
+                        android:padding="10dp"
+                        android:layout_marginStart="15dp"
+                        android:onClick="openClubs" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:gravity="center">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ">
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="00dp"
+                    android:layout_marginRight="40dp">
+
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="Core Team"
+                        android:paddingRight="15dp"
+                        android:paddingLeft="10dp"
+                        android:textSize="17sp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:background="@drawable/tag_bg_pink"
+                        android:layout_marginStart="30dp"
+                        android:id="@+id/tag5"
+                        android:onClick="openCoreteam" />
+
+                    <ImageView
+                        android:layout_marginLeft="80dp"
+                        android:id="@+id/node5"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/pinkdotr"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="130dp" />
+
+
+                    <ImageView
+                        android:layout_marginLeft="60dp"
+                        android:id="@+id/icon5"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/cirular_icon_bg"
+                        android:layout_alignParentTop="true"
+                        android:src="@drawable/core"
+                        android:padding="10dp"
+                        android:layout_marginStart="190dp"
+                        android:onClick="openCoreteam" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:gravity="center">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ">
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="10dp">
+
+
+                    <TextView
+                        android:gravity="end"
+                        android:layout_centerVertical="true"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="Battle Day"
+                        android:paddingRight="12dp"
+                        android:paddingLeft="15dp"
+                        android:textSize="17sp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:layout_marginStart="130dp"
+                        android:background="@drawable/tag_bg_orange"
+                        android:id="@+id/tag6"
+                        android:onClick="openBattleday" />
+
+                    <ImageView
+                        android:id="@+id/node6"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/orangedotl"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="50dp" />
+
+
+                    <ImageView
+                        android:layout_marginLeft="60dp"
+                        android:id="@+id/icon6"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/cirular_icon_bg"
+                        android:layout_alignParentTop="true"
+                        android:src="@drawable/battleday_icon"
+                        android:padding="10dp"
+                        android:layout_marginStart="15dp"
+                        android:onClick="openBattleday" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:gravity="center">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ">
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="00dp"
+                    android:layout_marginRight="40dp">
+
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="Sponsors"
+                        android:paddingRight="15dp"
+                        android:paddingLeft="12dp"
+                        android:textSize="17sp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:background="@drawable/tag_bg_green"
+                        android:layout_marginStart="40dp"
+                        android:id="@+id/tag7"
+                        android:onClick="openSponsors" />
+
+                    <ImageView
+                        android:id="@+id/node7"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/greendotr"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="130dp" />
+
+
+                    <ImageView
+                        android:layout_marginLeft="60dp"
+                        android:id="@+id/icon7"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/cirular_icon_bg"
+                        android:layout_alignParentTop="true"
+                        android:src="@drawable/sponsors_icon"
+                        android:padding="10dp"
+                        android:layout_marginStart="190dp"
+                        android:onClick="openSponsors" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:layout_marginBottom="20dp">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ">
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp">
+
+
+                    <TextView
+                        android:gravity="end"
+                        android:layout_centerVertical="true"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="Contributors"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="15dp"
+                        android:textSize="17sp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:layout_marginStart="130dp"
+                        android:background="@drawable/tag_bg_blue"
+                        android:id="@+id/tag8"
+                        android:onClick="openContributors"/>
+
+                    <ImageView
+                        android:id="@+id/node8"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/bluedotl"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="50dp" />
+
+
+                    <ImageView
+                        android:layout_marginLeft="60dp"
+                        android:id="@+id/icon8"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/cirular_icon_bg"
+                        android:layout_alignParentTop="true"
+                        android:src="@drawable/contributors_icon"
+                        android:scaleType="centerInside"
+                        android:layout_marginStart="15dp"
+                        android:onClick="openContributors" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

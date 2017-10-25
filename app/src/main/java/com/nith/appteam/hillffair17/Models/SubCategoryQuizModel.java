@@ -9,16 +9,28 @@ import java.util.ArrayList;
  */
 
 public class SubCategoryQuizModel {
-    @SerializedName("Sub_Categories")
+
+    @SerializedName("success")
+    private boolean success;
+
+    @SerializedName("category")
     private ArrayList<SubCategoryQuizSingleModel> subcategories;
 
-    public SubCategoryQuizModel(ArrayList<SubCategoryQuizSingleModel> categories)
-    {
-        this.subcategories=categories;
+    public SubCategoryQuizModel(boolean success, ArrayList<SubCategoryQuizSingleModel> subcategories) {
+        this.success = success;
+        this.subcategories = subcategories;
     }
 
     public ArrayList<SubCategoryQuizSingleModel> getCategories() {
         return subcategories;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
     }
 
     public void setCategories(ArrayList<SubCategoryQuizModel> categories) {

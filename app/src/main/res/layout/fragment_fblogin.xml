@@ -19,7 +19,7 @@
             android:layout_height="240dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:src="@drawable/spectrum_intro" />
+            android:src="@drawable/hillffair_org" />
 
         <ProgressBar
             android:layout_centerHorizontal="true"

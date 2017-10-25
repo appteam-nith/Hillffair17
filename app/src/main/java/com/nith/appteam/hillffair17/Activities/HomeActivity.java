@@ -28,10 +28,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nith.appteam.hillffair17.Adapters.HomeAdapter;
+import com.nith.appteam.hillffair17.Adapters.QuizSubCategoryAdapter;
 import com.nith.appteam.hillffair17.Models.HomeModel;
 import com.nith.appteam.hillffair17.Notification.NotificationActivity;
 import com.nith.appteam.hillffair17.R;
 import com.nith.appteam.hillffair17.Utils.RecyclerItemClickListener;
+import com.nith.appteam.hillffair17.Utils.SharedPref;
 
 import java.util.ArrayList;
 
@@ -42,7 +44,7 @@ import java.util.ArrayList;
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private RecyclerView recyclerView;
     private HomeAdapter adapter;
-//    private SharedPref pref;
+    private SharedPref pref;
 
     private static final int PERMISSIONS_REQUEST_PHONE_CALL = 100;
     private static String[] PERMISSIONS_PHONECALL = {Manifest.permission.CALL_PHONE};
@@ -101,7 +103,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 } else if (position == 0) {
                        startActivity(new Intent(HomeActivity.this,BattleDayActivity.class));
                 } else if (position == 3) {
-//                      startActivity(new Intent(HomeActivity.this, NewsFeedActivity.class));
+                      startActivity(new Intent(HomeActivity.this, WallIntroActivity.class));
                 } else if (position == 1) {
                      startActivity(new Intent(HomeActivity.this,MapActivity.class));
                 } else if (position == 2) {
@@ -111,7 +113,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 } else if (position == 5) {
                     startActivity(new Intent(HomeActivity.this, EventActivity.class));
                 } else if (position == 7) {
-                    startActivity(new Intent(HomeActivity.this, ContributorsActivity.class));
+                    startActivity(new Intent(HomeActivity.this, NotificationActivity.class));
                 }
             }
         }));
@@ -193,10 +195,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             case R.id.profile:
 //                startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
                 break;
-            case R.id.settings:
+//            case R.id.settings:
 //                startActivity(new Intent(HomeActivity.this, SettingsActivity.class));
 //                finish();
-                break;
+//                break;
             case R.id.aboutus:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(String.format("%1$s", getString(R.string.app_name)));

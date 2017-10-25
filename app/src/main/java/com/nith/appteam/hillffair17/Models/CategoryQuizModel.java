@@ -10,12 +10,23 @@ import java.util.ArrayList;
 
 public class CategoryQuizModel {
 
-    @SerializedName("Categories")
+    @SerializedName("success")
+    private boolean success;
+
+    @SerializedName("category")
     private ArrayList<CategoryQuizSingleModel> categories;
 
-    public CategoryQuizModel(ArrayList<CategoryQuizSingleModel> categories)
-    {
-        this.categories=categories;
+    public CategoryQuizModel(boolean success, ArrayList<CategoryQuizSingleModel> categories) {
+        this.success = success;
+        this.categories = categories;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
     }
 
     public ArrayList<CategoryQuizSingleModel> getCategories() {

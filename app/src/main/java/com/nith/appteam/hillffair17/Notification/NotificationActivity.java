@@ -16,6 +16,8 @@ import com.nith.appteam.hillffair17.Adapters.Notification;
 import com.nith.appteam.hillffair17.Models.HomePostsModel;
 import com.nith.appteam.hillffair17.R;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class NotificationActivity extends AppCompatActivity {
@@ -34,7 +36,7 @@ public class NotificationActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         dbHandler = new DbHelper(this);
         arrayList = dbHandler.gethomedata();
-
+        Collections.reverse(arrayList);
         final Notification notification= new Notification(arrayList,this);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.activity_notification_listview);
 

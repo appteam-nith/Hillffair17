@@ -35,7 +35,7 @@ public class QuizSubCategoryAdapter extends RecyclerView.Adapter<QuizSubCategory
     @Override
     public SubCategoryViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_subcategories,parent,false);
-        SubCategoryViewHolder subCategoryViewHolder = new SubCategoryViewHolder(view,context);
+        SubCategoryViewHolder subCategoryViewHolder = new SubCategoryViewHolder(view);
 
         return subCategoryViewHolder;
     }
@@ -60,12 +60,12 @@ public class QuizSubCategoryAdapter extends RecyclerView.Adapter<QuizSubCategory
         ImageView categoryphoto;
         Context context;
         CardView cardView;
-        public SubCategoryViewHolder(View view,Context context) {
+        public SubCategoryViewHolder(View view) {
             super(view);
             categoryname = (TextView) view.findViewById(R.id.name_subcategory);
             categoryphoto = (ImageView) view.findViewById(R.id.img_subcategory);
             cardView = (CardView) view.findViewById(R.id.quiz_category_cardview);
-            this.context = context;
+
         }
 
 

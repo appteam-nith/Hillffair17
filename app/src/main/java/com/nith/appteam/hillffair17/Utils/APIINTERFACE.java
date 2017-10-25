@@ -10,6 +10,7 @@ import com.nith.appteam.hillffair17.Models.CategoryQuizModel;
 import com.nith.appteam.hillffair17.Models.ClubModel2;
 import com.nith.appteam.hillffair17.Models.GalleryDetailResponse;
 import com.nith.appteam.hillffair17.Models.GalleryResponse;
+import com.nith.appteam.hillffair17.Models.LeaderBoardModel;
 import com.nith.appteam.hillffair17.Models.Likecount;
 import com.nith.appteam.hillffair17.Models.NewsFeedResponse;
 import com.nith.appteam.hillffair17.Models.PlotModel;
@@ -39,7 +40,7 @@ public interface APIINTERFACE {
 
 
 
-    @GET("club")
+    @GET("clubs")
     Call<EventActivity.ClubResponse> getAllClub();
 
     @GET("club/{club_name}")
@@ -55,8 +56,8 @@ public interface APIINTERFACE {
     @GET("events/special/event")
     Call<com.nith.appteam.hillffair17.Activities.ClubActivity.BattleResponseEvent> getEventData(@Query("id") String id);
 
-    @GET("Quiz_category")
-    Call<CategoryQuizModel> getCategories();
+    @GET("quiz/category")
+    Call<CategoryQuizModel> getCategories(@Query("type") String Category);
 
     @GET("Quiz_Sub_Category")
     Call<SubCategoryQuizModel> getSubCategories(@Query("category")String category);
@@ -100,6 +101,7 @@ public interface APIINTERFACE {
     Call<RegisterResponse> updateRollNo(@Path("id") String id, @Query("roll_no") String rollNo);
 
 
+
     //for poll
     @GET("poll/{uid}")
     Call<PollModel> getPoll(@Path("uid") String uid);
@@ -109,6 +111,11 @@ public interface APIINTERFACE {
     Call<PollModelUserResponse>updateScore(@Field("userid") String uid, @Path("qid") String qid);
      @GET("allpolls/{id}")
     Call<ArrayList<PollModel>>getPastPoll(@Field("userid") String userid);
+
+    @GET("quiz/leaderboard")
+    Call<LeaderBoardModel> getLeaderBoard();
+
+
 }
 
 

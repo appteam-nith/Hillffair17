@@ -19,6 +19,7 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyByIUspPrtzSN1TGWXi2zXn7zaeTGr6850" />
@@ -44,16 +45,16 @@
         <activity
             android:name=".Activities.MapActivity"
             android:exported="true"
-            android:parentActivityName=".Activities.HomeActivity" />
+            android:parentActivityName=".Activities.HomescreenNew" />
         <activity
             android:name=".Activities.ContributorsActivity"
-            android:parentActivityName=".Activities.HomeActivity" />
+            android:parentActivityName=".Activities.HomescreenNew" />
         <activity
             android:name=".Activities.SponsorActivity"
-            android:parentActivityName=".Activities.HomeActivity" />
+            android:parentActivityName=".Activities.HomescreenNew" />
         <activity
             android:name=".Activities.CoreTeamActivity"
-            android:parentActivityName=".Activities.HomeActivity" />
+            android:parentActivityName=".Activities.HomescreenNew" />
         <activity
             android:name=".Activities.HomeActivity"
             android:label="Hill&apos;ffair 2k17"
@@ -64,11 +65,11 @@
         <activity
             android:name=".Activities.AboutActivity"
             android:exported="true"
-            android:parentActivityName=".Activities.HomeActivity" />
+            android:parentActivityName=".Activities.HomescreenNew" />
         <activity
             android:name=".Activities.EventActivity"
             android:exported="true"
-            android:parentActivityName=".Activities.HomeActivity" />
+            android:parentActivityName=".Activities.HomescreenNew" />
         <activity
             android:name=".Activities.ClubActivity"
             android:exported="true"
@@ -77,21 +78,37 @@
             android:name=".Activities.BattleDayActivity"
             android:exported="true"
             android:parentActivityName=".Activities.HomeActivity" />
-        <activity android:name=".Activities.QuizCategoryActivity" />
-        <activity android:name=".Activities.QuizSubCategoryActivity" />
-        <activity android:name=".Activities.NewsFeedActivity" />
+
+
+        <activity
+            android:name=".Activities.QuizCategoryActivity" />
+
+        <activity
+            android:name=".Activities.QuizSubCategoryActivity" />
+
+        <activity
+            android:name=".Activities.NewsFeedActivity"
+            android:parentActivityName=".Activities.WallIntroActivity"
+            />
+
+
         <activity
             android:name=".Activities.HomescreenNew"
+            android:label="Hill&apos;ffair 2k17"
+            android:theme="@style/AppTheme"
             android:exported="true" />
-        <activity android:name=".Notification.NotificationActivity" />
+
+
+        <activity android:name=".Notification.NotificationActivity"/>
+
         <activity
+            android:parentActivityName=".Activities.HomescreenNew"
             android:name=".Activities.ProfileActivity"
-            android:exported="true"
-            android:parentActivityName=".Activities.HomeActivity" />
+            android:exported="true" />
         <activity
+            android:parentActivityName=".Activities.HomescreenNew"
             android:name=".Activities.GalleryActivity"
-            android:exported="true"
-            android:parentActivityName=".Activities.HomeActivity" />
+            android:exported="true" />
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
@@ -99,8 +116,35 @@
         <activity
             android:name=".Activities.LoginActivity"
             android:exported="true" />
-        <activity
-            android:name=".Activities.UploadNewsFeedActivity"
+        <activity android:name=".Activities.UploadNewsFeedActivity"
+            android:exported="true"
+            android:parentActivityName=".Activities.WallIntroActivity"
+            />
+        <service
+            android:name=".Service.UploadService"
+            android:exported="false" />
+
+        <receiver android:name=".Service.UploadBroadCastReceiver">
+            <intent-filter>
+                <action android:name="start" />
+                <action android:name="finish" />
+                <action android:name="error" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="CLOUDINARY_URL"
+            android:value="cloudinary://862148829278388:hJQPvA-kYbt8TRsp0bMSdqH65NE@appteamnith" />
+
+
+        <activity android:name=".Activities.WallIntroActivity"
+            android:exported="true"
+            android:parentActivityName=".Activities.HomescreenNew"
+            />
+
+        <activity android:name=".Activities.LeaderBoardActivity"
+            android:parentActivityName=".Activities.HomescreenNew"
+
             android:exported="true" />
         <activity android:name=".Activities.PollActivity"
             android:parentActivityName=".Activities.HomescreenNew">
