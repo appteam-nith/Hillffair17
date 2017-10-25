@@ -8,34 +8,24 @@ import com.google.gson.annotations.SerializedName;
 
 public class PollModelUserResponse {
 
-    @SerializedName("userid")
-    String id;
-    @SerializedName("qid")
-    String qid;
-    @SerializedName("option")
-    String option;
+    @SerializedName("success")
+    boolean success;
+    @SerializedName("msg")
+    String msg;
 
-    public String getId() {
-        return id;
+    public boolean isSuccess() {
+        return success;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setSuccess(boolean success) {
+        this.success = success;
     }
 
-    public String getQid() {
-        return qid;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setQid(String qid) {
-        this.qid = qid;
-    }
-
-    public String getOption() {
-        return option;
-    }
-
-    public void setOption(String option) {
-        this.option = option;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 }

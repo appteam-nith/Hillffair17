@@ -14,8 +14,10 @@ import com.nith.appteam.hillffair17.Models.LeaderBoardModel;
 import com.nith.appteam.hillffair17.Models.Likecount;
 import com.nith.appteam.hillffair17.Models.NewsFeedResponse;
 import com.nith.appteam.hillffair17.Models.PlotModel;
+import com.nith.appteam.hillffair17.Models.PollListModel;
 import com.nith.appteam.hillffair17.Models.PollModelUserResponse;
 import com.nith.appteam.hillffair17.Models.PollModel;
+import com.nith.appteam.hillffair17.Models.PollStatistics;
 import com.nith.appteam.hillffair17.Models.ProfileDataModel;
 import com.nith.appteam.hillffair17.Models.ProfileEventModel;
 import com.nith.appteam.hillffair17.Models.QuizQuestionsModel;
@@ -103,14 +105,15 @@ public interface APIINTERFACE {
 
 
     //for poll
-    @GET("poll/{uid}")
+    @GET("poll/question/{uid}")
     Call<PollModel> getPoll(@Path("uid") String uid);
-    @GET("stats/{qid}")
-    Call<PlotModel>getStats(@Path("qid") String qid);//stats of a particular qid
-    @GET("update/{qid}")
-    Call<PollModelUserResponse>updateScore(@Field("userid") String uid, @Path("qid") String qid);
-     @GET("allpolls/{id}")
-    Call<ArrayList<PollModel>>getPastPoll(@Field("userid") String userid);
+    @GET("poll/statistics/{qid}")
+    Call<PollStatistics>getStats(@Path("qid") String qid);//stats of a particular qid
+    @FormUrlEncoded
+    @POST("poll/answer/{uid}/")
+    Call<PollModelUserResponse>updateScore(@Path("uid") String uid, @Field("q_id") String qid, @Field("answer") String answer);
+     @GET("poll/getAllPoll")
+    Call<PollListModel>getAllPoll();
 
     @GET("quiz/leaderboard")
     Call<LeaderBoardModel> getLeaderBoard();

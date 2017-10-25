@@ -13,6 +13,7 @@ import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.nith.appteam.hillffair17.Models.PlotModel;
+import com.nith.appteam.hillffair17.Models.PollStatistics;
 import com.nith.appteam.hillffair17.R;
 import com.nith.appteam.hillffair17.Utils.Utils;
 
@@ -41,9 +42,11 @@ public class PlotActivity extends AppCompatActivity {
 
         ab.setDisplayHomeAsUpEnabled(true);
         qid=getIntent().getStringExtra("qid");
+        String question=getIntent().getStringExtra("question");
         chart = (BarChart) findViewById(R.id.chart1);
         ques=(TextView)findViewById(R.id.plot_ques);
-        ques.setText("Who will win Ballon d'or 2017?");
+
+        ques.setText(question);
 
 
 
@@ -60,6 +63,7 @@ public class PlotActivity extends AppCompatActivity {
         barEntryLabels = new ArrayList<>();
 //        updateBarEntry();
 //        updateBarLabels();
+        plotData();
         barDataset = new BarDataSet(barEntry, "response");
         barData = new BarData(barEntryLabels, barDataset);
 //        barData.setGroupSpace(0.1f);
@@ -83,26 +87,31 @@ public class PlotActivity extends AppCompatActivity {
 //
 //    }
 
-   public void updatePlot(){
-       Call<PlotModel> plotModel = Utils.getRetrofitService().getStats(qid);
-       plotModel.enqueue(new Callback<PlotModel>() {
+   public void plotData(){
+    Call<PollStatistics> call=Utils.getRetrofitService().getStats(qid);
+       call.enqueue(new Callback<PollStatistics>() {
            @Override
-           public void onResponse(Call<PlotModel> call, Response<PlotModel> response) {
-               PlotModel model=response.body();
-               ArrayList<String> options= model.getOptions();
-               ArrayList<Integer>stats=model.getStats();
-               String question=model.getQuestion();
-               for (String label:options)
-                    barEntryLabels.add(label);
-               for (int i=0;i<stats.size();i++)
-                   barEntry.add(new BarEntry(stats.get(i),i));
-               ques.setText(question);
+           public void onResponse(Call<PollStatistics> call, Response<PollStatistics> response) {
+               if (response.isSuccess()) {
 
+                   PollStatistics model=response.body();
+                   barEntry.add(new BarEntry(Float.parseFloat(model.getnOptionA()),0));
+                   barEntry.add(new BarEntry(Float.parseFloat(model.getnOptionB()),1));
+                   barEntry.add(new BarEntry(Float.parseFloat(model.getnOptionC()),2));
+                   barEntry.add(new BarEntry(Float.parseFloat(model.getnOptionD()),3));
+                   ques.setText(model.getQuestion());
+                   barEntryLabels.add(model.getOptionA());
+                   barEntryLabels.add(model.getOptionB());
+                   barEntryLabels.add(model.getOptionC());
+                   barEntryLabels.add(model.getOptionD());
+
+               }
            }
 
            @Override
-           public void onFailure(Call<PlotModel> call, Throwable t) {
-               Toast.makeText(PlotActivity.this,"Error While Fetching Data",Toast.LENGTH_SHORT).show();
+           public void onFailure(Call<PollStatistics> call, Throwable t) {
+
+               Toast.makeText(PlotActivity.this,"Error While Fetching Data.",Toast.LENGTH_SHORT).show();
            }
        });
    }

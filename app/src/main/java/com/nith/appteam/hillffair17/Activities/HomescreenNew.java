@@ -34,7 +34,7 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
 
     private static final int PERMISSIONS_REQUEST_PHONE_CALL = 100;
     private static String[] PERMISSIONS_PHONECALL = {Manifest.permission.CALL_PHONE};
-    final String number[] = {"9882654141", "9882852966"};
+    final String number[] = {"9805121081", "9816677089"};
     int a=0;
     private SharedPref pref;
 
@@ -136,8 +136,8 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
 
         } else if(id == R.id.contacts){
 
-            CharSequence name[] = {"Deepak Kumar Jain\n(Hillffair Secretary)\n9882654141\n",
-                    "Rishabh Bhandari\n(Clubs Secretary)\n9882852966\n"};
+            CharSequence name[] = {"Utkarsh Singh\n(Hillffair Secretary)\n9805121081\n",
+                    "Shivam Dhiman\n(Discipline)\n9816677089\n"};
 
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -187,7 +187,7 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
 
             case R.id.report:  Intent intent = new Intent(Intent.ACTION_SENDTO);
                 String uriText = "mailto:" + Uri.encode("appteam.nith@gmail.com") + "?subject=" +
-                        Uri.encode("Reporting A Bug/Feedback") + "&body=" + Uri.encode("Hello, Appteam \nI want to report a bug/give feedback corresponding to the app Hillfair 2k16.\n.....\n\n-Your name");
+                        Uri.encode("Reporting A Bug/Feedback") + "&body=" + Uri.encode("Hello, Appteam \nI want to report a bug/give feedback corresponding to the app Hillfair 2k17.\n.....\n\n-Your name");
 
                 Uri uri = Uri.parse(uriText);
                 intent.setData(uri);

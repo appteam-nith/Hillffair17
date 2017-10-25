@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.nith.appteam.hillffair17.Activities.PlotActivity;
 import com.nith.appteam.hillffair17.Activities.PollActivity;
+import com.nith.appteam.hillffair17.Models.PollListModel;
 import com.nith.appteam.hillffair17.Models.PollModel;
 import com.nith.appteam.hillffair17.R;
 
@@ -23,9 +24,9 @@ import java.util.ArrayList;
 
 public class PollAdapter extends RecyclerView.Adapter<PollAdapter.PollViewHolder> {
 
-    private ArrayList<PollModel> list;
+    private ArrayList<PollListModel.Question> list;
     private Context context;
-    public PollAdapter(ArrayList<PollModel> list, Context context) {
+    public PollAdapter(ArrayList<PollListModel.Question> list, Context context) {
         this.list = list;
         this.context=context;
     }
@@ -43,15 +44,13 @@ public class PollAdapter extends RecyclerView.Adapter<PollAdapter.PollViewHolder
     @Override
     public void onBindViewHolder(PollViewHolder holder, int position) {
 
-        PollModel pollModel = list.get(position);
+        PollListModel.Question pollModel = list.get(position);
         if(pollModel!=null){
             String question = pollModel.getQuestion();
             if(!question.isEmpty() && question.length()>0){
                 holder.questionView.setText(question);
             }
 
-            if(pollModel.isDone()) holder.checkImageView.setImageResource(R.drawable.about);
-            else holder.checkImageView.setImageResource(R.drawable.clubs);
         }
 
     }
@@ -64,9 +63,9 @@ public class PollAdapter extends RecyclerView.Adapter<PollAdapter.PollViewHolder
     public static class PollViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView checkImageView;
         TextView questionView;
-        ArrayList<PollModel>list;
+        ArrayList<PollListModel.Question>list;
         Context context;
-        public PollViewHolder(View itemView, ArrayList<PollModel> list,Context context) {
+        public PollViewHolder(View itemView, ArrayList<PollListModel.Question> list, Context context) {
             super(itemView);
             checkImageView = itemView.findViewById(R.id.checkImage);
             questionView = itemView.findViewById(R.id.questionView);
@@ -80,10 +79,11 @@ public class PollAdapter extends RecyclerView.Adapter<PollAdapter.PollViewHolder
         @Override
         public void onClick(View v) {
             //get the current poll
-            PollModel model=list.get(v.getId());
-            String qid=model.getQid();
+            PollListModel.Question model=list.get(v.getId());
+            String qid=model.getId();
             Intent intent=new Intent(this.context,PlotActivity.class);
             intent.putExtra("qid",qid);
+            intent.putExtra("question",model.getQuestion());
             context.startActivity(intent);
         }
     }

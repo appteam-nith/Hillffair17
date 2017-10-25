@@ -27,9 +27,9 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
 
     Button opt1,opt2,opt3,opt4;
     TextView ques;
-    ArrayList<Integer>score;
     String userid;
     String qid;
+    String question;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,66 +45,73 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
         opt3=(Button)findViewById(R.id.option3);
         opt4=(Button)findViewById(R.id.option4);
 
+
+        SharedPref sharedPref=new SharedPref(this);
+//        userid=sharedPref.getUserId();
+        userid="59ef4cf93a1fdb2808b42443";//// TODO: 26/10/17 delete this afterwards
+        qid="59f0d907ee241202a9c5ee43";
+        fetchQuestion();
+
         opt1.setOnClickListener(this);
         opt2.setOnClickListener(this);
         opt3.setOnClickListener(this);
         opt4.setOnClickListener(this);
-
-        SharedPref sharedPref=new SharedPref(this);
-        userid=sharedPref.getUserId();
-//        fetchQuestion();
-
     }
 
-
+///poll/question/uid
     void fetchQuestion(){
         Call<PollModel>getPoll = Utils.getRetrofitService().getPoll(userid);
         getPoll.enqueue(new Callback<PollModel>() {
             @Override
             public void onResponse(Call<PollModel> call, Response<PollModel> response) {
-                PollModel model=response.body();
-                String question=model.getQuestion();
-                ArrayList<String> options=model.getOptions();
-                boolean done=model.isDone();
-                if (done)  updateResult(-1);
 
-                ques.setText(question);
-                qid=model.getQid();
-                opt1.setText(options.get(0));
-                opt2.setText(options.get(1));
-                opt3.setText(options.get(2));
-                opt4.setText(options.get(3));
-                score=model.getScore();
+
+                    PollModel model=response.body();
+                    question=model.getQuestion();
+
+                    ArrayList<String> options=new ArrayList<>();
+                    options.add(model.getOptionA());
+                    options.add(model.getOptionB());
+                    options.add(model.getOptionC());
+                    options.add(model.getOptionD());
+                    boolean done=model.isDone();
+                    if (done)  updateResult(-1);
+
+                    ques.setText(question);
+                    qid=model.getQid();
+                    opt1.setText(options.get(0));
+                    opt2.setText(options.get(1));
+                    opt3.setText(options.get(2));
+                    opt4.setText(options.get(3));
+
+
             }
             @Override
             public void onFailure(Call<PollModel> call, Throwable t) {
-                Toast.makeText(PollActivity.this,"Error While Fetching Data",Toast.LENGTH_SHORT).show();
+                Toast.makeText(PollActivity.this,"Error While Fetching Data.",Toast.LENGTH_SHORT).show();
             }
         });
     }
 
+    // poll/answer/uid/answer=?&q_id=?
     void updateResult(int option){
     Intent intent=new Intent(PollActivity.this,PlotActivity.class);
         intent.putExtra("qid",qid);
-        if(option==-1){
+        intent.putExtra("question",question);
+        if(option!=-1){
 
-            Call<PollModelUserResponse> updateScore=Utils.getRetrofitService().updateScore(userid,Integer.toString(option));
+                Call<PollModelUserResponse> updateScore=Utils.getRetrofitService().updateScore(userid,qid,""+(char)(option-1+'A'));
             updateScore.enqueue(new Callback<PollModelUserResponse>() {
                 @Override
                 public void onResponse(Call<PollModelUserResponse> call, Response<PollModelUserResponse> response) {
-                    if(response.isSuccess()){
-                        PollModelUserResponse respons =response.body();
-                    }
-                    else {
+                    if(!response.isSuccess())Toast.makeText(PollActivity.this,"Couldn't update user response.",Toast.LENGTH_SHORT).show();
 
-                        Toast.makeText(PollActivity.this,"Couldn't update user response",Toast.LENGTH_SHORT).show();
-                    }
                 }
 
                 @Override
                 public void onFailure(Call<PollModelUserResponse> call, Throwable t) {
 
-                    Toast.makeText(PollActivity.this,"Error While Fetching Data",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PollActivity.this,"Error While Fetching Data.",Toast.LENGTH_SHORT).show();
                 }
             });
 

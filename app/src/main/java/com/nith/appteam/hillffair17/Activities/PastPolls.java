@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.facebook.share.Share;
 import com.nith.appteam.hillffair17.Adapters.PollAdapter;
+import com.nith.appteam.hillffair17.Models.PollListModel;
 import com.nith.appteam.hillffair17.Models.PollModel;
 import com.nith.appteam.hillffair17.R;
 import com.nith.appteam.hillffair17.Utils.SharedPref;
@@ -24,7 +25,7 @@ public class PastPolls extends AppCompatActivity {
 
     private RecyclerView list;
     private PollAdapter adapter;
-    private ArrayList<PollModel>listPoll;
+    private ArrayList<PollListModel.Question>listPoll;
     String uid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,19 +44,20 @@ public class PastPolls extends AppCompatActivity {
         list.setAdapter(adapter);
     }
 
-    void getPastPoll(){
-        Call<ArrayList<PollModel>> call = Utils.getRetrofitService().getPastPoll(uid);
-        call.enqueue(new Callback<ArrayList<PollModel>>() {
+    void getPastPoll() {
+        Call<PollListModel> call = Utils.getRetrofitService().getAllPoll();
+        call.enqueue(new Callback<PollListModel>() {
             @Override
-            public void onResponse(Call<ArrayList<PollModel>> call, Response<ArrayList<PollModel>> response) {
-
-                if(response.isSuccess()){
-                    listPoll=response.body();
+            public void onResponse(Call<PollListModel> call, Response<PollListModel> response) {
+               PollListModel model=response.body();
+                ArrayList<PollListModel.Question> questions =model.getQuestions();
+                for (PollListModel.Question q:questions){
+                    listPoll.add(q);
                 }
             }
 
             @Override
-            public void onFailure(Call<ArrayList<PollModel>> call, Throwable t) {
+            public void onFailure(Call<PollListModel> call, Throwable t) {
 
             }
         });

@@ -10,17 +10,23 @@ import java.util.ArrayList;
 
 public class PollModel {
 
+    @SerializedName("success")
+    boolean done;
+    @SerializedName("qNo")
+    String qno;
     @SerializedName("qid")
     private String qid;
     @SerializedName("question")
     private String question;
-    @SerializedName("options")
-    private ArrayList<String> options;
-    @SerializedName("score")
-    private ArrayList<Integer> score;
+    @SerializedName("optionA")
+    private String optionA;
+    @SerializedName("optionB")
+    private String optionB;
+    @SerializedName("optionC")
+    private String optionC;
+    @SerializedName("optionD")
+    private String optionD;
 
-    @SerializedName("done")
-    private boolean done;
 
     public boolean isDone() {
         return done;
@@ -30,12 +36,12 @@ public class PollModel {
         this.done = done;
     }
 
-    public ArrayList<Integer> getScore() {
-        return score;
+    public String getQno() {
+        return qno;
     }
 
-    public void setScore(ArrayList<Integer> score) {
-        this.score = score;
+    public void setQno(String qno) {
+        this.qno = qno;
     }
 
     public String getQid() {
@@ -54,11 +60,36 @@ public class PollModel {
         this.question = question;
     }
 
-    public ArrayList<String> getOptions() {
-        return options;
+    public String getOptionA() {
+        return optionA;
     }
 
-    public void setOptions(ArrayList<String> options) {
-        this.options = options;
+    public void setOptionA(String optionA) {
+        this.optionA = optionA;
+    }
+
+    public String getOptionB() {
+        return optionB;
+    }
+
+    public void setOptionB(String optionB) {
+        this.optionB = optionB;
+    }
+
+    public String getOptionC() {
+        return optionC;
+    }
+
+    public void setOptionC(String optionC) {
+        this.optionC = optionC;
+    }
+
+    public String getOptionD() {
+        return optionD;
+    }
+
+    public void setOptionD(String optionD) {
+        this.optionD = optionD;
     }
 }
+

@@ -82,6 +82,8 @@
 
         <activity
             android:name=".Activities.QuizCategoryActivity" />
+        <activity android:name=".Activities.QuizActivity"
+            android:exported="true"/>
 
         <activity
             android:name=".Activities.QuizSubCategoryActivity" />
