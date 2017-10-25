@@ -4,11 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.nith.appteam.hillffair17.Activities.PastPolls">
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="368dp"
-        android:layout_height="551dp"
-        android:id="@+id/listPoll"
-        tools:layout_editor_absoluteY="-17dp"
-        tools:layout_editor_absoluteX="-28dp" />
+
+    <android.support.v7.widget.Toolbar android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:titleTextColor="#ffffff"
+        app:title="Poll Statistics"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/listPoll"
+            tools:layout_editor_absoluteY="-17dp"
+            tools:layout_editor_absoluteX="-28dp" />
+    </LinearLayout>
+
 </LinearLayout>

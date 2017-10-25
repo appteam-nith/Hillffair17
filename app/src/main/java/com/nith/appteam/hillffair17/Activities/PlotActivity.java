@@ -1,7 +1,9 @@
 package com.nith.appteam.hillffair17.Activities;
 
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +35,11 @@ public class PlotActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plot);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar ab = getSupportActionBar();
 
+        ab.setDisplayHomeAsUpEnabled(true);
         qid=getIntent().getStringExtra("qid");
         chart = (BarChart) findViewById(R.id.chart1);
         ques=(TextView)findViewById(R.id.plot_ques);

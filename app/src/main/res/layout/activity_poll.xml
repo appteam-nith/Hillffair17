@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.nith.appteam.hillffair17.Activities.PollActivity"
-    >
+    android:background="#e82441f4"
+    tools:context="com.nith.appteam.hillffair17.Activities.PollActivity">
 
 <android.support.v7.widget.Toolbar android:id="@+id/my_toolbar"
     android:layout_width="match_parent"
@@ -24,27 +24,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:gravity="center"
-    android:layout_margin="15dp"
+    android:layout_margin="8dp"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <TextView
        android:id="@+id/poll_ques"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:textColor="#fff"
         android:text="Who will win Ballon d'or 2017?"
-        android:textSize="30dp"
-
-        android:layout_marginBottom="25dp"
+        android:textSize="30sp"
         />
 
     <LinearLayout
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:orientation="vertical"
         android:gravity="center"
         android:layout_gravity="center"
+        android:textColor="#fff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/poll_options">
@@ -54,10 +54,13 @@
        android:layout_height="wrap_content"
        android:background="@drawable/btn_poll"
        android:textSize="20dp"
+       android:textColor="#fff"
        android:text="C.Ronaldo"/>
 
     <Button
         android:id="@+id/option2"
+
+        android:textColor="#fff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -71,11 +74,15 @@
         android:layout_height="wrap_content"
 
         android:textSize="20dp"
+
+        android:textColor="#fff"
         android:layout_marginTop="8dp"
         android:background="@drawable/btn_poll"
         android:text="Neymar"/>
     <Button
         android:id="@+id/option4"
+
+        android:textColor="#fff"
         android:textSize="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

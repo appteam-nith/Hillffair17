@@ -154,7 +154,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.PlotActivity" />
+        <activity android:name=".Activities.PlotActivity"
+            android:parentActivityName=".Activities.HomeActivity">
+
+        </activity>
         <activity android:name=".Activities.PastPolls"></activity>
     </application>
 
