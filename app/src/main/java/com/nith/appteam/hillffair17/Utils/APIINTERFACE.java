@@ -2,19 +2,22 @@ package com.nith.appteam.hillffair17.Utils;
 
 
 
-import com.nith.appteam.hillffair17.Activities.ClubActivity;
 import com.nith.appteam.hillffair17.Activities.EventActivity;
 import com.nith.appteam.hillffair17.Activities.UploadNewsFeedActivity;
 import com.nith.appteam.hillffair17.Fragments.FbLoginFragment;
 import com.nith.appteam.hillffair17.Models.BattleDayModel;
 import com.nith.appteam.hillffair17.Models.CategoryQuizModel;
-import com.nith.appteam.hillffair17.Models.CategoryQuizSingleModel;
 import com.nith.appteam.hillffair17.Models.ClubModel2;
 import com.nith.appteam.hillffair17.Models.GalleryDetailResponse;
 import com.nith.appteam.hillffair17.Models.GalleryResponse;
 import com.nith.appteam.hillffair17.Models.LeaderBoardModel;
 import com.nith.appteam.hillffair17.Models.Likecount;
 import com.nith.appteam.hillffair17.Models.NewsFeedResponse;
+import com.nith.appteam.hillffair17.Models.PlotModel;
+import com.nith.appteam.hillffair17.Models.PollListModel;
+import com.nith.appteam.hillffair17.Models.PollModelUserResponse;
+import com.nith.appteam.hillffair17.Models.PollModel;
+import com.nith.appteam.hillffair17.Models.PollStatistics;
 import com.nith.appteam.hillffair17.Models.ProfileDataModel;
 import com.nith.appteam.hillffair17.Models.ProfileEventModel;
 import com.nith.appteam.hillffair17.Models.QuizQuestionsModel;
@@ -22,6 +25,8 @@ import com.nith.appteam.hillffair17.Models.RegisterResponse;
 import com.nith.appteam.hillffair17.Models.SubCategoryQuizModel;
 import com.nith.appteam.hillffair17.Notification.NotificationArrayModel;
 import com.nith.appteam.hillffair17.Notification.notification_model;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -31,15 +36,11 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
-import static com.cloudinary.Api.HttpMethod.GET;
-import static com.cloudinary.Api.HttpMethod.POST;
-
 /**
  * Created by Jatin on 9/11/2016.
  */
 
 public interface APIINTERFACE {
-
 
 
     @GET("clubs")
@@ -62,11 +63,11 @@ public interface APIINTERFACE {
     Call<CategoryQuizModel> getCategories(@Query("type") String Category);
 
     @GET("quiz/subcategory")
-    Call<SubCategoryQuizModel> getSubCategories(@Query("category")String category);
+    Call<SubCategoryQuizModel> getSubCategories(@Query("category") String category);
 
     @FormUrlEncoded
     @POST("newsfeed/like/{id}")
-    Call<Likecount>likecount(@Path("id") String id, @Field("student_id") String userId);
+    Call<Likecount> likecount(@Path("id") String id, @Field("student_id") String userId);
 
     @GET("newsfeed/getall/{id}")
     Call<NewsFeedResponse> getAllNews(@Path("id") String userId, @Query("from") int from);
@@ -94,8 +95,24 @@ public interface APIINTERFACE {
     @POST("register")
     Call<FbLoginFragment.UserSentResponse> sendFbUserData(@Field("name") String name, @Field("email") String email, @Field("pic_url")String picUrl);
 
+
     @POST("update/rollno/{id}")
     Call<RegisterResponse> updateRollNo(@Path("id") String id, @Query("roll_no") String rollNo);
+
+
+    //for poll
+    @GET("poll/question/{uid}")
+    Call<PollModel> getPoll(@Path("uid") String uid);
+
+    @GET("poll/statistics/{qid}")
+    Call<PollStatistics> getStats(@Path("qid") String qid);//stats of a particular qid
+
+    @FormUrlEncoded
+    @POST("poll/answer/{uid}/")
+    Call<PollModelUserResponse> updateScore(@Path("uid") String uid, @Field("q_id") String qid, @Field("answer") String answer);
+
+    @GET("poll/getAllPoll")
+    Call<PollListModel> getAllPoll();
 
     @GET("quiz/leaderboard")
     Call<LeaderBoardModel> getLeaderBoard();
@@ -105,10 +122,6 @@ public interface APIINTERFACE {
 
     @FormUrlEncoded
     @POST("quiz/getSet/{student_id}")
-    Call<QuizQuestionsModel> getQuiz(@Path("student_id") String id,@Field("category") String category,@Field("topic") String topic);
-
-
-
+    Call<QuizQuestionsModel> getQuiz(@Path("student_id") String id, @Field("category") String category, @Field("topic") String topic);
 }
-
 

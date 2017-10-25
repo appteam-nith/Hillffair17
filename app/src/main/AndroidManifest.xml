@@ -22,7 +22,6 @@
         android:supportsRtl="true"
         android:largeHeap="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -70,11 +69,13 @@
         <activity
             android:name=".Activities.SplashActivity"
             android:theme="@style/SplashTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
             <!-- Note: @octacode- Done to suppress high resolution warning during publishing for phones like S8 -->
             <meta-data
                 android:name="android.max_aspect"
@@ -116,13 +117,14 @@
         <activity
             android:name=".Activities.BattleDayActivity"
             android:exported="true"
-            android:parentActivityName=".Activities.HomescreenNew" />
+            android:parentActivityName=".Activities.HomeActivity" />
+
 
         <activity
-            android:name=".Activities.QuizCategoryActivity"
-            android:exported="true"
+            android:name=".Activities.QuizCategoryActivity" />
+        <activity android:name=".Activities.QuizActivity"
             android:parentActivityName=".Activities.HomescreenNew"
-            />
+            android:exported="true"/>
 
         <activity
             android:name=".Activities.QuizSubCategoryActivity"
@@ -135,6 +137,7 @@
             android:parentActivityName=".Activities.WallIntroActivity"
             android:exported="true"
             />
+
 
         <activity
             android:name=".Activities.HomescreenNew"
@@ -151,17 +154,11 @@
             android:parentActivityName=".Activities.HomescreenNew"
             android:name=".Activities.ProfileActivity"
             android:exported="true" />
-
         <activity
             android:parentActivityName=".Activities.HomescreenNew"
             android:name=".Activities.GalleryActivity"
             android:exported="true" />
 
-        <activity
-            android:name=".Activities.LoginActivity"
-            android:exported="true"
-
-            />
 
         <activity android:name=".Activities.UploadNewsFeedActivity"
             android:exported="true"
@@ -176,17 +173,27 @@
 
         <activity android:name=".Activities.LeaderBoardActivity"
             android:parentActivityName=".Activities.HomescreenNew"
+
             android:exported="true" />
+        <activity android:name=".Activities.PollActivity"
+            android:parentActivityName=".Activities.HomescreenNew">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activities.PlotActivity"
+            android:parentActivityName=".Activities.HomeActivity">
+
+        </activity>
+        <activity android:name=".Activities.PastPolls"></activity>
 
         <activity android:name=".Notification.Notification2"
             android:parentActivityName=".Notification.NotificationActivity"
             android:exported="true"
             />
 
-        <activity android:name=".Activities.QuizActivity"
-            android:parentActivityName=".Activities.HomescreenNew"
-            android:exported="true"
-            />
+
         <activity android:name=".Activities.QuizQuestionActivity"
             android:parentActivityName=".Activities.HomescreenNew"
             android:exported="true"
