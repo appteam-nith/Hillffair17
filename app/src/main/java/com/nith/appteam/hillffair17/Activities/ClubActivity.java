@@ -39,7 +39,7 @@ import retrofit2.Response;
  */
 
 public class ClubActivity extends AppCompatActivity {
-    private String club_name;
+    private String club_id;
     private CollapsingToolbarLayout ctl;
     private Toolbar toolbar;
     private ImageView grup_img;
@@ -66,16 +66,16 @@ public class ClubActivity extends AppCompatActivity {
 
         Intent i = getIntent();
         if (i != null) {
-            if (i.hasExtra(EventActivity.CLUB_NAME)){
-                club_name = i.getStringExtra(EventActivity.CLUB_NAME);
-                showData(club_name);
+            if (i.hasExtra(EventActivity.CLUB_ID)){
+                club_id = i.getStringExtra(EventActivity.CLUB_ID);
+                showData(club_id);
 
             }else if(i.hasExtra("battleday")){
                 id=i.getStringExtra("id");
                 name=i.getStringExtra("name");
 
-                if(name!=null)
-                    club_name=name;
+                if(id!=null)
+                    club_id=id;
 
                 if(id!=null)
                     showSpecialData(id);
@@ -136,8 +136,8 @@ public class ClubActivity extends AppCompatActivity {
         });
     }
 
-    private void showData(final String club_name){
-        Call<ClubModel2> getClubData= Utils.getRetrofitService().getClubInfo(club_name);
+    private void showData(final String club_id){
+        Call<ClubModel2> getClubData= Utils.getRetrofitService().getClubInfo(club_id);
         getClubData.enqueue(new Callback<ClubModel2>() {
             @Override
             public void onResponse(Call<ClubModel2> call, Response<ClubModel2> response) {
@@ -182,8 +182,8 @@ public class ClubActivity extends AppCompatActivity {
                 if(data!=null&&response.isSuccess()){
                     if(data.isSuccess()){
                         BattleEventResponse clubdata=data.getData();
-                        clubName.setText(clubdata.getEventname());
-                        description.setText(clubdata.getEventdescription()+"\n\n"+"Rules:-\n"+clubdata.getRules()+"\n\n"+"Contact:-\n "+"Deepak Kumar Jain 9882654141 \n"+"Rishab Bhandari 988852966");
+                       // clubName.setText(clubdata.getEventname());
+                        description.setText(clubdata.getEventdescription()+"\n\n"+"Contact:-\n "+"Deepak Kumar Jain 9882654141 \n"+"Rishab Bhandari 988852966");
                         Glide.with(MyApplication.getAppContext()).load(clubdata.getPhoto()).diskCacheStrategy(DiskCacheStrategy.ALL).error(R.drawable.news_intro).into(grup_img);
                     }
                     else {
@@ -235,7 +235,7 @@ public class ClubActivity extends AppCompatActivity {
 
 
     public  class BattleResponseEvent{
-        @SerializedName("profile")
+        @SerializedName("data")
         private BattleEventResponse data;
 
         @SerializedName("success")

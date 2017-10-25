@@ -133,7 +133,7 @@ public class NewsFeedActivity extends AppCompatActivity implements SwipeRefreshL
                 if(response!=null&&response.isSuccess()){
                     if(response.body().getFeed()!=null){
                         if(response.body().getFeed().size()>0){
-
+                            Log.d("neesfeed username",response.body().getFeed().get(0).getUsername());
                             if(list.size()!=0){
                                 list.remove(list.size()-1);
                                 adapter.refresh (list);
@@ -141,10 +141,7 @@ public class NewsFeedActivity extends AppCompatActivity implements SwipeRefreshL
 
                             list.addAll(response.body().getFeed());
                             list.add(null);
-
                             adapter.refresh(list);
-
-
                         }
 
                         Log.d("rr","check");

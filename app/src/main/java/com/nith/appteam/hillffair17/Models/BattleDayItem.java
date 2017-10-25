@@ -10,9 +10,9 @@ public class BattleDayItem {
 
     @SerializedName("name")
     public String name;
-    @SerializedName("photo")
+    @SerializedName("logo")
     public String photo;
-    @SerializedName("id")
+    @SerializedName("_id")
     public String id;
 
     public String getName() {

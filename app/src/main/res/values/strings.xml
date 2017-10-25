@@ -57,5 +57,19 @@ relish the unreal.\n\n
 So now you know where you have to be this November!!!\n\nNIT Hamirpur and its hospitality awaits you. Come watch the magic unfold at NIT Hamirpur.
     </string>
 
+    <string name="quiz_instruction">Please read below instruction very carefully:-\n\n
+    1. This quiz is hosted by AppTeam of NIT Hamirpur.\n\n
+    2. <b>Important:</b> Make sure that your device remains connected to Internet while attempting quiz.\n\n
+    3. Make sure that all personal information about you in current account is correct, otherwise you may be disqualified.\n\n
+    4. When you enter the quiz, you will be provided with a set of 10 randomly chosen questions.\n\n
+    5. Each question is unique and will not appear again. \n\n
+    6. Their is no negative marking for wrong answer, so it is better to attempt all questions. And for correct answer you will be provided one point.\n\n
+    7. <b>Important:</b> Time limit to attempt a set of question is 2 minutes. \nYou have to finish the quiz in 2 minutes to make your score count.\n\n
+    8. After attempting all questions press finish button to submit your inputs. After 2 minutes, inputs will automatically gets submitted.\n\n
+    9. Do not close app after starting quiz, because you will be given only one attempt to each set of questions.\n\n
+    10. After clicking on submit you will be shown only score corresponding to that set of questions.\n\n
+    11. <b>Advice:</b> Attempt as many sets possible to score more points.\n\n
+    12. Winners will be announced after Nimbus 2017, and will be rewarded.\n\n
+    13. For any queries/complaints/bugs, contact us at <u>appteam.nith@gmail.com</u></string>
 
 </resources>

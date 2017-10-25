@@ -71,7 +71,7 @@ public UploadService(){
                     i.putExtra(WORK, "NewsFeed");
                     sendBroadcast(i);
                     Map map = cloudinary.uploader().upload(imageUrl.trim(), ObjectUtils.asMap("public_id", sharedPref.getUserName() + "" + com.nith.appteam.hillffair17.Utils.Utils.random()));
-                    upload(title, description, (String) map.get("url"));
+                    upload(sharedPref.getUserName(),title, description, (String) map.get("url"));
                     Log.d("image", (String) map.get("url"));
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -87,7 +87,7 @@ public UploadService(){
             i.putExtra(WORK, "NewsFeed");
             sendBroadcast(i);
 
-            upload(title, description, "");
+            upload(sharedPref.getUserName(),title, description, "");
 
 
         } else if (intent.hasExtra(REGISTER_ROLL_NO)) {
@@ -100,7 +100,7 @@ public UploadService(){
         }
     }
 
-    private void upload(String title, String description, String imageUrl) {
+    private void upload(String username,String title, String description, String imageUrl) {
 
         Call<UploadNewsFeedActivity.UploadResponse> uploadResponseCall = com.nith.appteam.hillffair17.Utils.Utils.getRetrofitService().uploadNews(title, description, sharedPref.getUserId(), sharedPref.getUserName(), imageUrl);
         uploadResponseCall.enqueue(new Callback<UploadNewsFeedActivity.UploadResponse>() {

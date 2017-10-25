@@ -1,7 +1,6 @@
 package com.nith.appteam.hillffair17.Notification;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -24,10 +23,11 @@ import com.nith.appteam.hillffair17.Utils.SharedPref;
 
 
 /**
- * Created by jatin on 7/3/17.
+ * Created by root on 20/10/16.
  */
 
 public class Notification2 extends AppCompatActivity {
+
     TextView title,body,launch_url;
     ImageView big_picture;
     CardView sec_card,thrd_card;
@@ -42,22 +42,28 @@ public class Notification2 extends AppCompatActivity {
         getSupportActionBar().setTitle("Notifications");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        DbHelper dbHelper = new DbHelper(this);
+
+
+
         title = (TextView) findViewById(R.id.not2_title);
         body = (TextView) findViewById(R.id.not2_body);
         launch_url = (TextView) findViewById(R.id.launch_url);
         sec_card=(CardView)findViewById(R.id.secondcard);
         thrd_card=(CardView)findViewById(R.id.thiredcard);
         big_picture = (ImageView) findViewById(R.id.not2_big_picture);
-        String id = getIntent().getStringExtra("id");
+        //String id = b.getString("id");
         //String id = bundle.getString("id",null);
 
-        Cursor cursor = dbHelper.homeposteinnerdata(id);
-        cursor.moveToFirst();
-        String ftitle =cursor.getString(cursor.getColumnIndex("title"));
-        String fbody =cursor.getString(cursor.getColumnIndex("body"));
-        String fbig_pic=cursor.getString(cursor.getColumnIndex("bigpicture"));
-        final String l_url=cursor.getString(cursor.getColumnIndex("launchurl"));
+
+        //  Cursor cursor = dbHelper.homeposteinnerdata(id);
+
+        // cursor.moveToFirst();
+        Intent i =getIntent();
+        Bundle b = i.getBundleExtra("assign");
+        String ftitle =b.getString("title");
+        String fbody =b.getString("body");
+        String fbig_pic=b.getString("bigpicture");
+        final String l_url=b.getString("launchurl");
         Log.d("sdgvajdsf","getstringextras"+body+"_"+fbig_pic+"_"+l_url);
         title.setText(ftitle);
         body.setText(fbody);
@@ -98,5 +104,3 @@ public class Notification2 extends AppCompatActivity {
 
     }
 }
-
-

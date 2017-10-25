@@ -8,35 +8,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class BattleEventResponse {
 
-    @SerializedName("name")
-    private String eventname;
+    @SerializedName("success")
+    String success;
 
-    @SerializedName("description")
+    @SerializedName("desc")
     private String eventdescription;
 
-    @SerializedName("rules")
-    private String rules;
-
-    @SerializedName("photo")
+    @SerializedName("banner")
     private String photo;
 
-    @SerializedName("date")
-    private String date;
 
-    public BattleEventResponse(String eventname, String eventdescription, String rules, String photo, String date) {
-        this.eventname = eventname;
+    public BattleEventResponse(String success, String eventdescription, String photo) {
+        this.success = success;
         this.eventdescription = eventdescription;
-        this.rules = rules;
         this.photo = photo;
-        this.date = date;
     }
 
-    public String getEventname() {
-        return eventname;
+    public String getSuccess() {
+        return success;
     }
 
-    public void setEventname(String eventname) {
-        this.eventname = eventname;
+    public void setSuccess(String success) {
+        this.success = success;
     }
 
     public String getEventdescription() {
@@ -47,27 +40,11 @@ public class BattleEventResponse {
         this.eventdescription = eventdescription;
     }
 
-    public String getRules() {
-        return rules;
-    }
-
-    public void setRules(String rules) {
-        this.rules = rules;
-    }
-
     public String getPhoto() {
         return photo;
     }
 
     public void setPhoto(String photo) {
         this.photo = photo;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 }

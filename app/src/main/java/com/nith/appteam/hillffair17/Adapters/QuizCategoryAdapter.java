@@ -51,14 +51,7 @@ public class QuizCategoryAdapter extends RecyclerView.Adapter<QuizCategoryAdapte
         System.out.println(categoryQuizSingleModel.getName());
         holder.categoryname.setText(categoryQuizSingleModel.getName().toString());
         Glide.with(context).load(categoryQuizSingleModel.getPhoto()).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.drawable.treasure_intro).into(holder.categoryphoto);
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i1 = new Intent(context,QuizSubCategoryActivity.class);
-                i1.putExtra("Category_Name",categoryQuizSingleModel.getName());
-                context.startActivity(i1);
-            }
-        });
+
     }
     @Override
     public int getItemCount() {

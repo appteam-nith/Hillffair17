@@ -44,11 +44,11 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                    if(finalPref.getUserId().isEmpty()){
+                    if(finalPref.getLoginStatus()){
                         Snackbar.make(coordinatorLayout,"Please Login To Attempt Quiz", Snackbar.LENGTH_INDEFINITE).setAction("Login", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                startActivity(new Intent(QuizActivity.this,HomeActivity.class));
+                                startActivity(new Intent(QuizActivity.this,LoginActivity.class));
                             }
                         }).show();
                     }else{
@@ -65,7 +65,7 @@ public class QuizActivity extends AppCompatActivity {
         instructions_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(QuizActivity.this,AboutActivity.class));
+                startActivity(new Intent(QuizActivity.this,InformationActivity.class));
             }
         });
 

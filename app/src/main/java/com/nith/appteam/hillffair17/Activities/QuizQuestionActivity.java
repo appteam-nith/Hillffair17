@@ -199,7 +199,7 @@ public class QuizQuestionActivity extends AppCompatActivity {
 
                 }else{
                     staytuned_message.setVisibility(View.VISIBLE);
-                    message.setText("Some error occurred !! \nPlease try again later..");
+                    message.setText(model.getMsg());
 
                     if (status == 503) {
                         Toast.makeText(QuizQuestionActivity.this, "Server Down", Toast.LENGTH_SHORT).show();
