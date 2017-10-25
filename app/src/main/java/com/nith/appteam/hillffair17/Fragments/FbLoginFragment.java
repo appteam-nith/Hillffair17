@@ -15,8 +15,10 @@ import android.widget.Toast;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
+import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.gson.annotations.SerializedName;
@@ -34,6 +36,8 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 /**
  * Created by jaykay12 on 12/2/17.
@@ -68,8 +72,8 @@ public class FbLoginFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_fblogin,container,false);
-        btnLogin = (LoginButton)view.findViewById(R.id.btnLogin);
-        pbLogin = (ProgressBar)view.findViewById(R.id.pbLogin);
+        btnLogin = (LoginButton) view.findViewById(R.id.btnLogin);
+        pbLogin = (ProgressBar) view.findViewById(R.id.pbLogin);
         btnLogin.setFragment(this);
 
         tvSkip = (TextView)view.findViewById(R.id.tvSkip);
@@ -156,8 +160,7 @@ public class FbLoginFragment extends Fragment {
         return view;
     }
 
-    private void saveFbUserData(String name, String email, String picUrl)
-    {
+    private void saveFbUserData(String name, String email, String picUrl) {
         Call<UserSentResponse> userSentResponseCall = Utils.getRetrofitService().sendFbUserData(name,email,picUrl);
         userSentResponseCall.enqueue(new Callback<UserSentResponse>() {
             @Override
@@ -165,6 +168,7 @@ public class FbLoginFragment extends Fragment {
                 UserSentResponse userSentResponse = response.body();
                 if(userSentResponse!=null && response.isSuccess())
                 {
+                    Toast.makeText(getApplicationContext(), userSentResponse.getUserId(), Toast.LENGTH_SHORT).show();
                     Log.v("ID", userSentResponse.getUserId());
                     sharedPref.setLoginStatus(true);
                     sharedPref.setSkipStatus(false);// as user has login succesfully and we make sure  that screen does not come again

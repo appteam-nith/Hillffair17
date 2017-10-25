@@ -78,13 +78,13 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         ArrayList<Fragment> fragmentArrayList=new ArrayList<>();
-        fragmentArrayList.add(new ProfileTab1());
+//        fragmentArrayList.add(new ProfileTab1());
         fragmentArrayList.add(new ProfileTab2());
         fragmentArrayList.add(new ProfileTab3());
 
 
         ArrayList<String> titleArrayList=new ArrayList<>();
-        titleArrayList.add("Events");
+//        titleArrayList.add("Events");
         titleArrayList.add("Basic info");
         titleArrayList.add("News Feed");
         
@@ -93,8 +93,8 @@ public class ProfileActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
 
-        tabLayout.getTabAt(1).select();
-        viewPager.setOffscreenPageLimit(3);
+        tabLayout.getTabAt(0).select();
+        viewPager.setOffscreenPageLimit(2);
 
 
     }

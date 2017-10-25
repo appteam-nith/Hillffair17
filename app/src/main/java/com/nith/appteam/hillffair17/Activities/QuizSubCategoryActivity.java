@@ -51,6 +51,7 @@ public class QuizSubCategoryActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.subcategory_toolbar);
         recyclerView = (RecyclerView) findViewById(R.id.subcategory_recycler);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         progressBar.setVisibility(View.VISIBLE);
         layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);

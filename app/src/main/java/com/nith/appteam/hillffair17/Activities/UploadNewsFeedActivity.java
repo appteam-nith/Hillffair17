@@ -131,10 +131,17 @@ public class UploadNewsFeedActivity extends AppCompatActivity {
             Uri filePath = data.getData();
             String[] filePathColumn = {MediaStore.Images.Media.DATA};
             Cursor c = getContentResolver().query(filePath, filePathColumn, null, null, null);
-            c.moveToFirst();
-            String imgDecodableString = c.getString(c.getColumnIndex(filePathColumn[0]));
-            c.close();
-            editorView.addImage(imgDecodableString);
+            if(c!=null){
+                c.moveToFirst();
+                String imgDecodableString = c.getString(c.getColumnIndex(filePathColumn[0]));
+                c.close();
+                editorView.addImage(imgDecodableString);
+            }
+            else{
+                Toast.makeText(this, "Image can't be uploaded", Toast.LENGTH_SHORT).show();
+            }
+
+
 
         }
     }

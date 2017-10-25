@@ -148,22 +148,24 @@ public class EventActivity extends AppCompatActivity {
             public void onResponse(Call<ClubResponse> call, Response<ClubResponse> response) {
                 recyclerView.setVisibility(View.VISIBLE);
                 progressBar.setVisibility(View.GONE);
-                System.out.println("Helldopajfodm");
-                System.out.println(response.body());
-                if(response.body()!=null) {
-
-                    ClubResponse clubResponse = response.body();
-                    if (clubResponse != null && response.isSuccess()) {
-                        if (clubResponse.isSuccess()) {
-
-                            list = clubResponse.getList();
-
+                try{
+                    ClubResponse clubResponse=response.body();
+                    if(clubResponse!=null && response.isSuccess() ){
+                        if(clubResponse.isSuccess()){
+                            list=clubResponse.getList();
                             adapter.refresh(list);
                         }
-                    } else {
-                        Toast.makeText(EventActivity.this, "Error While Fetching Data", Toast.LENGTH_SHORT).show();
+                        else {
+                            Toast.makeText(EventActivity.this, "Error While Fetching Data", Toast.LENGTH_SHORT).show();
+
+                        }
                     }
                 }
+                catch (Exception e){
+                    Toast.makeText(EventActivity.this, "Check you internet connection..", Toast.LENGTH_SHORT).show();
+                }
+
+
             }
 
             @Override

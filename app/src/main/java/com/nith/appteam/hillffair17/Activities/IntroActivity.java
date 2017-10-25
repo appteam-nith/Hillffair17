@@ -24,7 +24,7 @@ public class IntroActivity extends AppIntro {
         addSlide(AppIntro2Fragment.newInstance(getString(R.string.intro_title_hillfair), getString(R.string.intro_desc_hillfair), R.drawable.hillffair, ContextCompat.getColor(this, R.color.intro1)));
         addSlide(AppIntro2Fragment.newInstance(getString(R.string.intro_title_quiz), getString(R.string.intro_desc_quiz), R.drawable.quiz1, Color.parseColor("#8800ff")));
         addSlide(AppIntro2Fragment.newInstance(getString(R.string.intro_title_news), getString(R.string.intro_desc_news), R.drawable.newsfeed, ContextCompat.getColor(this, R.color.intro_news)));
-        addSlide(AppIntro2Fragment.newInstance(getString(R.string.intro_title_treasure_hunt), getString(R.string.intro_desc_treasure_hunt), R.drawable.game, Color.parseColor("#ff5500")));
+        addSlide(AppIntro2Fragment.newInstance(getString(R.string.intro_title_treasure_hunt), getString(R.string.intro_desc_treasure_hunt), R.drawable.poll_intro, Color.parseColor("#ff5500")));
         addSlide(AppIntro2Fragment.newInstance(getString(R.string.intro_title_notification), getString(R.string.intro_desc_notification), R.drawable.notification, Color.parseColor("#ff3311")));
         addSlide(AppIntro2Fragment.newInstance(getString(R.string.intro_title_ready), getString(R.string.intro_desc_ready), R.drawable.ready_intro, Color.parseColor("#303f9f")));
         setFlowAnimation();
