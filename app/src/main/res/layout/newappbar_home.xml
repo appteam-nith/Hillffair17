@@ -56,16 +56,16 @@
 
 
 
-                <!--<com.cunoraz.continuouscrollable.ContinuousScrollableImageView-->
-                    <!--android:layout_marginTop="220dp"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="90dp"-->
-                    <!--app:direction="left"-->
-                    <!--app:duration="8000"-->
-                    <!--app:imageSrc="@drawable/monument"-->
-                    <!--app:scaleType="fitXy">-->
+                <com.cunoraz.continuouscrollable.ContinuousScrollableImageView
+                    android:layout_marginTop="220dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    app:direction="left"
+                    app:duration="8000"
+                    app:imageSrc="@drawable/monument"
+                    app:scaleType="fitXy">
 
-                <!--</com.cunoraz.continuouscrollable.ContinuousScrollableImageView>-->
+                </com.cunoraz.continuouscrollable.ContinuousScrollableImageView>
 
             </RelativeLayout>
 
