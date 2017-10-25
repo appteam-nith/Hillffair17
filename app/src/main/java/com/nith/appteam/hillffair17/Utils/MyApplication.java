@@ -24,10 +24,10 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-//        OneSignal.startInit(this)
-//                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.InAppAlert)
-//                .setNotificationReceivedHandler(new ExampleNotificationReceivedHandler())
-//                .setNotificationOpenedHandler(new ExampleNotificationOpenedHandler()).init();
+        OneSignal.startInit(this)
+                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.InAppAlert)
+                .setNotificationReceivedHandler(new ExampleNotificationReceivedHandler())
+                .setNotificationOpenedHandler(new ExampleNotificationOpenedHandler()).init();
 
         myApplication=this;
     }
@@ -101,11 +101,9 @@ public class MyApplication extends Application {
 
             // Add the following to your AndroidManifest.xml to prevent the launching of your main Activity
             //   if you are calling startActivity above.
-            /*
-        <application ...>
-          <meta-data android:name="com.onesignal.NotificationOpened.DEFAULT" android:value="DISABLE" />
-        </application>
-     */
+
+
+
   }
 }
 }

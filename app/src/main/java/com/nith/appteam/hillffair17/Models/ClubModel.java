@@ -12,9 +12,9 @@ public class ClubModel {
     private String _id;
     @SerializedName("name")
     private String name;
-    @SerializedName("photo")
+    @SerializedName("banner")
     private String photo;
-    @SerializedName("description")
+    @SerializedName("desc")
     private String description;
 
 

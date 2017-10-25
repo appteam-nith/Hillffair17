@@ -29,7 +29,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class EventActivity extends AppCompatActivity {
-    public static final String CLUB_NAME ="CLUB_NAME" ;
+    public static final String CLUB_ID ="" ;
     private RecyclerView recyclerView;
     private ClubEventAdapter adapter;
     private ProgressBar progressBar;
@@ -52,7 +52,7 @@ public class EventActivity extends AppCompatActivity {
             @Override
             public void onItemClick(View view, int position) {
                 Intent i=new Intent(EventActivity.this,ClubActivity.class);
-                i.putExtra(CLUB_NAME,list.get(position).getName());
+                i.putExtra(CLUB_ID,list.get(position).getId());
                 startActivity(i);
             }
         }));
@@ -110,20 +110,15 @@ public class EventActivity extends AppCompatActivity {
     }
 
     public  class ClubResponse{
-        @SerializedName("clubs")
+        @SerializedName("clubs_data")
         private ArrayList<ClubEvent> list;
 
         @SerializedName("success")
         private boolean success;
 
-        @SerializedName("error")
-        private String error;
 
-        public ClubResponse(ArrayList<ClubEvent> list, boolean success, String error) {
-            this.list = list;
-            this.success = success;
-            this.error = error;
-        }
+        @SerializedName("msg")
+        private boolean msg;
 
         public ArrayList<ClubEvent> getList() {
             return list;
@@ -141,31 +136,33 @@ public class EventActivity extends AppCompatActivity {
             this.success = success;
         }
 
-        public String getError() {
-            return error;
-        }
 
-        public void setError(String error) {
-            this.error = error;
-        }
     }
 
     private  void showData(){
+
         Call<ClubResponse> getClubResponseCall= Utils.getRetrofitService().getAllClub();
+
         getClubResponseCall.enqueue(new Callback<ClubResponse>() {
             @Override
             public void onResponse(Call<ClubResponse> call, Response<ClubResponse> response) {
                 recyclerView.setVisibility(View.VISIBLE);
                 progressBar.setVisibility(View.GONE);
-                ClubResponse clubResponse=response.body();
-                if(clubResponse!=null&&response.isSuccess()){
-                    if(clubResponse.isSuccess()){
-                        list=clubResponse.getList();
-                        adapter.refresh(list);
+                System.out.println("Helldopajfodm");
+                System.out.println(response.body());
+                if(response.body()!=null) {
+
+                    ClubResponse clubResponse = response.body();
+                    if (clubResponse != null && response.isSuccess()) {
+                        if (clubResponse.isSuccess()) {
+
+                            list = clubResponse.getList();
+
+                            adapter.refresh(list);
+                        }
+                    } else {
+                        Toast.makeText(EventActivity.this, "Error While Fetching Data", Toast.LENGTH_SHORT).show();
                     }
-                }
-                else {
-                    Toast.makeText(EventActivity.this,"Error While Fetching Data",Toast.LENGTH_SHORT).show();
                 }
             }
 
