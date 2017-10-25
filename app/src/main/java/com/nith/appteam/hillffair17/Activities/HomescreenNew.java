@@ -54,6 +54,7 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        pref = new SharedPref(this);
 
     }
 
