@@ -72,6 +72,7 @@ public class ContributorsActivity extends AppCompatActivity {
         //2nd Year
         contributorsItems.add(new contributorsItem("Aditya Wazir", BASE_URL + "adityawazir.png", BASE_URL + "adityawazir"));
         contributorsItems.add(new contributorsItem("Anubhaw Bhalotia", BASE_URL + "anubhawbhalotia.png", BASE_URL + "anubhawbhalotia"));
+        contributorsItems.add(new contributorsItem("Bharat Shah", BASE_URL + "bharatshah1498.png", BASE_URL + "bharatshah1498"));
         contributorsItems.add(new contributorsItem("Hemant Singh ", BASE_URL + "joshafest.png", BASE_URL + "joshafest"));
         contributorsItems.add(new contributorsItem("Kaushal Kishor", BASE_URL + "kaushal16124.png", BASE_URL + "kaushal16124"));
         contributorsItems.add(new contributorsItem("Muskan Jhunjhunwalla", BASE_URL + "musukeshu.png", BASE_URL + "musukeshu"));
@@ -82,7 +83,7 @@ public class ContributorsActivity extends AppCompatActivity {
 
         //1st Year
         contributorsItems.add(new contributorsItem("Abhinav Lamba", BASE_URL + "Abhinavlamba.png", BASE_URL + "Abhinavlamba"));
-        contributorsItems.add(new contributorsItem("Abhiraj Singh Rathore", BASE_URL + "AbhirajSinghRathore\t.png", BASE_URL + "AbhirajSinghRathore\t"));
+        contributorsItems.add(new contributorsItem("Abhiraj Singh Rathore", BASE_URL + "AbhirajSinghRathore.png", BASE_URL + "AbhirajSinghRathore"));
         contributorsItems.add(new contributorsItem("Alisha Mehta", BASE_URL + "Alisha1116.png", BASE_URL + "Alisha1116"));
         contributorsItems.add(new contributorsItem("Anshu Akansha", BASE_URL + "AnshuAkansha52227.png", BASE_URL + "AnshuAkansha52227"));
         contributorsItems.add(new contributorsItem("Daniyaal Khan", BASE_URL + "drtweety.png", BASE_URL + "drtweety"));
