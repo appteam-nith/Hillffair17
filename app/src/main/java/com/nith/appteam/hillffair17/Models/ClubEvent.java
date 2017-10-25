@@ -8,16 +8,13 @@ import com.google.gson.annotations.SerializedName;
  * Created by Akatsuki on 3/23/2016.
  */
 public class ClubEvent {
-    @SerializedName("photo")
+    @SerializedName("logo")
     private String image_id;
     @SerializedName("name")
     private String name;
+    @SerializedName("_id")
+    private String id;
 
-
-    public ClubEvent(String image_id, String name) {
-        this.image_id = image_id;
-        this.name = name;
-    }
 
     public String getImage_id() {
         return image_id;
@@ -33,5 +30,13 @@ public class ClubEvent {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

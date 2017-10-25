@@ -32,16 +32,16 @@ public class SingleQuestionModel implements Serializable {
     @SerializedName("question")
     private String question;
 
-    @SerializedName("optionsA")
+    @SerializedName("optionA")
     private String optionsA;
 
-    @SerializedName("optionsB")
+    @SerializedName("optionB")
     private String optionsB;
 
-    @SerializedName("optionsC")
+    @SerializedName("optionC")
     private String optionsC;
 
-    @SerializedName("optionsD")
+    @SerializedName("optionD")
     private String optionsD;
 
     @SerializedName("answer")

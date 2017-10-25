@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
 
 
 public class ClubModel2 {
-        @SerializedName("profile")
+        @SerializedName("club_detail")
         private ClubModel profile;
         @SerializedName("success")
         private boolean success;

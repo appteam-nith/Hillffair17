@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class BattleDayModel {
 
-    @SerializedName("profile")
+    @SerializedName("data")
     ArrayList<BattleDayItem> events;
     @SerializedName("success")
     String success;

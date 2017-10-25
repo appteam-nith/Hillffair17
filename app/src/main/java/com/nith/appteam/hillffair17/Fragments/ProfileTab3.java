@@ -93,7 +93,6 @@ public class ProfileTab3 extends Fragment {
             public void onResponse(Call<NewsFeedResponse> call, Response<NewsFeedResponse> response) {
                 NewsFeedResponse data = response.body();
 
-
                 if (data != null && response.isSuccess()) {
                     if (data.isSuccess()) {
                         if(data.getFeed()!=null){

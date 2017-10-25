@@ -13,7 +13,7 @@ public class SubCategoryQuizModel {
     @SerializedName("success")
     private boolean success;
 
-    @SerializedName("category")
+    @SerializedName("subcategories")
     private ArrayList<SubCategoryQuizSingleModel> subcategories;
 
     public SubCategoryQuizModel(boolean success, ArrayList<SubCategoryQuizSingleModel> subcategories) {

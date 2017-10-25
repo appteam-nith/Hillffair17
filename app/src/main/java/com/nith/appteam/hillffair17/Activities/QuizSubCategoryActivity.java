@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.nith.appteam.hillffair17.Adapters.QuizCategoryAdapter;
+import com.nith.appteam.hillffair17.Adapters.QuizSubCategoryAdapter;
 import com.nith.appteam.hillffair17.Models.CategoryQuizModel;
 import com.nith.appteam.hillffair17.Models.CategoryQuizSingleModel;
 import com.nith.appteam.hillffair17.Models.SubCategoryQuizModel;
@@ -32,7 +34,7 @@ public class QuizSubCategoryActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private ArrayList<CategoryQuizSingleModel> categories;
+    private ArrayList<SubCategoryQuizSingleModel> categories;
     private ProgressBar progressBar;
     private Toolbar toolbar;
     @Override
@@ -44,6 +46,7 @@ public class QuizSubCategoryActivity extends AppCompatActivity {
         {
             categoryname = i1.getExtras().getString("Category_Name");
         }
+
         progressBar = (ProgressBar) findViewById(R.id.subcategory_progress);
         toolbar = (Toolbar) findViewById(R.id.subcategory_toolbar);
         recyclerView = (RecyclerView) findViewById(R.id.subcategory_recycler);
@@ -57,8 +60,9 @@ public class QuizSubCategoryActivity extends AppCompatActivity {
             public void onItemClick(View view, int position) {
 
                 Intent i = new Intent(getApplicationContext(),QuizActivity.class);
-                i.putExtra("Category_Name",categoryname);
+                i.putExtra("Category_Name",subcategories.get(position).getCategory());
                 i.putExtra("Topic_Name",subcategories.get(position).getName());
+                startActivity(i);
             }
         }));
         getsubcategory();
@@ -76,9 +80,14 @@ public class QuizSubCategoryActivity extends AppCompatActivity {
                     subcategories = response.body().getCategories();
                     if(subcategories.size()>0)
                     {
-                        adapter = new QuizCategoryAdapter(categories,getApplicationContext());
+                        adapter = new QuizSubCategoryAdapter(subcategories,getApplicationContext());
 
                     }
+                    recyclerView.setAdapter(adapter);
+                    progressBar.setVisibility(View.GONE);
+                }
+                else
+                {
                     recyclerView.setAdapter(adapter);
                     progressBar.setVisibility(View.GONE);
                 }
