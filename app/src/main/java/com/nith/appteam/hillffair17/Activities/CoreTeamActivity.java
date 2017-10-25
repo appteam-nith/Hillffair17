@@ -32,6 +32,9 @@ public class CoreTeamActivity extends AppCompatActivity {
         recycler_view=(RecyclerView)findViewById(R.id.core_team_list);
         array_list=new ArrayList<>();
 
+        array_list.add(new CoreTeamItem("Dr. Saroj Thakur","Faculty Coordinator",BASE_URL+"saroj_thakur.jpg"));
+        array_list.add(new CoreTeamItem("Dr. Gargi Khanna","Faculty Co-Coordinator",BASE_URL+"aditya_khurana.jpg"));
+        array_list.add(new CoreTeamItem("Dr. Aniket Sharma","Faculty Co-Coordinator",BASE_URL+"aditya_khurana.jpg"));
 
         array_list.add(new CoreTeamItem("Aditya Khurana","Event Manager",BASE_URL+"aditya_khurana.jpg"));
         array_list.add(new CoreTeamItem("Utkarsh Singh","Cultural Secretary","utkarsh_singh.jpg"));
@@ -61,12 +64,13 @@ public class CoreTeamActivity extends AppCompatActivity {
         array_list.add(new CoreTeamItem("Agni Thakur","Convener (Dance Club)",BASE_URL+"photos/rishabh_bhandari.jpg"));
         array_list.add(new CoreTeamItem("Aditya Singh Bisht","Convener (Music Club)",BASE_URL+"aditya_singh_bisht.jpeg"));
         array_list.add(new CoreTeamItem("Akhil Verma","Convener (Discipline)",BASE_URL+"akhil_verma.jpg"));
-        array_list.add(new CoreTeamItem("Saurabh Kumar","Convener (Web Team)",BASE_URL+"saroj_thakur.jpg"));
+        array_list.add(new CoreTeamItem("Akshay Sharma","Convener (Discipline)",BASE_URL+"akshay_sharma.jpeg"));
+        array_list.add(new CoreTeamItem("Saurabh Kumar","Convener (Web Team)",BASE_URL+"saurabh_kumar.jpg"));
         array_list.add(new CoreTeamItem("Anand Atwal","Convener (INS & Control)",BASE_URL+"anand_atwal.jpg"));
         array_list.add(new CoreTeamItem("Didhiti Dhiman","Convener (Fine Arts)",BASE_URL+"didhiti_dhiman.jpeg"));
         array_list.add(new CoreTeamItem("Deepanshu Kohli","Convener (In4mals)","deepanshu_kohli.jpg"));
         array_list.add(new CoreTeamItem("Arpit Chaudhary","Convener (In4mals)",BASE_URL+"arpit_chaudhary.jpg"));
-        array_list.add(new CoreTeamItem("Shivam Mahajan","Convener (Fash P)",BASE_URL+"photos/rishabh_bhandari.jpg"));
+//        array_list.add(new CoreTeamItem("Shivam Mahajan","Convener (Fash P)",BASE_URL+"photos/rishabh_bhandari.jpg"));
         array_list.add(new CoreTeamItem("Navanshu Aggarwal","Convener (English Club)",BASE_URL+"navanshu_agarwal.jpeg"));
         array_list.add(new CoreTeamItem("Vikas","Convener (Decoration)",BASE_URL+"vikas_thapar.jpeg"));
         array_list.add(new CoreTeamItem("Shreshth Talwar","Convener (Public Relations)",BASE_URL+"shreshth_talwar.jpeg"));
