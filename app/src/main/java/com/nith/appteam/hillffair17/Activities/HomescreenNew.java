@@ -26,6 +26,7 @@ import android.widget.Toast;
 
 import com.nith.appteam.hillffair17.Notification.NotificationActivity;
 import com.nith.appteam.hillffair17.R;
+import com.nith.appteam.hillffair17.Utils.SharedPref;
 
 public class HomescreenNew extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -35,6 +36,7 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
     private static String[] PERMISSIONS_PHONECALL = {Manifest.permission.CALL_PHONE};
     final String number[] = {"9882654141", "9882852966"};
     int a=0;
+    private SharedPref pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,11 +127,11 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.logout) {
-//            pref.setUserId(null);
-//            pref.setRollNo(null);
-//            pref.setUserName(null);
-//            startActivity(new Intent(HomeActivity.this,LoginActivity.class));
-//            finish();
+            pref.setUserId(null);
+            pref.setUserRollno(null);
+            pref.setUserName(null);
+            startActivity(new Intent(HomescreenNew.this,LoginActivity.class));
+            finish();
             return true;
 
         } else if(id == R.id.contacts){
@@ -163,12 +165,12 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
         int id = item.getItemId();
         switch(id) {
             case R.id.profile:
-//                startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
+                startActivity(new Intent(HomescreenNew.this, ProfileActivity.class));
                 break;
-            case R.id.settings:
+//            case R.id.settings:
 //                startActivity(new Intent(HomeActivity.this, SettingsActivity.class));
 //                finish();
-                break;
+//                break;
             case R.id.aboutus:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(String.format("%1$s", getString(R.string.app_name)));
@@ -201,11 +203,16 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
                 startActivity(new Intent(HomescreenNew.this, NotificationActivity.class));
                 break;
             case R.id.logout:
-//                pref.setUserId(null);
-//                pref.setRollNo(null);
-//                pref.setUserName(null);
-//                startActivity(new Intent(HomeActivity.this,LoginActivity.class));
-//                finish();
+//                if(pref.getLoginStatus()){
+                    pref.setUserId(null);
+                    pref.setUserRollno(null);
+                    pref.setUserName(null);
+                    startActivity(new Intent(HomescreenNew.this,LoginActivity.class));
+                    finish();
+//                }
+//                else{
+//                    Toast.makeText(this,"Please Login first",Toast.LENGTH_LONG).show();
+//                }
                 break;
 
         }

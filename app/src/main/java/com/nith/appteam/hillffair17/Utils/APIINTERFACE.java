@@ -12,6 +12,7 @@ import com.nith.appteam.hillffair17.Models.CategoryQuizSingleModel;
 import com.nith.appteam.hillffair17.Models.ClubModel2;
 import com.nith.appteam.hillffair17.Models.GalleryDetailResponse;
 import com.nith.appteam.hillffair17.Models.GalleryResponse;
+import com.nith.appteam.hillffair17.Models.LeaderBoardModel;
 import com.nith.appteam.hillffair17.Models.Likecount;
 import com.nith.appteam.hillffair17.Models.NewsFeedResponse;
 import com.nith.appteam.hillffair17.Models.ProfileDataModel;
@@ -98,6 +99,9 @@ public interface APIINTERFACE {
 
     @POST("update/rollno/{id}")
     Call<RegisterResponse> updateRollNo(@Path("id") String id, @Query("roll_no") String rollNo);
+
+    @GET("quiz/leaderboard")
+    Call<LeaderBoardModel> getLeaderBoard();
 
 }
 
