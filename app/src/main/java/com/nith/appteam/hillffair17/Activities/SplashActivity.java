@@ -20,6 +20,9 @@ public class SplashActivity extends AppCompatActivity {
             startActivity(new Intent(this, IntroActivity.class));
         else
             startActivity(new Intent(this, HomescreenNew.class));
+
+          //  startActivity(new Intent(this, HomescreenNew.class));
+
         finish();
     }
 }

@@ -21,6 +21,7 @@ import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.gson.annotations.SerializedName;
 import com.nith.appteam.hillffair17.Activities.HomeActivity;
+import com.nith.appteam.hillffair17.Activities.HomescreenNew;
 import com.nith.appteam.hillffair17.R;
 import com.nith.appteam.hillffair17.Utils.SharedPref;
 import com.nith.appteam.hillffair17.Utils.Utils;
@@ -77,7 +78,7 @@ public class FbLoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 sharedPref.setSkipStatus(true);
-                startActivity(new Intent(getContext(), HomeActivity.class));
+                startActivity(new Intent(getContext(), HomescreenNew.class));
             }
         });
 
@@ -142,7 +143,7 @@ public class FbLoginFragment extends Fragment {
             public void onCancel() {
                 sharedPref.setSkipStatus(true);
                 sharedPref.setLoginStatus(false);
-                getActivity().startActivity(new Intent(getActivity(), HomeActivity.class));
+                getActivity().startActivity(new Intent(getActivity(), HomescreenNew.class));
                 getActivity().finish();
             }
 
@@ -170,7 +171,7 @@ public class FbLoginFragment extends Fragment {
                     sharedPref.setUserId(userSentResponse.getUserId());
 
                     pbLogin.setVisibility(View.GONE);
-                    Intent intent = new Intent(getActivity(), HomeActivity.class);
+                    Intent intent = new Intent(getActivity(), HomescreenNew.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
 
                     getActivity().startActivity(intent);

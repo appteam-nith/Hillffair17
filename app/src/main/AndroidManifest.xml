@@ -21,6 +21,7 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyByIUspPrtzSN1TGWXi2zXn7zaeTGr6850" />
@@ -85,7 +86,9 @@
             android:name=".Activities.QuizSubCategoryActivity" />
 
         <activity
-            android:name=".Activities.NewsFeedActivity"/>
+            android:name=".Activities.NewsFeedActivity"
+            android:parentActivityName=".Activities.WallIntroActivity"
+            />
 
         <activity
             android:name=".Activities.HomescreenNew"
@@ -112,10 +115,35 @@
 
         <activity
             android:name=".Activities.LoginActivity"
-            android:exported="true" />
+            android:exported="true"
+
+            />
 
         <activity android:name=".Activities.UploadNewsFeedActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".Activities.WallIntroActivity"
+            />
+        <service
+            android:name=".Service.UploadService"
+            android:exported="false" />
+
+        <receiver android:name=".Service.UploadBroadCastReceiver">
+            <intent-filter>
+                <action android:name="start" />
+                <action android:name="finish" />
+                <action android:name="error" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="CLOUDINARY_URL"
+            android:value="cloudinary://862148829278388:hJQPvA-kYbt8TRsp0bMSdqH65NE@appteamnith" />
+
+
+        <activity android:name=".Activities.WallIntroActivity"
+            android:exported="true"
+            android:parentActivityName=".Activities.HomescreenNew"
+            />
 
         <activity android:name=".Activities.LeaderBoardActivity"
             android:parentActivityName=".Activities.HomescreenNew"

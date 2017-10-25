@@ -28,6 +28,7 @@ public class MyApplication extends Application {
 //                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.InAppAlert)
 //                .setNotificationReceivedHandler(new ExampleNotificationReceivedHandler())
 //                .setNotificationOpenedHandler(new ExampleNotificationOpenedHandler()).init();
+
         myApplication=this;
     }
 

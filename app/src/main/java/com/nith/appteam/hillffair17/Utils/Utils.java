@@ -64,7 +64,7 @@ public class Utils {
             }
         });
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://api-hillfair-2k16.herokuapp.com/api/app/").addConverterFactory(GsonConverterFactory.create()).client(oBuilder.build()).build();
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://hillffair.com:3000/api/").addConverterFactory(GsonConverterFactory.create()).client(oBuilder.build()).build();
         APIINTERFACE service = retrofit.create(APIINTERFACE.class);
         return service;
     }

@@ -60,11 +60,11 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
 
 
     public void openQuiz(View v){
-        Intent i = new Intent(this,QuizActivity.class);
+        Intent i = new Intent(this,QuizCategoryActivity.class);
         startActivity(i);
     }
     public void openNewsfeed(View v){
-        Intent i = new Intent(this,NewsFeedActivity.class);
+        Intent i = new Intent(this,WallIntroActivity.class);
         startActivity(i);
     }
     public void openMap(View v){
@@ -167,6 +167,10 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
             case R.id.profile:
                 startActivity(new Intent(HomescreenNew.this, ProfileActivity.class));
                 break;
+//            case R.id.settings:
+//                startActivity(new Intent(HomeActivity.this, SettingsActivity.class));
+//                finish();
+//                break;
 //            case R.id.settings:
 //                startActivity(new Intent(HomeActivity.this, SettingsActivity.class));
 //                finish();

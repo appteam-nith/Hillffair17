@@ -41,7 +41,6 @@ public class UploadService extends IntentService {
     private static  final String ROLL_NO="rollNo";
     private static final String WORK="work";
 
-
 public UploadService(){
     super("UploadService");
 }
@@ -53,48 +52,50 @@ public UploadService(){
     @Override
     protected void onHandleIntent(Intent intent) {
         sharedPref = new SharedPref(this);
-        if (intent != null) {
-            if (intent.hasExtra(UPLOAD_SERVICE)) {
-                String title = "", description = "", imageUrl = "";
-                if (intent.hasExtra(TITLE)) {
-                    title = intent.getStringExtra(TITLE);
-                }
-                if (intent.hasExtra(DESCRIPTION)) {
-                    description = intent.getStringExtra(DESCRIPTION);
-                }
-                if (intent.hasExtra(URL_IMAGE)) {
-                    imageUrl = intent.getStringExtra(URL_IMAGE);
-                    Cloudinary cloudinary = new Cloudinary(Utils.cloudinaryUrlFromContext(MyApplication.getAppContext()));
-                    try {
-                        Intent i = new Intent(UPLOADING_START);
-                        i.putExtra(WORK,"NewsFeed");
-                        sendBroadcast(i);
-                        Map map = cloudinary.uploader().upload(imageUrl.trim(), ObjectUtils.asMap("public_id", sharedPref.getUserName() + "" + com.nith.appteam.hillffair17.Utils.Utils.random()));
-                        upload(title, description, (String) map.get("url"));
-                        Log.d("image", (String) map.get("url"));
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        Intent i = new Intent();
-                        i.setAction(UPLOADING_ERROR);
-                        i.putExtra(WORK, "NewsFeed");
-                        sendBroadcast(i);
-                    }
-                }
-                else {
-                    Intent i = new Intent(UPLOADING_START);
-                    i.putExtra(WORK,"NewsFeed");
-                    sendBroadcast(i);
-                    upload(title, description,"");
-                }
-
+        System.out.println("jjjssasas");
+        if (intent != null) if (intent.hasExtra(UPLOAD_SERVICE)) {
+            String title = "", description = "", imageUrl = "";
+            if (intent.hasExtra(TITLE)) {
+                title = intent.getStringExtra(TITLE);
             }
-            else if(intent.hasExtra(REGISTER_ROLL_NO)){
-                 if(intent.hasExtra(ROLL_NO)){
-                     Intent i = new Intent(UPLOADING_START);
-                     i.putExtra(WORK,"Roll Number");
-                     sendBroadcast(i);
-                     registerRollNo(intent.getStringExtra(ROLL_NO),sharedPref.getUserId());
-                 }
+            if (intent.hasExtra(DESCRIPTION)) {
+                description = intent.getStringExtra(DESCRIPTION);
+            }
+            if (intent.hasExtra(URL_IMAGE)) {
+                imageUrl = intent.getStringExtra(URL_IMAGE);
+                System.out.println(imageUrl);
+                Cloudinary cloudinary = new Cloudinary(Utils.cloudinaryUrlFromContext(getApplicationContext()));
+                System.out.println("hello");
+                try {
+                    Intent i = new Intent(UPLOADING_START);
+                    i.putExtra(WORK, "NewsFeed");
+                    sendBroadcast(i);
+                    Map map = cloudinary.uploader().upload(imageUrl.trim(), ObjectUtils.asMap("public_id", sharedPref.getUserName() + "" + com.nith.appteam.hillffair17.Utils.Utils.random()));
+                    upload(title, description, (String) map.get("url"));
+                    Log.d("image", (String) map.get("url"));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Intent i = new Intent();
+                    i.setAction(UPLOADING_ERROR);
+                    i.putExtra(WORK, "NewsFeed");
+                    sendBroadcast(i);
+
+                }
+            }
+
+            Intent i = new Intent(UPLOADING_START);
+            i.putExtra(WORK, "NewsFeed");
+            sendBroadcast(i);
+
+            upload(title, description, "");
+
+
+        } else if (intent.hasExtra(REGISTER_ROLL_NO)) {
+            if (intent.hasExtra(ROLL_NO)) {
+                Intent i = new Intent(UPLOADING_START);
+                i.putExtra(WORK, "Roll Number");
+                sendBroadcast(i);
+                registerRollNo(intent.getStringExtra(ROLL_NO), sharedPref.getUserId());
             }
         }
     }
@@ -110,10 +111,11 @@ public UploadService(){
                 if (result != null && response.isSuccess()) {
                     if (result.getSuccess()) {
                         Intent i=new Intent(UPLOADING_FINISH);
+                        System.out.println("dsds");
                         i.putExtra(WORK,"NewsFeed");
                         sendBroadcast(i);
                     } else {
-
+                        System.out.println("ds");
                     }
                 } else {
                     if (status_code == 404) {
