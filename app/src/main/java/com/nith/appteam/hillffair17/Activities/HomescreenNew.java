@@ -98,6 +98,10 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
         Intent i = new Intent(this,BattleDayActivity.class);
         startActivity(i);
     }
+    public void openLeaderboard(View v){
+        Intent i = new Intent(this,LeaderBoardActivity.class);
+        startActivity(i);
+    }
     public void openSponsors(View v){
         Intent i = new Intent(this,SponsorActivity.class);
         startActivity(i);

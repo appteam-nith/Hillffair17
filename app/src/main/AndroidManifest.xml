@@ -20,6 +20,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:largeHeap="true"
         android:theme="@style/AppTheme">
 
         <meta-data
@@ -142,6 +143,7 @@
             android:exported="true" />
 
         <activity android:name=".Notification.NotificationActivity"
+            android:parentActivityName=".Activities.HomescreenNew"
             android:exported="true"
             />
 

@@ -46,7 +46,7 @@ public class LeaderBoardAdapter extends  RecyclerView.Adapter<LeaderBoardAdapter
         LeaderBoardActivity.LeaderBoardUserModel user=users.get(position);
 
         holder.username.setText(user.getName().toString());
-        holder.score.setText("Score: "+ Integer.toString(user.getScore()));
+        holder.score.setText("Score: "+Integer.toString(user.getSets().getScore()));
         Glide.with(context).load(user.getPhoto()).into(holder.photo);
 
         final ImageView imageView=holder.photo;
@@ -61,7 +61,7 @@ public class LeaderBoardAdapter extends  RecyclerView.Adapter<LeaderBoardAdapter
             }
         });
 
-        Integer prsnlscore = user.getScore();
+        Integer prsnlscore = user.getSets().getScore();
         if(prsnlscore>=800) holder.useraward.setImageResource(R.drawable.trophy_gold);
         else if(prsnlscore>=600) holder.useraward.setImageResource(R.drawable.trophy_silver);
         else if(prsnlscore>=450) holder.useraward.setImageResource(R.drawable.trophy_bronze);
@@ -69,7 +69,7 @@ public class LeaderBoardAdapter extends  RecyclerView.Adapter<LeaderBoardAdapter
         else if(prsnlscore>=150) holder.useraward.setImageResource(R.drawable.trophy_silverbadge);
         else if(prsnlscore>0) holder.useraward.setImageResource(R.drawable.trophy_bronzebadge);
         else if(prsnlscore==0) holder.useraward.setImageResource(R.drawable.trophy_participation);
-        holder.sets.setText("Sets: "+ Integer.toString(user.getSets()));
+        holder.sets.setText("Sets: "+Integer.toString(user.getSets().getSets()));
     }
 
     @Override

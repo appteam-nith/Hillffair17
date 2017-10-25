@@ -44,7 +44,7 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                    if(finalPref.getLoginStatus()){
+                    if(finalPref.getUserId().isEmpty()){
                         Snackbar.make(coordinatorLayout,"Please Login To Attempt Quiz", Snackbar.LENGTH_INDEFINITE).setAction("Login", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {

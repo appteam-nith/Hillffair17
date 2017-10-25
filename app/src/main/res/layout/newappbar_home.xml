@@ -236,19 +236,19 @@
 
                     <TextView
                         android:layout_centerVertical="true"
-                        android:layout_width="130dp"
+                        android:layout_width="145dp"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:text="Battle Day"
+                        android:text="Leaderboard"
                         android:paddingRight="15dp"
                         android:paddingLeft="10dp"
                         android:textSize="17sp"
                         android:paddingTop="8dp"
                         android:paddingBottom="8dp"
                         android:background="@drawable/tag_bg_green"
-                        android:layout_marginStart="30dp"
+                        android:layout_marginStart="15dp"
                         android:id="@+id/tag3"
-                        android:onClick="openBattleday" />
+                        android:onClick="openLeaderboard" />
 
                     <ImageView
                         android:layout_marginLeft="80dp"
@@ -267,11 +267,11 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@drawable/cirular_icon_bg"
-                        android:src="@drawable/battleday_icon"
+                        android:src="@drawable/leaderboard_icon"
                         android:padding="10dp"
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="190dp"
-                        android:onClick="openBattleday" />
+                        android:onClick="openLeaderboard" />
 
 
                 </RelativeLayout>

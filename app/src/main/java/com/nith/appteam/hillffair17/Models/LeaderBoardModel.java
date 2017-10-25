@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class LeaderBoardModel {
 
-    @SerializedName("users")
+    @SerializedName("scoreboard")
     private ArrayList<LeaderBoardActivity.LeaderBoardUserModel> users;
 
     public LeaderBoardModel(ArrayList<LeaderBoardActivity.LeaderBoardUserModel> users) {

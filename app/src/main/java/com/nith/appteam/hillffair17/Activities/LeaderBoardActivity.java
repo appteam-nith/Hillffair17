@@ -104,37 +104,14 @@ public class LeaderBoardActivity extends AppCompatActivity {
         @SerializedName("roll_no")
         private String rollNo;
 
-        @SerializedName("score")
-        private int score;
+        @SerializedName("quiz")
+        private Quiz sets;
 
-        @SerializedName("sets")
-        private int sets;
-
-
-        public LeaderBoardUserModel(String name, String photo, String rollNo, int sets, int score) {
+        public LeaderBoardUserModel(String name, String photo, String rollNo, Quiz sets) {
             this.photo=photo;
             this.name = name;
             this.rollNo = rollNo;
             this.sets = sets;
-            this.score = score;
-        }
-
-
-        public int getScore() {
-            return score;
-        }
-
-        public void setScore(int score) {
-            this.score = score;
-        }
-
-
-        public void setSets(int sets) {
-            this.sets = sets;
-        }
-
-        public int getSets() {
-            return sets;
         }
 
         public String getPhoto() {
@@ -161,6 +138,43 @@ public class LeaderBoardActivity extends AppCompatActivity {
             this.rollNo = rollNo;
         }
 
+        public Quiz getSets() {
+            return sets;
+        }
+
+        public void setSets(Quiz sets) {
+            this.sets = sets;
+        }
+
+    }
+
+    public class Quiz{
+
+        @SerializedName("score")
+        private int score;
+        @SerializedName("sets")
+        private int sets;
+
+        public Quiz(int score, int sets) {
+            this.score = score;
+            this.sets = sets;
+        }
+
+        public int getScore() {
+            return score;
+        }
+
+        public void setScore(int score) {
+            this.score = score;
+        }
+
+        public int getSets() {
+            return sets;
+        }
+
+        public void setSets(int sets) {
+            this.sets = sets;
+        }
     }
 
 }
