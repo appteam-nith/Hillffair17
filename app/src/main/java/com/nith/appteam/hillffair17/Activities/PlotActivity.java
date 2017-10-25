@@ -4,6 +4,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,6 +65,7 @@ public class PlotActivity extends AppCompatActivity {
 //        updateBarEntry();
 //        updateBarLabels();
         plotData();
+
         barDataset = new BarDataSet(barEntry, "response");
         barData = new BarData(barEntryLabels, barDataset);
 //        barData.setGroupSpace(0.1f);
@@ -93,8 +95,9 @@ public class PlotActivity extends AppCompatActivity {
            @Override
            public void onResponse(Call<PollStatistics> call, Response<PollStatistics> response) {
                if (response.isSuccess()) {
-
+                   Log.v("fgchjjghjkl","addddddditya");
                    PollStatistics model=response.body();
+                   Log.v("ERRORRRRRR",response.body().getQuestion()+"");
                    barEntry.add(new BarEntry(Float.parseFloat(model.getnOptionA()),0));
                    barEntry.add(new BarEntry(Float.parseFloat(model.getnOptionB()),1));
                    barEntry.add(new BarEntry(Float.parseFloat(model.getnOptionC()),2));
@@ -106,11 +109,22 @@ public class PlotActivity extends AppCompatActivity {
                    barEntryLabels.add(model.getOptionD());
 
                }
+               else{
+                   Log.v("fgchjjghjkl","surazzz");
+                   for(int i=0;i<4;i++){
+                       barEntry.add(new BarEntry(1,i));
+                       barEntryLabels.add(""+i);
+                   }
+               }
+
            }
 
            @Override
            public void onFailure(Call<PollStatistics> call, Throwable t) {
-
+               for(int i=0;i<4;i++){
+                   barEntry.add(new BarEntry(1,i));
+                   barEntryLabels.add(""+i);
+               }
                Toast.makeText(PlotActivity.this,"Error While Fetching Data.",Toast.LENGTH_SHORT).show();
            }
        });

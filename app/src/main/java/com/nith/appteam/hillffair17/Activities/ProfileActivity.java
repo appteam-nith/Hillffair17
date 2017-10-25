@@ -93,8 +93,8 @@ public class ProfileActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
 
-        tabLayout.getTabAt(1).select();
-        viewPager.setOffscreenPageLimit(3);
+        tabLayout.getTabAt(0).select();
+        viewPager.setOffscreenPageLimit(2);
 
 
     }
