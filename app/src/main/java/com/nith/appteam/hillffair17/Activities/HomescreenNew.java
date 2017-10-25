@@ -17,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,9 +25,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+
+import com.nith.appteam.hillffair17.Models.ProfileDataModel;
 import com.nith.appteam.hillffair17.Notification.NotificationActivity;
 import com.nith.appteam.hillffair17.R;
+import com.nith.appteam.hillffair17.Utils.APIINTERFACE;
+import com.nith.appteam.hillffair17.Utils.Connection;
 import com.nith.appteam.hillffair17.Utils.SharedPref;
+import com.nith.appteam.hillffair17.Utils.Utils;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HomescreenNew extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -55,6 +65,10 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
         navigationView.setNavigationItemSelectedListener(this);
 
         pref = new SharedPref(this);
+
+        if(new Connection(this).isInternet()){
+            profileBasicInfo(pref.getUserId());
+        }
 
     }
 
@@ -263,36 +277,37 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
 
     }
 
-//    private void profileBasicInfo(String id){
-//
-//        APIINTERFACE mAPI = Utils.getRetrofitService();
-//        Call<ProfileDataModel> mService = mAPI.profileBasicInfo(id);
-//        mService.enqueue(new Callback<ProfileDataModel>() {
-//            @Override
-//            public void onResponse(Call<ProfileDataModel> call, Response<ProfileDataModel> response) {
-//                if(response!=null&&response.isSuccess()){
-//                    if(response.body().isSuccess()){
-//                        ProfileTab2.ProfileBasicDetailModel model=response.body().getProfileInfo();
-//                        if(model!=null){
-//                            pref.setUserName(model.getName());
-//                            if(model.getRollno()==null)
-//                                pref.setRollNo("");
-//                            else
-//                                pref.setRollNo(model.getRollno());
-//                        }
-//
-//                    }
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ProfileDataModel> call, Throwable t) {
-//                t.printStackTrace();
-//            }
-//        });
-//
-//    }
+    private void profileBasicInfo(String id){
+
+        APIINTERFACE mAPI = Utils.getRetrofitService();
+        Call<ProfileDataModel> mService = mAPI.profileBasicInfo(id);
+
+        mService.enqueue(new Callback<ProfileDataModel>() {
+            @Override
+            public void onResponse(Call<ProfileDataModel> call, Response<ProfileDataModel> response) {
+                if(response!=null && response.isSuccess()){
+                    if(response.body().isSuccess()){
+                        ProfileDataModel model = response.body();
+                        //For Testing
+                        Log.v("RESPONSE SUCCESS"," "+model.getRollno()+" "+model.getName()+" "+model.getEmail()+ " "+model.getPhoto());
+
+                        if(model!=null){
+
+                            pref.setUserName(model.getName());
+                            pref.setUserEmail(model.getEmail());
+                            pref.setUserRollno(model.getRollno());
+                            pref.setUserPicUrl(model.getPhoto());
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ProfileDataModel> call, Throwable t) {
+                t.printStackTrace();
+
+            }
+        });}
 
 
 

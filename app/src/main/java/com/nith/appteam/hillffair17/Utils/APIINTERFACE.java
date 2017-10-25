@@ -90,9 +90,8 @@ public interface APIINTERFACE {
     @GET("galleryAll")
     Call<GalleryResponse> getGalleryAll();
 
-    @POST("register")
-
     @FormUrlEncoded
+    @POST("register")
     Call<FbLoginFragment.UserSentResponse> sendFbUserData(@Field("name") String name, @Field("email") String email, @Field("pic_url")String picUrl);
 
     @POST("update/rollno/{id}")
