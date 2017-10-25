@@ -203,11 +203,16 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
                 startActivity(new Intent(HomescreenNew.this, NotificationActivity.class));
                 break;
             case R.id.logout:
-                pref.setUserId(null);
-                pref.setUserRollno(null);
-                pref.setUserName(null);
-                startActivity(new Intent(HomescreenNew.this,LoginActivity.class));
-                finish();
+//                if(pref.getLoginStatus()){
+                    pref.setUserId(null);
+                    pref.setUserRollno(null);
+                    pref.setUserName(null);
+                    startActivity(new Intent(HomescreenNew.this,LoginActivity.class));
+                    finish();
+//                }
+//                else{
+//                    Toast.makeText(this,"Please Login first",Toast.LENGTH_LONG).show();
+//                }
                 break;
 
         }

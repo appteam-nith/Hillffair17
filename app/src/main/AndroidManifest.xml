@@ -117,6 +117,10 @@
         <activity android:name=".Activities.UploadNewsFeedActivity"
             android:exported="true" />
 
+        <activity android:name=".Activities.LeaderBoardActivity"
+            android:parentActivityName=".Activities.HomescreenNew"
+            android:exported="true" />
+
     </application>
 
 </manifest>

@@ -193,10 +193,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             case R.id.profile:
 //                startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
                 break;
-            case R.id.settings:
+//            case R.id.settings:
 //                startActivity(new Intent(HomeActivity.this, SettingsActivity.class));
 //                finish();
-                break;
+//                break;
             case R.id.aboutus:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(String.format("%1$s", getString(R.string.app_name)));
