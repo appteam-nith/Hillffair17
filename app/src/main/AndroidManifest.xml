@@ -145,6 +145,10 @@
             android:parentActivityName=".Activities.HomescreenNew"
             />
 
+        <activity android:name=".Activities.LeaderBoardActivity"
+            android:parentActivityName=".Activities.HomescreenNew"
+            android:exported="true" />
+
     </application>
 
 </manifest>
