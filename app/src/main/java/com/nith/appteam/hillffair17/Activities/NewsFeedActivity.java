@@ -94,7 +94,7 @@ public class NewsFeedActivity extends AppCompatActivity implements SwipeRefreshL
                 Snackbar.make(coordinatorLayout,"Please Login To See The Content",Snackbar.LENGTH_INDEFINITE).setAction("Login", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(NewsFeedActivity.this,HomeActivity.class));
+                        startActivity(new Intent(NewsFeedActivity.this,LoginActivity.class));
                     }
                 }).show();
             }

@@ -93,12 +93,13 @@ public class ProfileTab3 extends Fragment {
             public void onResponse(Call<NewsFeedResponse> call, Response<NewsFeedResponse> response) {
                 NewsFeedResponse data = response.body();
 
-
+                System.out.println("hello world");
                 if (data != null && response.isSuccess()) {
                     if (data.isSuccess()) {
                         if(data.getFeed()!=null){
                             list.addAll(data.getFeed());
                             if(list.size()>0){
+                                System.out.println(list.size());
                                 recyclerView.setVisibility(View.VISIBLE);
                                 progress.setVisibility(View.GONE);
                                 adapter.refresh(list);

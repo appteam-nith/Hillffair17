@@ -26,6 +26,7 @@ public class UploadBroadCastReceiver extends BroadcastReceiver {
         NotificationCompat.Builder builder=new NotificationCompat.Builder(context);
          switch (intent.getAction()){
              case UPLOADING_START:
+                 System.out.println("Please work");
                  notificationManager.cancel(UPLOAD_ID);
                  Log.d("reciever","start");
                  builder.setContentTitle("Uploading the "+intent.getStringExtra(WORK));

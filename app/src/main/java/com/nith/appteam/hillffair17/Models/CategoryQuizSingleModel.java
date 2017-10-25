@@ -8,16 +8,27 @@ import com.google.gson.annotations.SerializedName;
 
 public class CategoryQuizSingleModel {
 
-    @SerializedName("Category_Name")
+    @SerializedName("_id")
+    String id;
+
+    @SerializedName("name")
     private String name;
 
-    @SerializedName("Category_Photo")
+    @SerializedName("pic_url")
     private String photo;
 
-    public CategoryQuizSingleModel(String name,String photo)
-    {
-        this.photo=photo;
+    public CategoryQuizSingleModel(String id, String name, String photo) {
+        this.id = id;
         this.name = name;
+        this.photo = photo;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {

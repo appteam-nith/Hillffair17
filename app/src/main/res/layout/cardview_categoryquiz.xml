@@ -11,11 +11,13 @@
         >
 
      <ImageView
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
+         android:layout_width="102dp"
+         android:layout_height="105dp"
          android:id="@+id/img_category"
          android:background="@drawable/about"
          android:layout_gravity="center"
+         android:layout_marginTop="10dp"
+         android:layout_marginBottom="25dp"
          />
     <TextView
         android:id="@+id/name_category"
@@ -23,6 +25,7 @@
         android:layout_height="wrap_content"
         android:text="Hello"
         android:layout_gravity="center"
+        android:textSize="20dp"
         />
 
 </LinearLayout>

@@ -39,7 +39,7 @@ public interface APIINTERFACE {
 
 
 
-    @GET("club")
+    @GET("clubs")
     Call<EventActivity.ClubResponse> getAllClub();
 
     @GET("club/{club_name}")
@@ -55,8 +55,8 @@ public interface APIINTERFACE {
     @GET("events/special/event")
     Call<com.nith.appteam.hillffair17.Activities.ClubActivity.BattleResponseEvent> getEventData(@Query("id") String id);
 
-    @GET("Quiz_category")
-    Call<CategoryQuizModel> getCategories();
+    @GET("quiz/category")
+    Call<CategoryQuizModel> getCategories(@Query("type") String Category);
 
     @GET("Quiz_Sub_Category")
     Call<SubCategoryQuizModel> getSubCategories(@Query("category")String category);

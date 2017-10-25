@@ -9,17 +9,20 @@
 
     <!--APP INTRO ACTIVITY STRINGS-->
     <string name="intro_title_hillfair">Hillffair 2k17</string>
-    <string name="intro_desc_hillfair">Hill\'ffair is not just a cultural festival but an excitement with inspiration, motivation, and a pinch of creativity.</string>
+    <string name="intro_desc_hillfair">Hill\'ffair is the annual cultural extravaganza of NIT Hamirpur, filling zeal and enthusiasm in the hearts of every NITian</string>
     <string name="intro_title_quiz">Quiz</string>
-    <string name="intro_desc_quiz">App Team is back with the much awaited Quiz 3.0 where each question is as random as you are ;)</string>
+    <string name="intro_desc_quiz">App Team introduces Quiz 3.0 with mind boggling and challenging questions!</string>
     <string name="intro_title_news">Newsfeed</string>
-    <string name="intro_desc_news">Regular feed of the events happening around our campus during Hill\'ffair</string>
-    <string name="intro_title_treasure_hunt">Treasure Hunt!</string>
-    <string name="intro_desc_treasure_hunt">App team is back with the treasure hunt</string>
+    <string name="intro_desc_news">Real time newsfeed of all the exciting events happening around. Don\'t have to miss any!</string>
+    <string name="intro_title_treasure_hunt">Fun Games!</string>
+    <string name="intro_desc_treasure_hunt">App team is introducing various fun games this hillffair app. Get ready to play!</string>
     <string name="intro_title_notification">Notification support</string>
-    <string name="intro_desc_notification">Now don\'t miss any updates with the android notifications. However you can disable notifications later.</string>
+    <string name="intro_desc_notification">Will never miss another update with our android notifications.</string>
     <string name="intro_title_ready">Ready</string>
-    <string name="intro_desc_ready">You\'re all set to go. Hope you have a great Hill\'ffair :)</string>
+    <string name="intro_desc_ready">You\'re all set to have a great Hill\'ffair this year!</string>
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
+    <string name="done">Go!</string>
 
     <!-- Navigation Bar Dialog Strings -->
     <string name="aboutus_text">A Open Source Project by <a href="https://github.com/appteam-nith/">AppTeam NITH</a> for Cultural Festival Hillffair 2k16.\n\nSource code available at

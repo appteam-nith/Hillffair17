@@ -47,6 +47,8 @@ public class QuizCategoryAdapter extends RecyclerView.Adapter<QuizCategoryAdapte
     public void onBindViewHolder(CategoryQuizViewHolder holder, final int position)
     {
         final CategoryQuizSingleModel categoryQuizSingleModel = categories.get(position);
+//        final CategoryQuizViewHolder h=(CategoryQuizViewHolder) holder;
+        System.out.println(categoryQuizSingleModel.getName());
         holder.categoryname.setText(categoryQuizSingleModel.getName().toString());
         Glide.with(context).load(categoryQuizSingleModel.getPhoto()).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.drawable.treasure_intro).into(holder.categoryphoto);
         holder.cardView.setOnClickListener(new View.OnClickListener() {
@@ -74,9 +76,9 @@ public class QuizCategoryAdapter extends RecyclerView.Adapter<QuizCategoryAdapte
         {
             super(view);
            // view.setOnClickListener(this);
-            categoryname = (TextView) view.findViewById(R.id.name_subcategory);
-            categoryphoto = (ImageView) view.findViewById(R.id.img_subcategory);
-            cardView = (CardView) view.findViewById(R.id.quiz_category_cardview);
+            categoryname =  view.findViewById(R.id.name_category);
+            categoryphoto =  view.findViewById(R.id.img_category);
+            cardView =  view.findViewById(R.id.quiz_category_cardview);
             this.context = context;
         }
 

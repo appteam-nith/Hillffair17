@@ -47,15 +47,17 @@ public class QuizCategoryActivity extends AppCompatActivity {
     public void getCategories()
     {
         APIINTERFACE mapi = Utils.getRetrofitService();
-        Call<CategoryQuizModel> mService = mapi.getCategories();
+        Call<CategoryQuizModel> mService = mapi.getCategories("Category");
         mService.enqueue(new Callback<CategoryQuizModel>() {
             @Override
             public void onResponse(Call<CategoryQuizModel> call, Response<CategoryQuizModel> response) {
                 if(response!=null && response.isSuccess())
                 {
                     categories = response.body().getCategories();
+                    System.out.println(categories.size());
                     if(categories.size()>0)
                     {
+                        System.out.println(categories.get(0).getName());
                         adapter = new QuizCategoryAdapter(categories,getApplicationContext());
 
                     }

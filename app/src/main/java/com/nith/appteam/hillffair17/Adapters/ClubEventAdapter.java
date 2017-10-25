@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class ClubEventAdapter extends RecyclerView.Adapter<ClubEventAdapter.EventViewHolder> {
 
-    private ArrayList<ClubEvent> clubEventArrayList = new ArrayList<ClubEvent>();
+    private ArrayList<ClubEvent> clubEventArrayList;
     private Context context;
 
     public ClubEventAdapter(Context context) {
