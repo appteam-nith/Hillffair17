@@ -2,23 +2,26 @@ package com.nith.appteam.hillffair17.Utils;
 
 
 
-import com.nith.appteam.hillffair17.Activities.ClubActivity;
 import com.nith.appteam.hillffair17.Activities.EventActivity;
 import com.nith.appteam.hillffair17.Activities.UploadNewsFeedActivity;
 import com.nith.appteam.hillffair17.Fragments.FbLoginFragment;
 import com.nith.appteam.hillffair17.Models.BattleDayModel;
 import com.nith.appteam.hillffair17.Models.CategoryQuizModel;
-import com.nith.appteam.hillffair17.Models.CategoryQuizSingleModel;
 import com.nith.appteam.hillffair17.Models.ClubModel2;
 import com.nith.appteam.hillffair17.Models.GalleryDetailResponse;
 import com.nith.appteam.hillffair17.Models.GalleryResponse;
 import com.nith.appteam.hillffair17.Models.Likecount;
 import com.nith.appteam.hillffair17.Models.NewsFeedResponse;
+import com.nith.appteam.hillffair17.Models.PlotModel;
+import com.nith.appteam.hillffair17.Models.PollModelUserResponse;
+import com.nith.appteam.hillffair17.Models.PollModel;
 import com.nith.appteam.hillffair17.Models.ProfileDataModel;
 import com.nith.appteam.hillffair17.Models.ProfileEventModel;
 import com.nith.appteam.hillffair17.Models.QuizQuestionsModel;
 import com.nith.appteam.hillffair17.Models.RegisterResponse;
 import com.nith.appteam.hillffair17.Models.SubCategoryQuizModel;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -27,9 +30,6 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
-
-import static com.cloudinary.Api.HttpMethod.GET;
-import static com.cloudinary.Api.HttpMethod.POST;
 
 /**
  * Created by Jatin on 9/11/2016.
@@ -99,6 +99,16 @@ public interface APIINTERFACE {
     @POST("update/rollno/{id}")
     Call<RegisterResponse> updateRollNo(@Path("id") String id, @Query("roll_no") String rollNo);
 
+
+    //for poll
+    @GET("poll/{uid}")
+    Call<PollModel> getPoll(@Path("uid") String uid);
+    @GET("stats/{qid}")
+    Call<PlotModel>getStats(@Path("qid") String qid);//stats of a particular qid
+    @GET("update/{qid}")
+    Call<PollModelUserResponse>updateScore(@Field("userid") String uid, @Path("qid") String qid);
+     @GET("allpolls/{id}")
+    Call<ArrayList<PollModel>>getPastPoll(@Field("userid") String userid);
 }
 
 

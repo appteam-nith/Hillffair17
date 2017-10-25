@@ -1,26 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="6dp"
-    tools:context="com.nith.appteam.hillffair17.Activities.PollActivity">
+    tools:context="com.nith.appteam.hillffair17.Activities.PollActivity"
+    >
+
+<android.support.v7.widget.Toolbar android:id="@+id/my_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="?attr/colorPrimary"
+    android:titleTextColor="#ffffff"
+    app:title="Poll"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" />
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
        android:id="@+id/poll_ques"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:textAlignment="center"
+        android:layout_margin="10dp"
         android:text="Who will win Ballon d'or 2017?"
         android:textSize="30dp"
+
         android:layout_marginBottom="25dp"
-        android:background="@color/colorAccent"/>
+        />
 
     <LinearLayout
-
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
+        android:gravity="center"
+        android:layout_margin="15dp"
+        android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/poll_options">
@@ -28,24 +52,48 @@
        android:id="@+id/option1"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
+       android:background="@drawable/btn_poll"
+       android:textSize="20dp"
        android:text="C.Ronaldo"/>
 
     <Button
         android:id="@+id/option2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Messi"/>
+        android:layout_marginTop="8dp"
+
+        android:textSize="20dp"
+        android:background="@drawable/btn_poll"
+        android:text="Messi"/>
     <Button
         android:id="@+id/option3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Neymar"/>
+
+        android:textSize="20dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/btn_poll"
+        android:text="Neymar"/>
     <Button
         android:id="@+id/option4"
+        android:textSize="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="None"/>
+        android:layout_marginTop="8dp"
+        android:background="@drawable/btn_poll"
+        android:text="None"/>
 
 
     </LinearLayout>
+    <Button
+        android:id="@+id/pastpoll"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:textColor="#ffffff"
+        android:background="@drawable/btn_pastpoll"
+        android:text="Previous Polls"/>
+
+</LinearLayout>
 </LinearLayout>

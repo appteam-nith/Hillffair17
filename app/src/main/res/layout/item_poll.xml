@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:padding="10dp"
+        android:src="@drawable/about"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkImage"/>
+    <TextView
+        android:textAlignment="center"
+        android:padding="10dp"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:text="This is Place for the Question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/questionView"/>
+</LinearLayout>

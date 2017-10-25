@@ -8,7 +8,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
-
     <application
         android:name=".Utils.MyApplication"
         android:allowBackup="true"
@@ -17,7 +16,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -31,11 +29,13 @@
         <activity
             android:name=".Activities.SplashActivity"
             android:theme="@style/SplashTheme">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
             <!-- Note: @octacode- Done to suppress high resolution warning during publishing for phones like S8 -->
             <meta-data
                 android:name="android.max_aspect"
@@ -77,50 +77,41 @@
             android:name=".Activities.BattleDayActivity"
             android:exported="true"
             android:parentActivityName=".Activities.HomeActivity" />
-
-        <activity
-            android:name=".Activities.QuizCategoryActivity" />
-
-        <activity
-            android:name=".Activities.QuizSubCategoryActivity" />
-
-        <activity
-            android:name=".Activities.NewsFeedActivity"/>
-
+        <activity android:name=".Activities.QuizCategoryActivity" />
+        <activity android:name=".Activities.QuizSubCategoryActivity" />
+        <activity android:name=".Activities.NewsFeedActivity" />
         <activity
             android:name=".Activities.HomescreenNew"
             android:exported="true" />
-        <activity android:name=".Notification.NotificationActivity"/>
-
+        <activity android:name=".Notification.NotificationActivity" />
         <activity
-            android:parentActivityName=".Activities.HomeActivity"
             android:name=".Activities.ProfileActivity"
-            android:exported="true" />
-
+            android:exported="true"
+            android:parentActivityName=".Activities.HomeActivity" />
         <activity
-            android:parentActivityName=".Activities.HomeActivity"
             android:name=".Activities.GalleryActivity"
-            android:exported="true" />
-
+            android:exported="true"
+            android:parentActivityName=".Activities.HomeActivity" />
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name" />
-
         <activity
             android:name=".Activities.LoginActivity"
             android:exported="true" />
-
-        <activity android:name=".Activities.UploadNewsFeedActivity"
+        <activity
+            android:name=".Activities.UploadNewsFeedActivity"
             android:exported="true" />
-        <activity android:name=".Activities.PollActivity">
+        <activity android:name=".Activities.PollActivity"
+            android:parentActivityName=".Activities.HomescreenNew">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.PlotActivity"></activity>
+        <activity android:name=".Activities.PlotActivity" />
+        <activity android:name=".Activities.PastPolls"></activity>
     </application>
 
 </manifest>
