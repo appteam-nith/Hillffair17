@@ -120,8 +120,7 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
         startActivity(i);
     }
     public void openPolls(View v){
-        //
-        fetchQuestion(this);
+        startActivity(new Intent(HomescreenNew.this,PollIntermediateActivity.class));
     }
 
 
@@ -357,44 +356,44 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
         }
     }
 
-    void fetchQuestion(final Context context){
-        if(!pref.getLoginStatus()) {
-            startActivity(new Intent(context,LoginActivity.class));
-            return;
-        }
-        Log.e("error",""+pref.getUserId());
-        String uid=pref.getUserId();
-        Call<PollModel> call=  Utils.getRetrofitService().getPoll(uid);
-        call.enqueue(new Callback<PollModel>() {
-            @Override
-            public void onResponse(Call<PollModel> call, Response<PollModel> response) {
-
-                PollModel model=response.body();
-                Log.e("error",""+model.getQid());
-                if(!model.isDone()){
-
-                    Intent i = new Intent(context,PastPolls.class);
-
-                    startActivity(i);
-                }
-                else {
-                    Intent i = new Intent(context,PollActivity.class);
-                    i.putExtra("question",model.getQuestion());
-                    i.putExtra("optionA",model.getOptionA());
-                    i.putExtra("optionB",model.getOptionB());
-                    i.putExtra("optionC",model.getOptionC());
-                    i.putExtra("optionD",model.getOptionD());
-                    i.putExtra("qid",model.getQid());
-                    startActivity(i);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<PollModel> call, Throwable t) {
-                Toast.makeText(HomescreenNew.this,"Error While Fetching Data.",Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }
+//    void fetchQuestion(final Context context){
+//        if(!pref.getLoginStatus()) {
+//            startActivity(new Intent(context,LoginActivity.class));
+//            return;
+//        }
+//        Log.e("error",""+pref.getUserId());
+//        String uid=pref.getUserId();
+//        Call<PollModel> call=  Utils.getRetrofitService().getPoll(uid);
+//        call.enqueue(new Callback<PollModel>() {
+//            @Override
+//            public void onResponse(Call<PollModel> call, Response<PollModel> response) {
+//
+//                PollModel model=response.body();
+//                Log.e("error",""+model.getQid());
+//                if(!model.isDone()){
+//
+//                    Intent i = new Intent(context,PastPolls.class);
+//
+//                    startActivity(i);
+//                }
+//                else {
+//                    Intent i = new Intent(context,PollActivity.class);
+//                    i.putExtra("question",model.getQuestion());
+//                    i.putExtra("optionA",model.getOptionA());
+//                    i.putExtra("optionB",model.getOptionB());
+//                    i.putExtra("optionC",model.getOptionC());
+//                    i.putExtra("optionD",model.getOptionD());
+//                    i.putExtra("qid",model.getQid());
+//                    startActivity(i);
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<PollModel> call, Throwable t) {
+//                Toast.makeText(HomescreenNew.this,"Error While Fetching Data.",Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//    }
 
 }
