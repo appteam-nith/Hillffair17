@@ -115,7 +115,8 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
         startActivity(i);
     }
     public void openPolls(View v){
-        Intent i = new Intent(this,PollActivity.class);
+        //
+        Intent i = new Intent(this,PastPolls.class);
         startActivity(i);
     }
 

@@ -44,8 +44,8 @@ public class PlotActivity extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
         qid=getIntent().getStringExtra("qid");
         String question=getIntent().getStringExtra("question");
-        chart = (BarChart) findViewById(R.id.chart1);
-        ques=(TextView)findViewById(R.id.plot_ques);
+        chart = findViewById(R.id.chart1);
+        ques=findViewById(R.id.plot_ques);
 
         ques.setText(question);
 
@@ -56,39 +56,35 @@ public class PlotActivity extends AppCompatActivity {
         chart.getAxisLeft().setDrawGridLines(false);
         chart.getXAxis().setDrawGridLines(false);
         chart.getAxisLeft().setAxisMinValue(0);
-
         chart.getLegend().setEnabled(false);
 
-//        chart.setViewPortOffsets(0,-1,0,0);
         barEntry = new ArrayList<>();
         barEntryLabels = new ArrayList<>();
+
 //        updateBarEntry();
-//        updateBarLabels();
+//        updateBarLabels("whateve");
         plotData();
 
-        barDataset = new BarDataSet(barEntry, "response");
-        barData = new BarData(barEntryLabels, barDataset);
-//        barData.setGroupSpace(0.1f);
-        barDataset.setColors(ColorTemplate.COLORFUL_COLORS);
-        chart.setData(barData);
-        chart.animateY(3000);
+    }
+/***dummy code***/
+    public void updateBarEntry(){
+
+        barEntry.add(new BarEntry(0, 0));
+        barEntry.add(new BarEntry(0, 1));
+        barEntry.add(new BarEntry(0, 2));
+        barEntry.add(new BarEntry(0, 3));
 
     }
-//    public void updateBarEntry(){
-//
-//        barEntry.add(new BarEntry(8.5f,0));
-//        barEntry.add(new BarEntry(8.0f, 1));
-//        barEntry.add(new BarEntry(6f, 2));
-//        barEntry.add(new BarEntry(7f, 3));
-//
-//    }
-//
-//    public void updateBarLabels(String label){
-//
-//        barEntryLabels.add(label);
-//
-//    }
 
+    public void updateBarLabels(String label){
+
+        barEntryLabels.add(label);
+        barEntryLabels.add(label);
+        barEntryLabels.add(label);
+        barEntryLabels.add(label);
+
+    }
+/*****/
    public void plotData(){
     Call<PollStatistics> call=Utils.getRetrofitService().getStats(qid);
        call.enqueue(new Callback<PollStatistics>() {
@@ -97,7 +93,16 @@ public class PlotActivity extends AppCompatActivity {
                if (response.isSuccess()) {
                    Log.v("fgchjjghjkl","addddddditya");
                    PollStatistics model=response.body();
-                   Log.v("ERRORRRRRR",response.body().getQuestion()+"");
+
+                   Log.e("res",model.getnOptionA());
+                   Log.e("res",model.getnOptionB());
+                   Log.e("res",model.getnOptionC());
+                   Log.e("res",model.getnOptionD());
+                   Log.e("res",model.getOptionA());
+                   Log.e("res",model.getOptionB());
+                   Log.e("res",model.getOptionC());
+                   Log.e("res",model.getOptionD());
+
                    barEntry.add(new BarEntry(Float.parseFloat(model.getnOptionA()),0));
                    barEntry.add(new BarEntry(Float.parseFloat(model.getnOptionB()),1));
                    barEntry.add(new BarEntry(Float.parseFloat(model.getnOptionC()),2));
@@ -107,7 +112,11 @@ public class PlotActivity extends AppCompatActivity {
                    barEntryLabels.add(model.getOptionB());
                    barEntryLabels.add(model.getOptionC());
                    barEntryLabels.add(model.getOptionD());
-
+                   barDataset = new BarDataSet(barEntry, "response");
+                   barData = new BarData(barEntryLabels, barDataset);
+                   barDataset.setColors(ColorTemplate.COLORFUL_COLORS);
+                   chart.setData(barData);
+                   chart.animateY(3000);
                }
                else{
                    Log.v("fgchjjghjkl","surazzz");

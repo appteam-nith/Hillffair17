@@ -104,7 +104,7 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
             updateScore.enqueue(new Callback<PollModelUserResponse>() {
                 @Override
                 public void onResponse(Call<PollModelUserResponse> call, Response<PollModelUserResponse> response) {
-                    if(!response.isSuccess())Toast.makeText(PollActivity.this,"Couldn't update user response.",Toast.LENGTH_SHORT).show();
+                    if(!response.isSuccess())Toast.makeText(PollActivity.this,"User has already submitted a response.",Toast.LENGTH_SHORT).show();
 
                 }
 
