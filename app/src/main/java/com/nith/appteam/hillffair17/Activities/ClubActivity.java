@@ -24,6 +24,7 @@ import com.nith.appteam.hillffair17.Activities.EventActivity;
 import com.nith.appteam.hillffair17.Models.BattleEventResponse;
 import com.nith.appteam.hillffair17.Models.ClubModel;
 import com.nith.appteam.hillffair17.Models.ClubModel2;
+import com.nith.appteam.hillffair17.Models.NewsFeed;
 import com.nith.appteam.hillffair17.R;
 import com.nith.appteam.hillffair17.Utils.MyApplication;
 import com.nith.appteam.hillffair17.Utils.SharedPref;
@@ -112,15 +113,14 @@ public class ClubActivity extends AppCompatActivity {
         txtDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ClubActivity.this, "Clicked Detail", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(ClubActivity.this, NewsFeed.class));
                 mBottomSheetDialog.dismiss();
             }
         });
         txtOpen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(ContributorsActivity.this, "Clicked Open", Toast.LENGTH_SHORT).show();
-
+//               startActivity(new Intent(ClubActivity.this, ClubActivity.class));
                 mBottomSheetDialog.dismiss();
             }
         });

@@ -177,13 +177,12 @@
 
             android:exported="true" />
 
-        <activity android:name=".Activities.PollActivity"
-            android:parentActivityName=".Activities.HomescreenNew">
+        <activity android:name=".Activities.PollActivity">
 
         </activity>
 
         <activity android:name=".Activities.PlotActivity"
-            android:parentActivityName=".Activities.HomeActivity">
+            android:parentActivityName=".Activities.HomescreenNew">
         </activity>
 
         <activity android:name=".Activities.PastPolls"

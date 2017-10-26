@@ -168,7 +168,7 @@ public class FbLoginFragment extends Fragment {
                 UserSentResponse userSentResponse = response.body();
                 if(userSentResponse!=null && response.isSuccess())
                 {
-                    Toast.makeText(getApplicationContext(), userSentResponse.getUserId(), Toast.LENGTH_SHORT).show();
+//                   / Toast.makeText(getApplicationContext(), userSentResponse.getUserId(), Toast.LENGTH_SHORT).show();
                     Log.v("ID", userSentResponse.getUserId());
                     sharedPref.setLoginStatus(true);
                     sharedPref.setSkipStatus(false);// as user has login succesfully and we make sure  that screen does not come again

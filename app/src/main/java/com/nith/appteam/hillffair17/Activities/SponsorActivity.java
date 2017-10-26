@@ -15,6 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nith.appteam.hillffair17.Models.NewsFeed;
 import com.nith.appteam.hillffair17.Models.SponsorArrayModel;
 import com.nith.appteam.hillffair17.R;
 import com.nith.appteam.hillffair17.Adapters.SponsorAdapter;
@@ -135,7 +136,7 @@ public class SponsorActivity extends AppCompatActivity {
         txtDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(SponsorActivity.this, "Clicked Detail", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(SponsorActivity.this, NewsFeed.class));
                 mBottomSheetDialog.dismiss();
             }
         });

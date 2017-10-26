@@ -108,9 +108,9 @@ public interface APIINTERFACE {
     @GET("poll/statistics/{qid}")
     Call<PollStatistics> getStats(@Path("qid") String qid);//stats of a particular qid
 
-    @FormUrlEncoded
-    @POST("poll/answer/{uid}/")
-    Call<PollModelUserResponse> updateScore(@Path("uid") String uid, @Field("q_id") String qid, @Field("answer") String answer);
+
+    @GET("poll/answer/{uid}")
+    Call<PollModelUserResponse> updateScore(@Path("uid") String uid, @Query("q_id") String qid, @Query("answer") String answer);
 
     @GET("poll/getAllPoll")
     Call<PollListModel> getAllPoll();
@@ -125,8 +125,8 @@ public interface APIINTERFACE {
     @POST("quiz/getSet/{student_id}")
     Call<QuizQuestionsModel> getQuiz(@Path("student_id") String id, @Field("category") String category, @Field("topic") String topic);
 
+
     @GET("sponsors")
     Call<SponsorArrayModel> getSponsor();
 
 }
-

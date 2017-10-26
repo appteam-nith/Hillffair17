@@ -62,13 +62,12 @@ public class PollAdapter extends RecyclerView.Adapter<PollAdapter.PollViewHolder
     }
 
     public static class PollViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        ImageView checkImageView;
+
         TextView questionView;
         ArrayList<PollListModel.Question>list;
         Context context;
         public PollViewHolder(View itemView, ArrayList<PollListModel.Question> list, Context context) {
             super(itemView);
-            checkImageView = itemView.findViewById(R.id.checkImage);
             questionView = itemView.findViewById(R.id.questionView);
             this.list=list;
             this.context=context;

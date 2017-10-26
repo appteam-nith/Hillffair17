@@ -2,27 +2,24 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="8dp"
-    android:elevation="6dp"
-    app:cardCornerRadius="8dp"
+    android:layout_margin="5dp"
+    android:elevation="3dp"
+    app:cardCornerRadius="4dp"
+    app:cardBackgroundColor="#607d8b"
     android:layout_height="wrap_content">
 <LinearLayout
     android:layout_width="match_parent"
     android:orientation="horizontal"
     android:layout_margin="4dp"
     android:layout_height="wrap_content">
-    <ImageView
-        android:padding="10dp"
-        android:src="@drawable/about"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/checkImage"/>
     <TextView
         android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="25sp"
         android:padding="10dp"
         android:textAppearance="@android:style/TextAppearance.Large"
         android:text="This is Place for the Question"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/questionView"/>
 </LinearLayout>

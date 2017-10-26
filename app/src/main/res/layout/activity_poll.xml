@@ -35,7 +35,7 @@
         android:textAlignment="center"
         android:textStyle="bold"
         android:textColor="#fff"
-        android:text="Who will win Ballon d'or 2017?"
+        android:text=""
         android:textSize="30sp"
         />
 
@@ -55,7 +55,7 @@
        android:background="@drawable/btn_poll"
        android:textSize="20dp"
        android:textColor="#fff"
-       android:text="C.Ronaldo"/>
+       android:text=""/>
 
     <Button
         android:id="@+id/option2"
@@ -67,7 +67,7 @@
 
         android:textSize="20dp"
         android:background="@drawable/btn_poll"
-        android:text="Messi"/>
+        android:text=""/>
     <Button
         android:id="@+id/option3"
         android:layout_width="match_parent"
@@ -78,7 +78,7 @@
         android:textColor="#fff"
         android:layout_marginTop="8dp"
         android:background="@drawable/btn_poll"
-        android:text="Neymar"/>
+        android:text=""/>
     <Button
         android:id="@+id/option4"
 
@@ -88,19 +88,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@drawable/btn_poll"
-        android:text="None"/>
+        android:text=""/>
 
 
     </LinearLayout>
-    <Button
-        android:id="@+id/pastpoll"
-        android:layout_marginTop="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:textColor="#ffffff"
-        android:background="@drawable/btn_pastpoll"
-        android:text="Previous Polls"/>
 
 </LinearLayout>
 </LinearLayout>
