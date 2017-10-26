@@ -49,16 +49,18 @@ public class SponsorAdapter extends RecyclerView.Adapter<SponsorAdapter.ViewHold
         }
 
         if(!(sponsorItemArrayList.get(position).image_id==null)){
+            Glide.with(context).load(sponsorItemArrayList.get(position).getImage_id()).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.drawable.hillffair_org).into(holder.sponsorimage);
+            holder.sponsorimage.setScaleType(ImageView.ScaleType.FIT_XY);
             // holder.sponsorimage.setImageResource(sponsorItemArrayList.get(position).image_id);
-            Glide.with(context).load(sponsorItemArrayList.get(position).getImage_id()).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.drawable.hillffair_org).into(new ImageViewTarget<Bitmap>(holder.sponsorimage) {
-                @Override
-                protected void setResource(Bitmap resource) {
-                    RoundedBitmapDrawable drawable= RoundedBitmapDrawableFactory.create(context.getResources(),resource);
-                    drawable.setCircular(true);
-                    holder.sponsorimage.setScaleType(ImageView.ScaleType.FIT_CENTER);
-                    holder.sponsorimage.setImageDrawable(drawable);
-                }
-            });
+//            Glide.with(context).load(sponsorItemArrayList.get(position).getImage_id()).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.drawable.hillffair_org).into(new ImageViewTarget<Bitmap>(holder.sponsorimage) {
+//                @Override
+//                protected void setResource(Bitmap resource) {
+//                    RoundedBitmapDrawable drawable= RoundedBitmapDrawableFactory.create(context.getResources(),resource);
+//                    drawable.setCircular(true);
+//                    holder.sponsorimage.setScaleType(ImageView.ScaleType.FIT_CENTER);
+//                    holder.sponsorimage.setImageDrawable(drawable);
+//                }
+//            });
         }
     }
 
