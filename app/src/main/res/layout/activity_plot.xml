@@ -32,8 +32,9 @@
             android:layout_marginTop="8dp"
             android:text="Who will win Ballon d'or 2017?"
             android:textAlignment="center"
-            android:textColor="#fff"
-            android:textSize="30sp"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:textSize="27sp"
             android:textStyle="bold" />
 
         <com.github.mikephil.charting.charts.PieChart
