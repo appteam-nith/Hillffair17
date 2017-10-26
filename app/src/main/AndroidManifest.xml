@@ -70,13 +70,11 @@
             android:name=".Activities.SplashActivity"
             android:theme="@style/SplashTheme">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-            <!-- Note: @octacode- Done to suppress high resolution warning during publishing for phones like S8 -->
+             <intent-filter>
+             <action android:name="android.intent.action.MAIN" />
+             <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+             Note: Done to suppress high resolution warning during publishing for phones like S8
             <meta-data
                 android:name="android.max_aspect"
                 android:value="2.1" />
@@ -165,46 +163,44 @@
             android:parentActivityName=".Activities.WallIntroActivity"
             />
 
+        <activity android:name=".Activities.LoginActivity"
+            android:exported="true"/>
+
 
         <activity android:name=".Activities.WallIntroActivity"
             android:exported="true"
-            android:parentActivityName=".Activities.HomescreenNew"
-            />
+            android:parentActivityName=".Activities.HomescreenNew" />
 
         <activity android:name=".Activities.LeaderBoardActivity"
             android:parentActivityName=".Activities.HomescreenNew"
 
             android:exported="true" />
+
         <activity android:name=".Activities.PollActivity"
             android:parentActivityName=".Activities.HomescreenNew">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+
         <activity android:name=".Activities.PlotActivity"
             android:parentActivityName=".Activities.HomeActivity">
-
         </activity>
-        <activity android:name=".Activities.PastPolls"></activity>
+
+        <activity android:name=".Activities.PastPolls" />
 
         <activity android:name=".Notification.Notification2"
             android:parentActivityName=".Notification.NotificationActivity"
-            android:exported="true"
-            />
+            android:exported="true" />
 
 
         <activity android:name=".Activities.QuizQuestionActivity"
             android:parentActivityName=".Activities.HomescreenNew"
-            android:exported="true"
-            />
-        <activity android:name=".Activities.QuizScoreActivity"
-            />
+            android:exported="true" />
+
+        <activity android:name=".Activities.QuizScoreActivity" />
 
         <activity android:name=".Activities.InformationActivity"
             android:parentActivityName=".Activities.QuizActivity"
-            android:exported="true"
-            />
+            android:exported="true" />
+
     </application>
 
 </manifest>
