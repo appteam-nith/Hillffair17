@@ -131,7 +131,26 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+//            super.onBackPressed();
+            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setIcon(android.R.drawable.ic_menu_close_clear_cancel);
+            builder.setTitle("Exit Hillffair\'17");
+            builder.setMessage("Do you want to exit the app?");
+            builder.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    finish();
+                }
+            });
+
+            builder.setPositiveButton("Stay", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    builder.create().dismiss();
+                }
+            });
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
         }
     }
 
@@ -354,7 +373,10 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
                 Toast.makeText(this, "Sorry!!! Permission Denied", Toast.LENGTH_SHORT).show();
             }
         }
+
     }
+
+
 
 //    void fetchQuestion(final Context context){
 //        if(!pref.getLoginStatus()) {
