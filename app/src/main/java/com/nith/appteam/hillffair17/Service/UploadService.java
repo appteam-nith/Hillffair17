@@ -71,7 +71,12 @@ public UploadService(){
                     i.putExtra(WORK, "NewsFeed");
                     sendBroadcast(i);
                     Map map = cloudinary.uploader().upload(imageUrl.trim(), ObjectUtils.asMap("public_id", sharedPref.getUserName() + "" + com.nith.appteam.hillffair17.Utils.Utils.random()));
-                    upload(sharedPref.getUserName(),title, description, (String) map.get("url"));
+                    String imageEncodedUrl = (String) map.get("url");
+                    if(!imageEncodedUrl.isEmpty() && imageEncodedUrl.length()>0) upload(sharedPref.getUserName(),title, description,imageEncodedUrl );
+                    else{
+                        upload(sharedPref.getUserName(),title, description, "");
+                    }
+
                     Log.d("image", (String) map.get("url"));
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -82,12 +87,12 @@ public UploadService(){
 
                 }
             }
+            else {
+                upload(sharedPref.getUserName(),title, description, "");
+            }
 
-            Intent i = new Intent(UPLOADING_START);
-            i.putExtra(WORK, "NewsFeed");
-            sendBroadcast(i);
 
-            upload(sharedPref.getUserName(),title, description, "");
+
 
 
         } else if (intent.hasExtra(REGISTER_ROLL_NO)) {

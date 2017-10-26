@@ -17,7 +17,8 @@
             android:id="@+id/img_subcategory"
             android:background="@drawable/about"
             android:layout_gravity="center"
-
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="25dp"
             />
         <TextView
             android:id="@+id/name_subcategory"
@@ -25,6 +26,7 @@
             android:layout_height="wrap_content"
             android:text="Hello"
             android:layout_gravity="center"
+            android:textSize="20dp"
             />
 
 </LinearLayout>

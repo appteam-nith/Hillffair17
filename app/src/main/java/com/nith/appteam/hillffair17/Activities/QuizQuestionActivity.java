@@ -79,7 +79,7 @@ public class QuizQuestionActivity extends AppCompatActivity {
                 finish();
             }
         });
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         SharedPref pref=new SharedPref(this);
         String userId=pref.getUserId();
         i1 = getIntent();
