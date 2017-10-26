@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
 import com.nith.appteam.hillffair17.Models.Likecount;
@@ -46,7 +47,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public String non_truncated;
     private View view;
     private int l,count=0;
-
+    private SharedPref sharedPref;
 
 
 
@@ -78,42 +79,17 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         if(holder instanceof MyViewHolder&&getItemViewType(position)!=FOOTER_VIEW)
         {
+            sharedPref = new SharedPref(mContext);
             l=position;
             final MyViewHolder h=(MyViewHolder) holder;
             final NewsFeed card = list_card.get(position);
 
             if(card!=null){
-                if(card.getDescription()!=null)
-                    if(card.getDescription().length()>30){
-
-                        h.see_more.setVisibility(View.VISIBLE);
+                if(card.getDescription()!=null) {
                         String original = card.getDescription().toString();
-                        truncated = original.substring(0,29);
-                        non_truncated = original.substring(30,original.length()-1);
-                        h.user_msg.setText(truncated);
+                        h.user_msg.setText(original);
                         h.user_name.setText(card.getUsername());
-                        h.see_more.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-
-                                h.user_msg.append( non_truncated);
-                                h.see_less.setVisibility(View.VISIBLE);
-                                h.see_more.setVisibility(View.GONE);
-                            }
-                        });
-
-                        h.see_less.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                h.user_msg.setText(truncated);
-                                h.see_less.setVisibility(View.GONE);
-                                h.see_more.setVisibility(View.VISIBLE);
-                            }
-                        });
-
-                    }
-                    else if(card.getDescription()!=null&&!card.getDescription().isEmpty())
-                        h.user_msg.setText(card.getDescription());
+                }
                 if(card.getUsername()!=null&&!card.getUsername().isEmpty())
                     h.user_name.setText(card.getUsername());
 
@@ -241,7 +217,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView user_name, no_of_likes, user_msg, post_date ,title;
-        final public ImageView post_img;
+        final public ImageView post_img,profileimg;
         public TextView see_more,see_less;
 
         final public com.like.LikeButton lyk_status;
@@ -255,12 +231,9 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             post_img = (ImageView) view.findViewById(R.id.post_img);
             post_date = (TextView) view.findViewById(R.id.post_date);
             user_msg = (TextView) view.findViewById(R.id.user_msg);
-            see_more = (TextView) view.findViewById(R.id.see_more);
             lyk_status = (com.like.LikeButton) view.findViewById(R.id.lyk_status);
             title = (TextView)view.findViewById(R.id.post_title);
-            see_less = (TextView) view.findViewById(R.id.see_less);
-
-
+            profileimg = (ImageView) view.findViewById(R.id.profile_img);
         }
     }
 

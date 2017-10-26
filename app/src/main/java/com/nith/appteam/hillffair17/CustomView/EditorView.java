@@ -88,7 +88,7 @@ public class EditorView extends ScrollView {
         LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         allLayout.addView(e, p);
 
-        EditText content = createEditText("Enter Description or Insert Any Image", dip2px(10));
+        EditText content = createEditText("Enter Description or Insert Any Image.\nSize of Description should be less than 200", dip2px(10));
         LinearLayout.LayoutParams contentp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         allLayout.addView(content, contentp
         );

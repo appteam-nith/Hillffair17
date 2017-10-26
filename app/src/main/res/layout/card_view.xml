@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:id="@+id/card_view"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
     android:layout_marginBottom="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -13,6 +16,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+ <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <ImageView
+        android:layout_margin="10dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/person_icon"
+        android:id="@+id/profile_img"
+        />
 
         <TextView
             android:layout_width="wrap_content"
@@ -22,9 +36,34 @@
             android:paddingLeft="15dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
+
+            android:textColor="#000"
+            android:textSize="20sp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#a9a9a9"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="#a9a9a9"
+            android:paddingBottom="10dp"
+
+            android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/post_title"
+
+            android:paddingLeft="15dp"
+            android:paddingTop="10dp"
+            android:hint="Title"
+
             android:textStyle="bold"
             android:textColor="#000"
             android:textSize="20sp"/>
+        </LinearLayout>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -38,24 +77,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/post_img"
                 android:scaleType="fitStart"
+
                 android:adjustViewBounds="true"/>
         </RelativeLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#a9a9a9"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/post_title"
-
-            android:paddingLeft="15dp"
-            android:paddingTop="10dp"
-            android:hint="Title"
-
-            android:textStyle="bold"
-            android:textColor="#000"
-            android:textSize="20sp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,28 +93,13 @@
             android:fontFamily="sans-serif-thin"
             android:textSize="18sp"
             />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text = "SeeMore"
-            android:id="@+id/see_more"
-            android:visibility="gone"
-            android:paddingLeft="30px"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text = "SeeLess"
-            android:id="@+id/see_less"
-            android:visibility="gone"
-            android:paddingLeft="30px"
-            />
 
 
-        <View
+
+       <!-- <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#a9a9a9"/>
+            android:background="#a9a9a9"/>-->
 
         <RelativeLayout
             android:layout_width="match_parent"
