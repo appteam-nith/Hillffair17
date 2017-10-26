@@ -31,12 +31,12 @@
             android:name=".Activities.SplashActivity"
             android:theme="@style/SplashTheme">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
+             <intent-filter>
+             <action android:name="android.intent.action.MAIN" />
 
 
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+             <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
             <!-- Note: @octacode- Done to suppress high resolution warning during publishing for phones like S8 -->
             <meta-data
                 android:name="android.max_aspect"
@@ -156,10 +156,7 @@
             android:exported="true" />
         <activity android:name=".Activities.PollActivity"
             android:parentActivityName=".Activities.HomescreenNew">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity android:name=".Activities.PlotActivity"
             android:parentActivityName=".Activities.HomeActivity">
