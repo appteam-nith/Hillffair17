@@ -22,6 +22,7 @@ import com.nith.appteam.hillffair17.Models.ProfileDataModel;
 import com.nith.appteam.hillffair17.Models.ProfileEventModel;
 import com.nith.appteam.hillffair17.Models.QuizQuestionsModel;
 import com.nith.appteam.hillffair17.Models.RegisterResponse;
+import com.nith.appteam.hillffair17.Models.SponsorArrayModel;
 import com.nith.appteam.hillffair17.Models.SubCategoryQuizModel;
 import com.nith.appteam.hillffair17.Notification.NotificationArrayModel;
 import com.nith.appteam.hillffair17.Notification.notification_model;
@@ -117,7 +118,7 @@ public interface APIINTERFACE {
     @GET("quiz/leaderboard")
     Call<LeaderBoardModel> getLeaderBoard();
 
-    @POST("http://23.92.25.213/nithtpo/allnoti.php")
+    @POST("http://hillffair.com/allnoti")
     Call<NotificationArrayModel> loadnotification();
 
     @FormUrlEncoded
@@ -125,5 +126,7 @@ public interface APIINTERFACE {
     Call<QuizQuestionsModel> getQuiz(@Path("student_id") String id, @Field("category") String category, @Field("topic") String topic);
 
 
-}
+    @GET("sponsors")
+    Call<SponsorArrayModel> getSponsor();
 
+}

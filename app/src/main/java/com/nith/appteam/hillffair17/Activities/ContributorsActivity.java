@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nith.appteam.hillffair17.Models.NewsFeed;
 import com.nith.appteam.hillffair17.R;
 import com.nith.appteam.hillffair17.Adapters.ContributorsAdapter;
 import com.nith.appteam.hillffair17.Models.contributorsItem;
@@ -141,7 +142,7 @@ public class ContributorsActivity extends AppCompatActivity {
         txtDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ContributorsActivity.this, "Clicked Detail", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(ContributorsActivity.this, NewsFeed.class));
                 mBottomSheetDialog.dismiss();
             }
         });

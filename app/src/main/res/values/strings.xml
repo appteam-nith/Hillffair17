@@ -25,8 +25,8 @@
     <string name="done">Go!</string>
 
     <!-- Navigation Bar Dialog Strings -->
-    <string name="aboutus_text">A Open Source Project by <a href="https://github.com/appteam-nith/">AppTeam NITH</a> for Cultural Festival Hillffair 2k16.\n\nSource code available at
-        <a href="https://github.com/appteam-nith/Hillffair">GitHub</a> \n\nLink : \nhttps://github.com/appteam-nith/Hillffair\n
+    <string name="aboutus_text">A Open Source Project by <a href="https://github.com/appteam-nith/">AppTeam NITH</a> for Cultural Festival Hillffair 2k17.\n\nSource code available at
+        <a href="https://github.com/appteam-nith/Hillffair">GitHub</a> \n\nLink : \nhttps://github.com/appteam-nith/Hillffair17\n
     </string>
     <string name="open_source_licenses">Licenses</string>
     <string name="licenses_text">
@@ -69,7 +69,7 @@ So now you know where you have to be this November!!!\n\nNIT Hamirpur and its ho
     9. Do not close app after starting quiz, because you will be given only one attempt to each set of questions.\n\n
     10. After clicking on submit you will be shown only score corresponding to that set of questions.\n\n
     11. <b>Advice:</b> Attempt as many sets possible to score more points.\n\n
-    12. Winners will be announced after Nimbus 2017, and will be rewarded.\n\n
+    12. Winners will be announced after Hill\'ffair 2017, and will be rewarded.\n\n
     13. For any queries/complaints/bugs, contact us at <u>appteam.nith@gmail.com</u></string>
 
 </resources>

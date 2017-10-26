@@ -17,6 +17,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.nith.appteam.hillffair17.Models.NewsFeed;
 import com.nith.appteam.hillffair17.R;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback{
@@ -91,7 +92,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         txtDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MapActivity.this, "Clicked Detail", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(MapActivity.this, "Clicked Detail", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MapActivity.this, NewsFeed.class));
                 mBottomSheetDialog.dismiss();
             }
         });

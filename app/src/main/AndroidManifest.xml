@@ -118,7 +118,9 @@
 
 
         <activity
-            android:name=".Activities.QuizCategoryActivity" />
+            android:name=".Activities.QuizCategoryActivity"
+            android:parentActivityName=".Activities.HomescreenNew"
+            />
         <activity android:name=".Activities.QuizActivity"
             android:parentActivityName=".Activities.HomescreenNew"
             android:exported="true"/>

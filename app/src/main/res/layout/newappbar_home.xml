@@ -25,13 +25,15 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:background="#E7F4F7">
+                android:background="#FFC107">
+                <!--android:background="#E7F4F7">-->
+
 
                 <com.cunoraz.continuouscrollable.ContinuousScrollableImageView
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
                     android:id="@+id/image"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="160dp"
                     app:direction="left"
                     app:duration="15000"
                     app:imageSrc="@drawable/cloud" />
@@ -88,7 +90,7 @@
         <LinearLayout
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:background="@drawable/homescreen_bg"
+            android:background="@drawable/bg_new"
             android:orientation="vertical">
 
 

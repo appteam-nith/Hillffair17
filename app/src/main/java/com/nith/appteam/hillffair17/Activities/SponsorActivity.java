@@ -7,23 +7,34 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nith.appteam.hillffair17.Models.NewsFeed;
+import com.nith.appteam.hillffair17.Models.SponsorArrayModel;
 import com.nith.appteam.hillffair17.R;
 import com.nith.appteam.hillffair17.Adapters.SponsorAdapter;
 import com.nith.appteam.hillffair17.Models.SponsorItem;
+import com.nith.appteam.hillffair17.Utils.APIINTERFACE;
+import com.nith.appteam.hillffair17.Utils.Utils;
 
 import java.util.ArrayList;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class SponsorActivity extends AppCompatActivity {
-    RecyclerView rvSponsor;
-    SponsorAdapter sponsorAdapter;
-    Toolbar tbSponsor;
-    ArrayList<SponsorItem> sponsorItems;
+    private RecyclerView rvSponsor;
+    private SponsorAdapter sponsorAdapter;
+    private Toolbar tbSponsor;
+    private ArrayList<SponsorItem> sponsorItems;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,32 +42,74 @@ public class SponsorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sponsor);
 //        String BASE_URL="https://s3.ap-south-1.amazonaws.com/hillffair2016/images/";
         String BASE_URL="https://github.com/";
-        rvSponsor = (RecyclerView)findViewById(R.id.rvSponsor);
-
+        rvSponsor = findViewById(R.id.rvSponsor);
+        progressBar = findViewById(R.id.sponsor_progressbar);
         sponsorItems = new ArrayList<>();
 
-        sponsorItems.add(new SponsorItem("SkyCandle.in",BASE_URL+"appteam-nith.png"));
-        sponsorItems.add(new SponsorItem("Board Of School Education, H.P.",BASE_URL+"appteam-nith.png"));
-        sponsorItems.add(new SponsorItem("Tata Shaktee",BASE_URL+"appteam-nith.png"));
-        sponsorItems.add(new SponsorItem("Cad Desk",BASE_URL+"appteam-nith.png"));
-        //  sponsorItems.add(new SponsorItem("",BASE_URL+"appteam-nith4.png"));
-        sponsorItems.add(new SponsorItem("HPSEDC",BASE_URL+"appteam-nith.png"));
-        sponsorItems.add(new SponsorItem("Ratan Jewellers",BASE_URL+"appteam-nith.png"));
-        sponsorItems.add(new SponsorItem("Chankya The Guru",BASE_URL+"appteam-nith.png"));
-        sponsorItems.add(new SponsorItem("L'OREAL",BASE_URL+"appteam-nith.png"));
-
-        sponsorAdapter = new SponsorAdapter(sponsorItems,SponsorActivity.this);
+//        sponsorItems.add(new SponsorItem("SkyCandle.in",BASE_URL+"appteam-nith.png"));
+//        sponsorItems.add(new SponsorItem("Board Of School Education, H.P.",BASE_URL+"appteam-nith.png"));
+//        sponsorItems.add(new SponsorItem("Tata Shaktee",BASE_URL+"appteam-nith.png"));
+//        sponsorItems.add(new SponsorItem("Cad Desk",BASE_URL+"appteam-nith.png"));
+//        //  sponsorItems.add(new SponsorItem("",BASE_URL+"appteam-nith4.png"));
+//        sponsorItems.add(new SponsorItem("HPSEDC",BASE_URL+"appteam-nith.png"));
+//        sponsorItems.add(new SponsorItem("Ratan Jewellers",BASE_URL+"appteam-nith.png"));
+//        sponsorItems.add(new SponsorItem("Chankya The Guru",BASE_URL+"appteam-nith.png"));
+//        sponsorItems.add(new SponsorItem("L'OREAL",BASE_URL+"appteam-nith.png"));
+//
+//        sponsorAdapter = new SponsorAdapter(sponsorItems,SponsorActivity.this);
         rvSponsor.setAdapter(sponsorAdapter);
 
         tbSponsor = (Toolbar)findViewById(R.id.tbSponsor);
         tbSponsor.setTitle("Our Sponsors");
         setSupportActionBar(tbSponsor);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        progressBar.setVisibility(View.VISIBLE);
         LinearLayoutManager lvmanager = new LinearLayoutManager(this);
         lvmanager.setOrientation(LinearLayoutManager.VERTICAL);
         rvSponsor.setLayoutManager(lvmanager);
+        getSponsors();
     }
+
+    public void getSponsors() {
+        APIINTERFACE mapi = Utils.getRetrofitService();
+        Call<SponsorArrayModel> mService = mapi.getSponsor();
+        mService.enqueue(new Callback<SponsorArrayModel>() {
+            @Override
+            public void onResponse(Call<SponsorArrayModel> call, Response<SponsorArrayModel> response) {
+                try{
+                    if(response.isSuccess())
+                    {
+                        if(response.body().getSponsors().size()>0)
+                        {
+                            sponsorItems = response.body().getSponsors();
+                            sponsorAdapter = new SponsorAdapter(sponsorItems,getApplicationContext());
+                        }
+                        else
+                        {
+                            Toast.makeText(SponsorActivity.this, "No item recieved from server", Toast.LENGTH_SHORT).show();
+                        }
+                        progressBar.setVisibility(View.GONE);
+                        rvSponsor.setAdapter(sponsorAdapter);
+                    }
+                    else
+                    {
+                        Toast.makeText(SponsorActivity.this, "Error occured in server", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                catch (Exception e)
+                {
+                    Toast.makeText(SponsorActivity.this, "Server Error", Toast.LENGTH_SHORT).show();
+                    Log.d("Exception Sponsor",e.toString());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<SponsorArrayModel> call, Throwable t) {
+
+            }
+        });
+    }
+
     public void openBottomSheet(View v) {
         View view = getLayoutInflater().inflate(R.layout.bottom_sheet, null);
         TextView txtBackup = (TextView) view.findViewById(R.id.txt_backup);
@@ -83,7 +136,7 @@ public class SponsorActivity extends AppCompatActivity {
         txtDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(SponsorActivity.this, "Clicked Detail", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(SponsorActivity.this, NewsFeed.class));
                 mBottomSheetDialog.dismiss();
             }
         });

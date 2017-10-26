@@ -16,6 +16,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
@@ -26,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.facebook.login.LoginManager;
 import com.nith.appteam.hillffair17.Models.PollModel;
 import com.nith.appteam.hillffair17.Models.ProfileDataModel;
 import com.nith.appteam.hillffair17.Notification.NotificationActivity;
@@ -41,7 +43,9 @@ import retrofit2.Response;
 
 public class HomescreenNew extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-
+    static {
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+    }
 
     private static final int PERMISSIONS_REQUEST_PHONE_CALL = 100;
     private static String[] PERMISSIONS_PHONECALL = {Manifest.permission.CALL_PHONE};
@@ -155,10 +159,16 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.logout) {
-            pref.setUserId(null);
-            pref.setUserRollno(null);
-            pref.setUserName(null);
-            startActivity(new Intent(HomescreenNew.this,LoginActivity.class));
+            pref.setUserId("");
+            pref.setLoginStatus(false);
+            pref.setUserRollno("");
+            pref.setUserEmail("");
+            pref.setUserPicUrl("");
+            pref.setUserName("");
+            LoginManager.getInstance().logOut();
+            Intent i = new Intent(HomescreenNew.this,LoginActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
             finish();
             return true;
 
@@ -236,10 +246,16 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
                 break;
             case R.id.logout:
 //                if(pref.getLoginStatus()){
-                    pref.setUserId(null);
-                    pref.setUserRollno(null);
-                    pref.setUserName(null);
-                    startActivity(new Intent(HomescreenNew.this,LoginActivity.class));
+                    pref.setUserId("");
+                    pref.setLoginStatus(false);
+                    pref.setUserRollno("");
+                    pref.setUserEmail("");
+                    pref.setUserPicUrl("");
+                    pref.setUserName("");
+                    LoginManager.getInstance().logOut();
+                    Intent i = new Intent(HomescreenNew.this,LoginActivity.class);
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(i);
                     finish();
 //                }
 //                else{
@@ -342,6 +358,11 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
     }
 
     void fetchQuestion(final Context context){
+        if(!pref.getLoginStatus()) {
+            startActivity(new Intent(context,LoginActivity.class));
+            return;
+        }
+        Log.e("error",""+pref.getUserId());
         String uid=pref.getUserId();
         Call<PollModel> call=  Utils.getRetrofitService().getPoll(uid);
         call.enqueue(new Callback<PollModel>() {

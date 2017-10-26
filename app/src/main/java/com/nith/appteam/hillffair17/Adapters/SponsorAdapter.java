@@ -2,6 +2,7 @@ package com.nith.appteam.hillffair17.Adapters;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.widget.RecyclerView;
@@ -43,13 +44,13 @@ public class SponsorAdapter extends RecyclerView.Adapter<SponsorAdapter.ViewHold
 
     @Override
     public void onBindViewHolder( final SponsorAdapter.ViewHolder holder, int position) {
-        if(!(sponsorItemArrayList.get(position).sponsor_name.isEmpty())){
-            holder.sponsorname.setText(sponsorItemArrayList.get(position).sponsor_name);
+        if(!(sponsorItemArrayList.get(position).getSponsor_name().isEmpty())){
+            holder.sponsorname.setText(sponsorItemArrayList.get(position).getSponsor_name());
         }
 
         if(!(sponsorItemArrayList.get(position).image_id==null)){
             // holder.sponsorimage.setImageResource(sponsorItemArrayList.get(position).image_id);
-            Glide.with(context).load(sponsorItemArrayList.get(position).image_id).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).into(new ImageViewTarget<Bitmap>(holder.sponsorimage) {
+            Glide.with(context).load(sponsorItemArrayList.get(position).getImage_id()).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.drawable.hillffair_org).into(new ImageViewTarget<Bitmap>(holder.sponsorimage) {
                 @Override
                 protected void setResource(Bitmap resource) {
                     RoundedBitmapDrawable drawable= RoundedBitmapDrawableFactory.create(context.getResources(),resource);
