@@ -12,14 +12,25 @@ import com.nith.appteam.hillffair17.Utils.SharedPref;
  */
 
 public class SplashActivity extends AppCompatActivity {
+
+    private SharedPref pref;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /*Note-@octacode:- Code for Starting Introduction Activity goes here.*/
+
+        pref = new SharedPref(this);
+
         if (SharedPref.getFirstRun(this))
             startActivity(new Intent(this, IntroActivity.class));
-        else
-            startActivity(new Intent(this, HomescreenNew.class));
+        else{
+            if(pref.getLoginStatus()){
+                startActivity(new Intent(this, HomescreenNew.class));
+            }
+            else{
+                startActivity(new Intent(this, LoginActivity.class));
+            }
+        }
+
 
           //  startActivity(new Intent(this, HomescreenNew.class));
 
