@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,14 +73,14 @@ public class PollAdapter extends RecyclerView.Adapter<PollAdapter.PollViewHolder
             this.list=list;
             this.context=context;
             itemView.setOnClickListener(this);
-
         }
 
 
         @Override
         public void onClick(View v) {
             //get the current poll
-            PollListModel.Question model=list.get(v.getId());
+           Log.e("position",""+getAdapterPosition());
+            PollListModel.Question model=list.get(getAdapterPosition());
             String qid=model.getId();
             Intent intent=new Intent(this.context,PlotActivity.class);
             intent.putExtra("qid",qid);

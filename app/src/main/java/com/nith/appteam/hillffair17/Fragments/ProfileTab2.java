@@ -56,7 +56,7 @@ public class ProfileTab2 extends Fragment {
             name=sharedPref.getUserName();
             email=sharedPref.getUserEmail();
             rollNo=sharedPref.getUserRollno();
-            if(!name.isEmpty()&&!email.isEmpty()){
+            if(!name.isEmpty() && !email.isEmpty()){
                 cardView.setVisibility(View.VISIBLE);
                 textName.setText(name);
                 textEmail.setText(email);

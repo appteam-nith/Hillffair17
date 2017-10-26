@@ -1,5 +1,6 @@
 package com.nith.appteam.hillffair17.Activities;
 
+import android.content.Context;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,22 +27,21 @@ public class PastPolls extends AppCompatActivity {
     private RecyclerView list;
     private PollAdapter adapter;
     private ArrayList<PollListModel.Question>listPoll;
+    Context context;
     String uid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_poll);
+        setContentView(R.layout.activity_past_polls);
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
+        context=this;
+        list = (RecyclerView) findViewById(R.id.listPoll);
         listPoll = new ArrayList<>();
         uid=new SharedPref(this).getUserId();
         getPastPoll();
-        list = (RecyclerView) findViewById(R.id.listPoll);
-        adapter = new PollAdapter(listPoll,this);
-        list.setLayoutManager(new LinearLayoutManager(this));
-        list.setAdapter(adapter);
     }
 
     void getPastPoll() {
@@ -53,6 +53,10 @@ public class PastPolls extends AppCompatActivity {
                 ArrayList<PollListModel.Question> questions =model.getQuestions();
                 for (PollListModel.Question q:questions){
                     listPoll.add(q);
+
+                    adapter = new PollAdapter(listPoll,context);
+                    list.setLayoutManager(new LinearLayoutManager(context));
+                    list.setAdapter(adapter);
                 }
             }
 

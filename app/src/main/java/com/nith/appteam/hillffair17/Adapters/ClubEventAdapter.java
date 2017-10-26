@@ -72,7 +72,7 @@ public class ClubEventAdapter extends RecyclerView.Adapter<ClubEventAdapter.Even
 
         public EventViewHolder(View view) {
             super(view);
-         club_image= (ImageView) view.findViewById(R.id.club_image);
+            club_image= (ImageView) view.findViewById(R.id.club_image);
             club_name= (TextView) view.findViewById(R.id.club_name);
         }
     }

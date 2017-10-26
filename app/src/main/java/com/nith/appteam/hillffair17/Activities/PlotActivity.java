@@ -91,8 +91,9 @@ public class PlotActivity extends AppCompatActivity {
            @Override
            public void onResponse(Call<PollStatistics> call, Response<PollStatistics> response) {
                if (response.isSuccess()) {
-
+                   Log.v("fgchjjghjkl","addddddditya");
                    PollStatistics model=response.body();
+
                    Log.e("res",model.getnOptionA());
                    Log.e("res",model.getnOptionB());
                    Log.e("res",model.getnOptionC());
@@ -101,6 +102,7 @@ public class PlotActivity extends AppCompatActivity {
                    Log.e("res",model.getOptionB());
                    Log.e("res",model.getOptionC());
                    Log.e("res",model.getOptionD());
+
                    barEntry.add(new BarEntry(Float.parseFloat(model.getnOptionA()),0));
                    barEntry.add(new BarEntry(Float.parseFloat(model.getnOptionB()),1));
                    barEntry.add(new BarEntry(Float.parseFloat(model.getnOptionC()),2));
@@ -116,11 +118,22 @@ public class PlotActivity extends AppCompatActivity {
                    chart.setData(barData);
                    chart.animateY(3000);
                }
+               else{
+                   Log.v("fgchjjghjkl","surazzz");
+                   for(int i=0;i<4;i++){
+                       barEntry.add(new BarEntry(1,i));
+                       barEntryLabels.add(""+i);
+                   }
+               }
+
            }
 
            @Override
            public void onFailure(Call<PollStatistics> call, Throwable t) {
-
+               for(int i=0;i<4;i++){
+                   barEntry.add(new BarEntry(1,i));
+                   barEntryLabels.add(""+i);
+               }
                Toast.makeText(PlotActivity.this,"Error While Fetching Data.",Toast.LENGTH_SHORT).show();
            }
        });
