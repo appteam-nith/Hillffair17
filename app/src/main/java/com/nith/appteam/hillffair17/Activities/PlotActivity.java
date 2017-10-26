@@ -1,5 +1,6 @@
 package com.nith.appteam.hillffair17.Activities;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -36,7 +37,8 @@ public class PlotActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
+        startActivity(new Intent(this,HomescreenNew.class));
+        finish();
     }
 
     @Override
