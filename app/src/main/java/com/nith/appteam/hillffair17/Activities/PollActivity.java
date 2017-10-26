@@ -74,8 +74,8 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
                     options.add(model.getOptionB());
                     options.add(model.getOptionC());
                     options.add(model.getOptionD());
-                    boolean done=model.isDone();
-                    if (done)  updateResult(-1);
+//                    boolean done=model.isDone();
+//                    if (done)  updateResult(-1);
 
                     ques.setText(question);
                     qid=model.getQid();
@@ -95,17 +95,22 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
 
     // poll/answer/uid/answer=?&q_id=?
     void updateResult(int option){
-    Intent intent=new Intent(PollActivity.this,PlotActivity.class);
-        intent.putExtra("qid",qid);
-        intent.putExtra("question",question);
-        if(option!=-1){
+//    Intent intent=new Intent(PollActivity.this,PlotActivity.class);
+//        intent.putExtra("qid",qid);
+//        intent.putExtra("question",question);
+//        if(option!=-1){
 
                 Call<PollModelUserResponse> updateScore=Utils.getRetrofitService().updateScore(userid,qid,""+(char)(option-1+'A'));
             updateScore.enqueue(new Callback<PollModelUserResponse>() {
                 @Override
                 public void onResponse(Call<PollModelUserResponse> call, Response<PollModelUserResponse> response) {
                     if(!response.isSuccess())Toast.makeText(PollActivity.this,"User has already submitted a response.",Toast.LENGTH_SHORT).show();
-
+                    else{
+                        Intent intent=new Intent(PollActivity.this,PlotActivity.class);
+                        intent.putExtra("qid",qid);
+                        intent.putExtra("question",question);
+                        startActivity(intent);
+                    }
                 }
 
                 @Override
@@ -115,9 +120,8 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
                 }
             });
 
-        }
+//        }
 
-        startActivity(intent);
     }
 
     @Override

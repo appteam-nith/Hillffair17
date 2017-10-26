@@ -1,6 +1,7 @@
 package com.nith.appteam.hillffair17.Activities;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -25,7 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
+import com.nith.appteam.hillffair17.Models.PollModel;
 import com.nith.appteam.hillffair17.Models.ProfileDataModel;
 import com.nith.appteam.hillffair17.Notification.NotificationActivity;
 import com.nith.appteam.hillffair17.R;
@@ -56,7 +57,7 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
         initCollapsingToolbar();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        
         final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawer, toolbar, 0, 0);
         actionBarDrawerToggle.syncState();
@@ -116,8 +117,7 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
     }
     public void openPolls(View v){
         //
-        Intent i = new Intent(this,PastPolls.class);
-        startActivity(i);
+        fetchQuestion();
     }
 
 
@@ -341,5 +341,33 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
         }
     }
 
+    void fetchQuestion(){
+        String uid=pref.getUserId();
+        uid="59ef4cf93a1fdb2808b42443";// TODO: 26/10/17 please delete this after
+        Call<PollModel> call=  Utils.getRetrofitService().getPoll(uid);
+        call.enqueue(new Callback<PollModel>() {
+            @Override
+            public void onResponse(Call<PollModel> call, Response<PollModel> response) {
+
+                PollModel model=response.body();
+                if(model.isDone()){
+
+                    Intent i = new Intent(HomescreenNew.this,PastPolls.class);
+                    startActivity(i);
+                }
+                else {
+
+                    Intent i = new Intent(HomescreenNew.this,PastPolls.class);
+                    startActivity(i);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PollModel> call, Throwable t) {
+                Toast.makeText(HomescreenNew.this,"Error While Fetching Data.",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
 
 }
