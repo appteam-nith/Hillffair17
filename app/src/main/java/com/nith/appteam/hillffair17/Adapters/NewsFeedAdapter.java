@@ -84,11 +84,12 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             final MyViewHolder h=(MyViewHolder) holder;
             final NewsFeed card = list_card.get(position);
 
+
             if(card!=null){
                 if(card.getDescription()!=null) {
+
                         String original = card.getDescription().toString();
                         h.user_msg.setText(original);
-                        h.user_name.setText(card.getUsername());
                 }
                 if(card.getUsername()!=null&&!card.getUsername().isEmpty())
                     h.user_name.setText(card.getUsername());
@@ -234,6 +235,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             lyk_status = (com.like.LikeButton) view.findViewById(R.id.lyk_status);
             title = (TextView)view.findViewById(R.id.post_title);
             profileimg = (ImageView) view.findViewById(R.id.profile_img);
+
         }
     }
 

@@ -50,7 +50,7 @@ public class Utils {
         oBuilder.connectTimeout(15l, TimeUnit.SECONDS);
         oBuilder.readTimeout(15l,TimeUnit.SECONDS);
 // code to add cache in retrofit
-
+/*
         oBuilder.cache(new Cache(new File(MyApplication.getAppContext().getCacheDir(),"cache"),10*1024*1024));
         oBuilder.addInterceptor(new Interceptor() {
             @Override public Response intercept(Chain chain) throws IOException {
@@ -63,7 +63,7 @@ public class Utils {
                 return chain.proceed(request);
             }
         });
-
+*/
         Retrofit retrofit = new Retrofit.Builder().baseUrl("http://hillffair.com:3000/api/").addConverterFactory(GsonConverterFactory.create()).client(oBuilder.build()).build();
         APIINTERFACE service = retrofit.create(APIINTERFACE.class);
         return service;

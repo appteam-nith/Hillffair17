@@ -4,6 +4,7 @@ android {
     compileSdkVersion 26
     buildToolsVersion "25.0.3"
     defaultConfig {
+        vectorDrawables.useSupportLibrary=true
         applicationId "com.nith.appteam.hillffair17"
         minSdkVersion 19
         targetSdkVersion 26
