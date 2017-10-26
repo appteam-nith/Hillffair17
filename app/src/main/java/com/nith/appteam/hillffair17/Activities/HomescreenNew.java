@@ -117,7 +117,7 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
     }
     public void openPolls(View v){
         //
-        fetchQuestion();
+        fetchQuestion(this);
     }
 
 
@@ -341,23 +341,29 @@ public class HomescreenNew extends AppCompatActivity implements NavigationView.O
         }
     }
 
-    void fetchQuestion(){
+    void fetchQuestion(final Context context){
         String uid=pref.getUserId();
-        uid="59ef4cf93a1fdb2808b42443";// TODO: 26/10/17 please delete this after
         Call<PollModel> call=  Utils.getRetrofitService().getPoll(uid);
         call.enqueue(new Callback<PollModel>() {
             @Override
             public void onResponse(Call<PollModel> call, Response<PollModel> response) {
 
                 PollModel model=response.body();
-                if(model.isDone()){
+                Log.e("error",""+model.getQid());
+                if(!model.isDone()){
 
-                    Intent i = new Intent(HomescreenNew.this,PastPolls.class);
+                    Intent i = new Intent(context,PastPolls.class);
+
                     startActivity(i);
                 }
                 else {
-
-                    Intent i = new Intent(HomescreenNew.this,PastPolls.class);
+                    Intent i = new Intent(context,PollActivity.class);
+                    i.putExtra("question",model.getQuestion());
+                    i.putExtra("optionA",model.getOptionA());
+                    i.putExtra("optionB",model.getOptionB());
+                    i.putExtra("optionC",model.getOptionC());
+                    i.putExtra("optionD",model.getOptionD());
+                    i.putExtra("qid",model.getQid());
                     startActivity(i);
                 }
             }

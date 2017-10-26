@@ -14,7 +14,7 @@ public class PollModel {
     boolean done;
     @SerializedName("qNo")
     String qno;
-    @SerializedName("qid")
+    @SerializedName("qId")
     private String qid;
     @SerializedName("question")
     private String question;

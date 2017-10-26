@@ -1,5 +1,6 @@
 package com.nith.appteam.hillffair17.Activities;
 
+import android.graphics.Color;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,31 +9,36 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.data.BarData;
-import com.github.mikephil.charting.data.BarDataSet;
-import com.github.mikephil.charting.data.BarEntry;
+
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
-import com.nith.appteam.hillffair17.Models.PlotModel;
+
 import com.nith.appteam.hillffair17.Models.PollStatistics;
 import com.nith.appteam.hillffair17.R;
 import com.nith.appteam.hillffair17.Utils.Utils;
 
 import java.util.ArrayList;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class PlotActivity extends AppCompatActivity {
 
-    BarChart chart ;
-    ArrayList<BarEntry> barEntry ;
-    ArrayList<String> barEntryLabels ;
-    BarDataSet barDataset ;
-    BarData barData ;
+
     TextView ques;
     String qid;
+
+    PieChart pieChart;
+
+    @Override
+    public void onBackPressed() {
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,58 +46,32 @@ public class PlotActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
-
         ab.setDisplayHomeAsUpEnabled(true);
         qid=getIntent().getStringExtra("qid");
         String question=getIntent().getStringExtra("question");
-        chart = findViewById(R.id.chart1);
+
+        pieChart=findViewById(R.id.piechart);
+        pieChart.setUsePercentValues(true);
         ques=findViewById(R.id.plot_ques);
-
         ques.setText(question);
+        pieChart.setDrawHoleEnabled(false);
+        pieChart.setDescription("");
+        pieChart.setNoDataText("");
+        pieChart.setNoDataTextDescription("");
+        pieChart.invalidate();
 
-
-
-        chart.setScaleEnabled(false);
-        chart.setDescription("");
-        chart.getAxisLeft().setDrawGridLines(false);
-        chart.getXAxis().setDrawGridLines(false);
-        chart.getAxisLeft().setAxisMinValue(0);
-        chart.getLegend().setEnabled(false);
-
-        barEntry = new ArrayList<>();
-        barEntryLabels = new ArrayList<>();
-
-//        updateBarEntry();
-//        updateBarLabels("whateve");
         plotData();
 
     }
-/***dummy code***/
-    public void updateBarEntry(){
 
-        barEntry.add(new BarEntry(0, 0));
-        barEntry.add(new BarEntry(0, 1));
-        barEntry.add(new BarEntry(0, 2));
-        barEntry.add(new BarEntry(0, 3));
-
-    }
-
-    public void updateBarLabels(String label){
-
-        barEntryLabels.add(label);
-        barEntryLabels.add(label);
-        barEntryLabels.add(label);
-        barEntryLabels.add(label);
-
-    }
-/*****/
    public void plotData(){
+
     Call<PollStatistics> call=Utils.getRetrofitService().getStats(qid);
        call.enqueue(new Callback<PollStatistics>() {
            @Override
            public void onResponse(Call<PollStatistics> call, Response<PollStatistics> response) {
                if (response.isSuccess()) {
-                   Log.v("fgchjjghjkl","addddddditya");
+
                    PollStatistics model=response.body();
 
                    Log.e("res",model.getnOptionA());
@@ -103,37 +83,41 @@ public class PlotActivity extends AppCompatActivity {
                    Log.e("res",model.getOptionC());
                    Log.e("res",model.getOptionD());
 
-                   barEntry.add(new BarEntry(Float.parseFloat(model.getnOptionA()),0));
-                   barEntry.add(new BarEntry(Float.parseFloat(model.getnOptionB()),1));
-                   barEntry.add(new BarEntry(Float.parseFloat(model.getnOptionC()),2));
-                   barEntry.add(new BarEntry(Float.parseFloat(model.getnOptionD()),3));
-                   ques.setText(model.getQuestion());
-                   barEntryLabels.add(model.getOptionA());
-                   barEntryLabels.add(model.getOptionB());
-                   barEntryLabels.add(model.getOptionC());
-                   barEntryLabels.add(model.getOptionD());
-                   barDataset = new BarDataSet(barEntry, "response");
-                   barData = new BarData(barEntryLabels, barDataset);
-                   barDataset.setColors(ColorTemplate.COLORFUL_COLORS);
-                   chart.setData(barData);
-                   chart.animateY(3000);
+
+                   ArrayList<Entry>yvalues=new ArrayList<>();
+                   ArrayList<String> xVals = new ArrayList<>();
+                   yvalues.add(new Entry(Float.parseFloat(model.getnOptionA()), 0));
+                   yvalues.add(new Entry(Float.parseFloat(model.getnOptionB()), 1));
+                   yvalues.add(new Entry(Float.parseFloat(model.getnOptionC()), 2));
+                   yvalues.add(new Entry(Float.parseFloat(model.getnOptionD()), 3));
+
+                   xVals.add(model.getOptionA());
+                   xVals.add(model.getOptionB());
+                   xVals.add(model.getOptionC());
+                   xVals.add(model.getOptionD());
+
+
+
+                   pieChart.getLegend().setEnabled(false);
+                   PieDataSet dataSet = new PieDataSet(yvalues, "");
+                   dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+                   PieData data = new PieData(xVals, dataSet);
+
+                   data.setValueTextSize(13f);
+                   data.setValueTextColor(Color.WHITE);
+                   data.setValueFormatter(new PercentFormatter());
+                   pieChart.setData(data);
+                   pieChart.invalidate();
                }
                else{
                    Log.v("fgchjjghjkl","surazzz");
-                   for(int i=0;i<4;i++){
-                       barEntry.add(new BarEntry(1,i));
-                       barEntryLabels.add(""+i);
-                   }
+
                }
 
            }
 
            @Override
            public void onFailure(Call<PollStatistics> call, Throwable t) {
-               for(int i=0;i<4;i++){
-                   barEntry.add(new BarEntry(1,i));
-                   barEntryLabels.add(""+i);
-               }
                Toast.makeText(PlotActivity.this,"Error While Fetching Data.",Toast.LENGTH_SHORT).show();
            }
        });

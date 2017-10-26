@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -30,6 +31,13 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
     String userid;
     String qid;
     String question;
+    String a,b,c,d;
+
+    @Override
+    public void onBackPressed() {
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +46,6 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
 
-        ab.setDisplayHomeAsUpEnabled(true);
         ques=(TextView) findViewById(R.id.poll_ques);
         opt1=(Button)findViewById(R.id.option1);
         opt2=(Button)findViewById(R.id.option2);
@@ -46,11 +53,16 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
         opt4=(Button)findViewById(R.id.option4);
 
 
+        question=getIntent().getStringExtra("question");
+        qid=getIntent().getStringExtra("qid");
+        a=getIntent().getStringExtra("optionA");
+        b=getIntent().getStringExtra("optionB");
+        c=getIntent().getStringExtra("optionC");
+        d=getIntent().getStringExtra("optionD");
+        
         SharedPref sharedPref=new SharedPref(this);
-//        userid=sharedPref.getUserId();
-        userid="59ef4cf93a1fdb2808b42443";//// TODO: 26/10/17 delete this afterwards
-        qid="59f0d907ee241202a9c5ee43";
-        fetchQuestion();
+        userid=sharedPref.getUserId();
+        putDetails();
 
         opt1.setOnClickListener(this);
         opt2.setOnClickListener(this);
@@ -58,58 +70,31 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
         opt4.setOnClickListener(this);
     }
 
-///poll/question/uid
-    void fetchQuestion(){
-        Call<PollModel>getPoll = Utils.getRetrofitService().getPoll(userid);
-        getPoll.enqueue(new Callback<PollModel>() {
-            @Override
-            public void onResponse(Call<PollModel> call, Response<PollModel> response) {
+    void putDetails(){
 
-
-                    PollModel model=response.body();
-                    question=model.getQuestion();
-
-                    ArrayList<String> options=new ArrayList<>();
-                    options.add(model.getOptionA());
-                    options.add(model.getOptionB());
-                    options.add(model.getOptionC());
-                    options.add(model.getOptionD());
-//                    boolean done=model.isDone();
-//                    if (done)  updateResult(-1);
-
-                    ques.setText(question);
-                    qid=model.getQid();
-                    opt1.setText(options.get(0));
-                    opt2.setText(options.get(1));
-                    opt3.setText(options.get(2));
-                    opt4.setText(options.get(3));
-
-
-            }
-            @Override
-            public void onFailure(Call<PollModel> call, Throwable t) {
-                Toast.makeText(PollActivity.this,"Error While Fetching Data.",Toast.LENGTH_SHORT).show();
-            }
-        });
+            ques.setText(question);
+            opt1.setText(a);
+            opt2.setText(b);
+            opt3.setText(c);
+            opt4.setText(d);
+          
     }
 
-    // poll/answer/uid/answer=?&q_id=?
-    void updateResult(int option){
-//    Intent intent=new Intent(PollActivity.this,PlotActivity.class);
-//        intent.putExtra("qid",qid);
-//        intent.putExtra("question",question);
-//        if(option!=-1){
-
-                Call<PollModelUserResponse> updateScore=Utils.getRetrofitService().updateScore(userid,qid,""+(char)(option-1+'A'));
-            updateScore.enqueue(new Callback<PollModelUserResponse>() {
+    void updateResult(char option){
+        Log.e("Suraz","making requests");
+        Call<PollModelUserResponse> updateScore=Utils.getRetrofitService().updateScore(userid,qid,""+option);
+        updateScore.enqueue(new Callback<PollModelUserResponse>() {
                 @Override
                 public void onResponse(Call<PollModelUserResponse> call, Response<PollModelUserResponse> response) {
-                    if(!response.isSuccess())Toast.makeText(PollActivity.this,"User has already submitted a response.",Toast.LENGTH_SHORT).show();
-                    else{
-                        Intent intent=new Intent(PollActivity.this,PlotActivity.class);
-                        intent.putExtra("qid",qid);
-                        intent.putExtra("question",question);
-                        startActivity(intent);
+                    if(response.isSuccess()) {
+                        if (!response.body().isSuccess())
+                            Toast.makeText(PollActivity.this, "User has already submitted a response.", Toast.LENGTH_SHORT).show();
+                        else {
+                            Intent intent = new Intent(PollActivity.this, PlotActivity.class);
+                            intent.putExtra("qid", qid);
+                            intent.putExtra("question", question);
+                            startActivity(intent);
+                        }
                     }
                 }
 
@@ -119,22 +104,23 @@ public class PollActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(PollActivity.this,"Error While Fetching Data.",Toast.LENGTH_SHORT).show();
                 }
             });
-
-//        }
-
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
 
-            case R.id.option1:updateResult(1);
+            case R.id.option1:updateResult('A');
+                Log.e("RESULT POLL",1+"");
                 break;
-            case R.id.option2:updateResult(2);
+            case R.id.option2:updateResult('B');
+                Log.e("RESULT POLL",2+"");
                 break;
-            case R.id.option3:updateResult(3);
+            case R.id.option3:updateResult('C');
+                Log.e("RESULT POLL",3+"");
                 break;
-            case R.id.option4:updateResult(4);
+            case R.id.option4:updateResult('D');
+                Log.e("RESULT POLL",4+"");
                 break;
         }
     }
