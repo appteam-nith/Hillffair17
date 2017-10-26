@@ -88,7 +88,7 @@
         <LinearLayout
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:background="@drawable/homescreen_bg"
+            android:background="@drawable/bg_new"
             android:orientation="vertical">
 
 
