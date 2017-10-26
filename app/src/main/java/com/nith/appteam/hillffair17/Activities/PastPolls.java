@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.facebook.share.Share;
 import com.nith.appteam.hillffair17.Adapters.PollAdapter;
@@ -29,6 +31,7 @@ public class PastPolls extends AppCompatActivity {
     private ArrayList<PollListModel.Question>listPoll;
     Context context;
     String uid;
+    private ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +40,9 @@ public class PastPolls extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
+        progressBar = (ProgressBar) findViewById(R.id.pollprogress);
+        progressBar.setVisibility(View.VISIBLE);
+
         context=this;
         list = (RecyclerView) findViewById(R.id.listPoll);
         listPoll = new ArrayList<>();
@@ -53,11 +59,11 @@ public class PastPolls extends AppCompatActivity {
                 ArrayList<PollListModel.Question> questions =model.getQuestions();
                 for (PollListModel.Question q:questions){
                     listPoll.add(q);
-
                     adapter = new PollAdapter(listPoll,context);
                     list.setLayoutManager(new LinearLayoutManager(context));
                     list.setAdapter(adapter);
                 }
+                progressBar.setVisibility(View.GONE);
             }
 
             @Override
