@@ -49,6 +49,7 @@ public class QuizActivity extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 startActivity(new Intent(QuizActivity.this,LoginActivity.class));
+                                finish();
                             }
                         }).show();
                     }else{

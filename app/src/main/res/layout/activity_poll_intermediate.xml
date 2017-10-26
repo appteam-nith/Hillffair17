@@ -1,19 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/core_view"
     tools:context="com.nith.appteam.hillffair17.Activities.PollIntermediateActivity">
-  <TextView
-      android:layout_width="wrap_content"
+
+  <LinearLayout
+      android:layout_gravity="center"
+      android:orientation="vertical"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="Loading..."
-      android:textSize="35sp"
-      android:layout_marginBottom="53dp"
-      android:layout_above="@+id/category_progress"
-      android:layout_centerHorizontal="true" />
+      android:layout_marginBottom="40dp">
+
+    <TextView
+        android:id="@+id/loadingText"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Loading..."
+        android:textSize="35sp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"/>
     <ProgressBar
+        android:layout_gravity="center"
         android:layout_below="@+id/recycler_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,4 +34,7 @@
         android:id="@+id/category_progress"
         />
 
-</RelativeLayout>
+  </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>
