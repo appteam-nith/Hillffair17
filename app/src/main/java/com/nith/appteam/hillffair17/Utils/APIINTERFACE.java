@@ -117,7 +117,7 @@ public interface APIINTERFACE {
     @GET("quiz/leaderboard")
     Call<LeaderBoardModel> getLeaderBoard();
 
-    @POST("http://23.92.25.213/nithtpo/allnoti.php")
+    @POST("http://hillffair.com/allnoti")
     Call<NotificationArrayModel> loadnotification();
 
     @FormUrlEncoded

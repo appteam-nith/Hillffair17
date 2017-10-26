@@ -16,6 +16,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+ <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <ImageView
+        android:layout_margin="10dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/person_icon"
+        android:id="@+id/profile_img"
+        />
 
         <TextView
             android:layout_width="wrap_content"
@@ -28,6 +39,9 @@
 
             android:textColor="#000"
             android:textSize="20sp"/>
+
+        </LinearLayout>
+
 
         <View
             android:layout_width="match_parent"
@@ -52,6 +66,12 @@
                 android:textColor="#000"
                 android:textSize="20sp"/>
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#a9a9a9"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -83,10 +103,18 @@
             />
 
 
+
+
+       <!-- <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#a9a9a9"/>-->
+
         <!-- <View
              android:layout_width="match_parent"
              android:layout_height="1dp"
              android:background="#a9a9a9"/>-->
+
 
         <RelativeLayout
             android:layout_width="match_parent"

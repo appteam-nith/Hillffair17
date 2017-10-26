@@ -64,35 +64,40 @@ public class UploadNewsFeedActivity extends AppCompatActivity {
                 StringBuilder imageUrl =new StringBuilder();
                 if (add.title != null && add.detail != null) {
                     if (!add.title.isEmpty() && !add.detail.isEmpty()) {
-                        if (!sharedPref.getFirstTimeRollregister())
-                            if (!sharedPref.getNitianStatus() && sharedPref.getUserRollno().isEmpty()) {
-                                Log.d("b", "b");
-                                Log.d("b", sharedPref.getUserRollno());
-                                if (sharedPref.getUserRollno().isEmpty()) {
-                                    AlertDialog t = Utils.promptRollNo(UploadNewsFeedActivity.this);
-                                    t.show();
+                        if(add.detail.length()<200) {
+                            if (!sharedPref.getFirstTimeRollregister())
+                                if (!sharedPref.getNitianStatus() && sharedPref.getUserRollno().isEmpty()) {
+                                    Log.d("b", "b");
+                                    Log.d("b", sharedPref.getUserRollno());
+                                    if (sharedPref.getUserRollno().isEmpty()) {
+                                        AlertDialog t = Utils.promptRollNo(UploadNewsFeedActivity.this);
+                                        t.show();
 
+                                    }
+                                } else {
+                                    sharedPref.setFirstRollRegister(true);
                                 }
-                            } else {
-                                sharedPref.setFirstRollRegister(true);
-                            }
-                        else {
-                            for (int i = 0; i < add.imageUrl.size(); i++)
-                                imageUrl.append(add.imageUrl.get(i) + " ");
-                            Log.d("image", imageUrl.toString());
-                            Intent i = new Intent(UploadNewsFeedActivity.this, UploadService.class);
-                            i.putExtra(UPLOAD_SERVICE, true);
-                            i.putExtra(TITLE, add.title);
-                            i.putExtra(DESCRIPTION, add.detail);
-                            if (!imageUrl.toString().isEmpty()) {
-                                i.putExtra(URL_IMAGE, imageUrl.toString());
-                                System.out.println("jijij");
-                            }
+                            else {
+                                for (int i = 0; i < add.imageUrl.size(); i++)
+                                    imageUrl.append(add.imageUrl.get(i) + " ");
+                                Log.d("image", imageUrl.toString());
+                                Intent i = new Intent(UploadNewsFeedActivity.this, UploadService.class);
+                                i.putExtra(UPLOAD_SERVICE, true);
+                                i.putExtra(TITLE, add.title);
+                                i.putExtra(DESCRIPTION, add.detail);
+                                if (!imageUrl.toString().isEmpty()) {
+                                    i.putExtra(URL_IMAGE, imageUrl.toString());
+                                    System.out.println("jijij");
+                                }
 
-                            startService(i);
+                                startService(i);
 
-                            Log.d(TAG, add.title + " " + add.detail + " " + imageUrl);
-                            finish();
+                                Log.d(TAG, add.title + " " + add.detail + " " + imageUrl);
+                                finish();
+                            }
+                        }
+                        else{
+                            Toast.makeText(UploadNewsFeedActivity.this, "Please keep the size of text less than 200", Toast.LENGTH_SHORT).show();
                         }
                     } else {
                         Toast.makeText(UploadNewsFeedActivity.this, "Some Fields are still empty", Toast.LENGTH_SHORT).show();
