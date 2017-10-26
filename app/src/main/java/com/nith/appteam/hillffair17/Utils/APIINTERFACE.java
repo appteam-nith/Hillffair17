@@ -22,6 +22,7 @@ import com.nith.appteam.hillffair17.Models.ProfileDataModel;
 import com.nith.appteam.hillffair17.Models.ProfileEventModel;
 import com.nith.appteam.hillffair17.Models.QuizQuestionsModel;
 import com.nith.appteam.hillffair17.Models.RegisterResponse;
+import com.nith.appteam.hillffair17.Models.SponsorArrayModel;
 import com.nith.appteam.hillffair17.Models.SubCategoryQuizModel;
 import com.nith.appteam.hillffair17.Notification.NotificationArrayModel;
 import com.nith.appteam.hillffair17.Notification.notification_model;
@@ -123,5 +124,9 @@ public interface APIINTERFACE {
     @FormUrlEncoded
     @POST("quiz/getSet/{student_id}")
     Call<QuizQuestionsModel> getQuiz(@Path("student_id") String id, @Field("category") String category, @Field("topic") String topic);
+
+    @GET("sponsors")
+    Call<SponsorArrayModel> getSponsor();
+
 }
 
