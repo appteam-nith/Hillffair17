@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nith.appteam.hillffair17.Models.NewsFeed;
+import com.nith.appteam.hillffair17.Notification.NotificationActivity;
 import com.nith.appteam.hillffair17.R;
 import com.nith.appteam.hillffair17.Adapters.CoreTeamAdapter;
 import com.nith.appteam.hillffair17.Models.CoreTeamItem;
@@ -110,7 +111,7 @@ public class CoreTeamActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(ContributorsActivity.this, "Clicked Backup", Toast.LENGTH_SHORT).show();
-                Intent i1 = new Intent(CoreTeamActivity.this, BattleDayActivity.class);
+                Intent i1 = new Intent(CoreTeamActivity.this, NotificationActivity.class);
                 startActivity(i1);
                 finish();
                 mBottomSheetDialog.dismiss();
@@ -119,7 +120,7 @@ public class CoreTeamActivity extends AppCompatActivity {
         txtDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CoreTeamActivity.this, NewsFeed.class));
+                startActivity(new Intent(CoreTeamActivity.this, WallIntroActivity.class));
                 mBottomSheetDialog.dismiss();
             }
         });
@@ -127,7 +128,7 @@ public class CoreTeamActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(ContributorsActivity.this, "Clicked Open", Toast.LENGTH_SHORT).show();
-                Intent i3 = new Intent(CoreTeamActivity.this, EventActivity.class);
+                Intent i3 = new Intent(CoreTeamActivity.this, LeaderBoardActivity.class);
                 startActivity(i3);
                 finish();
                 mBottomSheetDialog.dismiss();
