@@ -118,7 +118,7 @@
         <activity
             android:name=".Activities.QuizActivity"
             android:exported="true"
-            android:parentActivityName=".Activities.HomescreenNew" />
+            android:parentActivityName=".Activities.QuizCategoryActivity" />
         <activity
             android:name=".Activities.QuizSubCategoryActivity"
             android:exported="true"
@@ -173,8 +173,11 @@
         <activity
             android:name=".Activities.QuizQuestionActivity"
             android:exported="true"
-            android:parentActivityName=".Activities.HomescreenNew" />
-        <activity android:name=".Activities.QuizScoreActivity" />
+            android:parentActivityName=".Activities.HomescreenNew"
+            />
+        <activity android:name=".Activities.QuizScoreActivity"
+            android:parentActivityName=".Activities.QuizCategoryActivity"
+            />
         <activity
             android:name=".Activities.InformationActivity"
             android:exported="true"

@@ -73,7 +73,7 @@
 
             <Button
                 android:layout_margin="5dp"
-                android:text="BACK TO HOME"
+                android:text="BACK TO QUIZ"
                 android:layout_width="230dp"
                 android:id="@+id/quiz_home_link"
                 android:padding="28dp"
