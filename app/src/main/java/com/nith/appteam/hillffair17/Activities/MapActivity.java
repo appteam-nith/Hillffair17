@@ -17,7 +17,9 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.nith.appteam.hillffair17.Adapters.Notification;
 import com.nith.appteam.hillffair17.Models.NewsFeed;
+import com.nith.appteam.hillffair17.Notification.NotificationActivity;
 import com.nith.appteam.hillffair17.R;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback{
@@ -83,7 +85,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             @Override
             public void onClick(View v) {
 //                Toast.makeText(ContributorsActivity.this, "Clicked Backup", Toast.LENGTH_SHORT).show();
-                Intent i1 = new Intent(MapActivity.this, BattleDayActivity.class);
+                Intent i1 = new Intent(MapActivity.this, NotificationActivity.class);
                 startActivity(i1);
                 finish();
                 mBottomSheetDialog.dismiss();
@@ -93,7 +95,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             @Override
             public void onClick(View v) {
                // Toast.makeText(MapActivity.this, "Clicked Detail", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(MapActivity.this, NewsFeed.class));
+                startActivity(new Intent(MapActivity.this, WallIntroActivity.class));
                 mBottomSheetDialog.dismiss();
             }
         });
@@ -101,7 +103,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             @Override
             public void onClick(View v) {
 //                Toast.makeText(ContributorsActivity.this, "Clicked Open", Toast.LENGTH_SHORT).show();
-                Intent i3 = new Intent(MapActivity.this, EventActivity.class);
+                Intent i3 = new Intent(MapActivity.this, LeaderBoardActivity.class);
                 startActivity(i3);
                 finish();
                 mBottomSheetDialog.dismiss();

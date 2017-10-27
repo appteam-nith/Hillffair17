@@ -8,6 +8,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
@@ -38,6 +40,7 @@ public class NotificationActivity extends AppCompatActivity {
     List<notification_model> arrayList;
     Notification adapter;
     RecyclerView recyclerView;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,12 +53,12 @@ public class NotificationActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Notifications");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        progressBar = (ProgressBar) findViewById(R.id.category_progress);
         //   arrayList=dbHandler.gethomedata();
         arrayList=new ArrayList<>();
 
         Log.v("aa",""+arrayList);
-
+        progressBar.setVisibility(View.VISIBLE);
         recyclerView = (RecyclerView)findViewById(R.id.activity_notification_listview);
         notification = new Notification(arrayList,NotificationActivity.this);
         final LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
@@ -103,12 +106,16 @@ public class NotificationActivity extends AppCompatActivity {
                         adapter = new Notification(arrayList, getApplicationContext());
                         recyclerView.setAdapter(adapter);
 
+
                     }
+                    progressBar.setVisibility(View.GONE);
 //
                 }
                 catch (Exception e)
                 {
                     Toast.makeText(NotificationActivity.this, "Data not recieved", Toast.LENGTH_SHORT).show();
+                    Log.e("Error",e.toString());
+                    progressBar.setVisibility(View.GONE);
                 }
             }
 
