@@ -4,6 +4,10 @@
     <color name="colorPrimaryDark">#212121</color>
     <color name="colorAccent">#6aa3bc</color>
 
+    <color name="pollBackground">#EBF2EA</color>
+    <color name="pollButton">#0ABDA0</color>
+    <color name="pollText">#464646</color>
+
     <!-- App Intro -->
     <color name="intro1">#000000</color>
     <color name="intro_quiz">#ff5bff</color>
