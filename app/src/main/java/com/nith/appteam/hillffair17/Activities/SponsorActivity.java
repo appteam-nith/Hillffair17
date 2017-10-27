@@ -15,8 +15,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nith.appteam.hillffair17.Adapters.Notification;
 import com.nith.appteam.hillffair17.Models.NewsFeed;
 import com.nith.appteam.hillffair17.Models.SponsorArrayModel;
+import com.nith.appteam.hillffair17.Notification.NotificationActivity;
 import com.nith.appteam.hillffair17.R;
 import com.nith.appteam.hillffair17.Adapters.SponsorAdapter;
 import com.nith.appteam.hillffair17.Models.SponsorItem;
@@ -127,7 +129,7 @@ public class SponsorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(ContributorsActivity.this, "Clicked Backup", Toast.LENGTH_SHORT).show();
-                Intent i1 = new Intent(SponsorActivity.this, BattleDayActivity.class);
+                Intent i1 = new Intent(SponsorActivity.this, NotificationActivity.class);
                 startActivity(i1);
                 finish();
                 mBottomSheetDialog.dismiss();
@@ -136,7 +138,7 @@ public class SponsorActivity extends AppCompatActivity {
         txtDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SponsorActivity.this, NewsFeed.class));
+                startActivity(new Intent(SponsorActivity.this, WallIntroActivity.class));
                 mBottomSheetDialog.dismiss();
             }
         });
@@ -144,7 +146,7 @@ public class SponsorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(ContributorsActivity.this, "Clicked Open", Toast.LENGTH_SHORT).show();
-                Intent i3 = new Intent(SponsorActivity.this, EventActivity.class);
+                Intent i3 = new Intent(SponsorActivity.this, LeaderBoardActivity.class);
                 startActivity(i3);
                 finish();
                 mBottomSheetDialog.dismiss();
@@ -153,8 +155,6 @@ public class SponsorActivity extends AppCompatActivity {
         txtUninstall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(ContributorsActivity.this, "Clicked Uninstall", Toast.LENGTH_SHORT).show();
-
                 mBottomSheetDialog.dismiss();
             }
         });

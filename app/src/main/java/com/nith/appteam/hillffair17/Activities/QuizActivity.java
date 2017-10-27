@@ -71,5 +71,10 @@ public class QuizActivity extends AppCompatActivity {
         });
 
     }
+    @Override
+    public  void onBackPressed(){
+        startActivity(new Intent(this,HomescreenNew.class));
+        finish();
+    }
 
 }

@@ -34,6 +34,13 @@ public class QuizCategoryActivity extends AppCompatActivity {
     private ArrayList<CategoryQuizSingleModel> categories;
     private ProgressBar progressBar;
     private Toolbar toolbar;
+
+    @Override
+    public void onBackPressed(){
+        startActivity(new Intent(getApplicationContext(),HomescreenNew.class));
+        finish();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

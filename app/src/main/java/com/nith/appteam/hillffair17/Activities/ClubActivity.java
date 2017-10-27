@@ -21,10 +21,12 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.gson.annotations.SerializedName;
 import com.nith.appteam.hillffair17.Activities.EventActivity;
+import com.nith.appteam.hillffair17.Adapters.Notification;
 import com.nith.appteam.hillffair17.Models.BattleEventResponse;
 import com.nith.appteam.hillffair17.Models.ClubModel;
 import com.nith.appteam.hillffair17.Models.ClubModel2;
 import com.nith.appteam.hillffair17.Models.NewsFeed;
+import com.nith.appteam.hillffair17.Notification.NotificationActivity;
 import com.nith.appteam.hillffair17.R;
 import com.nith.appteam.hillffair17.Utils.MyApplication;
 import com.nith.appteam.hillffair17.Utils.SharedPref;
@@ -104,7 +106,7 @@ public class ClubActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(ContributorsActivity.this, "Clicked Backup", Toast.LENGTH_SHORT).show();
-                Intent i1 = new Intent(ClubActivity.this, BattleDayActivity.class);
+                Intent i1 = new Intent(ClubActivity.this, NotificationActivity.class);
                 startActivity(i1);
                 finish();
                 mBottomSheetDialog.dismiss();
@@ -113,14 +115,14 @@ public class ClubActivity extends AppCompatActivity {
         txtDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ClubActivity.this, NewsFeed.class));
+                startActivity(new Intent(ClubActivity.this, WallIntroActivity.class));
                 mBottomSheetDialog.dismiss();
             }
         });
         txtOpen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//               startActivity(new Intent(ClubActivity.this, ClubActivity.class));
+              startActivity(new Intent(ClubActivity.this, LeaderBoardActivity.class));
                 mBottomSheetDialog.dismiss();
             }
         });

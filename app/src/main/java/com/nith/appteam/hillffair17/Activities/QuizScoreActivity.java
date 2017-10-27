@@ -1,5 +1,6 @@
 package com.nith.appteam.hillffair17.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -29,9 +30,15 @@ public class QuizScoreActivity extends AppCompatActivity {
         findViewById(R.id.quiz_home_link).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),QuizCategoryActivity.class));
                 finish();
             }
         });
 
+    }
+    @Override
+    public  void onBackPressed(){
+        startActivity(new Intent(this,HomescreenNew.class));
+        finish();
     }
 }

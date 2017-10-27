@@ -16,7 +16,9 @@ import android.widget.Toast;
 
 import com.google.gson.annotations.SerializedName;
 import com.nith.appteam.hillffair17.Adapters.ClubEventAdapter;
+import com.nith.appteam.hillffair17.Adapters.Notification;
 import com.nith.appteam.hillffair17.Models.ClubEvent;
+import com.nith.appteam.hillffair17.Notification.NotificationActivity;
 import com.nith.appteam.hillffair17.R;
 import com.nith.appteam.hillffair17.Utils.RecyclerItemClickListener;
 import com.nith.appteam.hillffair17.Utils.SharedPref;
@@ -76,7 +78,7 @@ public class EventActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(ContributorsActivity.this, "Clicked Backup", Toast.LENGTH_SHORT).show();
-                Intent i1 = new Intent(EventActivity.this, BattleDayActivity.class);
+                Intent i1 = new Intent(EventActivity.this, NotificationActivity.class);
                 startActivity(i1);
                 finish();
                 mBottomSheetDialog.dismiss();
@@ -85,14 +87,14 @@ public class EventActivity extends AppCompatActivity {
         txtDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(EventActivity.this, "Clicked Detail", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(EventActivity.this,WallIntroActivity.class));
                 mBottomSheetDialog.dismiss();
             }
         });
         txtOpen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(ContributorsActivity.this, "Clicked Open", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(EventActivity.this,LeaderBoardActivity.class));
 
                 mBottomSheetDialog.dismiss();
             }
@@ -178,3 +180,7 @@ public class EventActivity extends AppCompatActivity {
         });
     }
 }
+// notification
+//Newsfeed
+// leaderboard
+//sponsor

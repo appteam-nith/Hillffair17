@@ -16,7 +16,7 @@
         android:textColor="#E3F2FD"
         android:gravity="center"
         android:padding="15dp"
-        android:text="Battle Day"
+        android:text="Notification"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <View
@@ -48,7 +48,7 @@
         android:textColor="#E3F2FD"
         android:gravity="center"
         android:padding="15dp"
-        android:text="Clubs"
+        android:text="LeaderBoard"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <View
