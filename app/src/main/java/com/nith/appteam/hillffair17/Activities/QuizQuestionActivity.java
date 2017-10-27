@@ -15,6 +15,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -233,6 +234,20 @@ public class QuizQuestionActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        if (menuItem.getItemId() == android.R.id.home) {
+            if(staytuned_message.getVisibility()== View.GONE || progressBar.getVisibility()== View.VISIBLE){
+                QuizDialog dialog=new QuizDialog();
+                dialog.show(manager,"dialog");
+
+            }else {
+                super.onBackPressed();
+            }
+        }
+        return super.onOptionsItemSelected(menuItem);
+    }
+
     public void submitScore(){
         progressBar.setVisibility(View.VISIBLE);
 
@@ -301,6 +316,7 @@ public class QuizQuestionActivity extends AppCompatActivity {
         });
 
     }
+
 
     public static class QuizDialog extends DialogFragment {
 
