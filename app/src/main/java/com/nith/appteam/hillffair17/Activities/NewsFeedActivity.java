@@ -34,7 +34,7 @@ public class NewsFeedActivity extends AppCompatActivity implements SwipeRefreshL
     private RecyclerView recyclerView;
     private NewsFeedAdapter adapter;
     private ProgressBar progressBar;
-    private SwipeRefreshLayout swipeRefreshLayout;
+
     private boolean loading = true;
     private int  pastVisiblesItems, visibleItemCount, totalItemCount, previousTotal = 0, visibleThreshold = 0,feedNo=1;
     private ArrayList<NewsFeed> list=new ArrayList<>();
@@ -46,8 +46,8 @@ public class NewsFeedActivity extends AppCompatActivity implements SwipeRefreshL
         setContentView(R.layout.activity_news_feed);
         pref = new SharedPref(getApplicationContext());
         coordinatorLayout= (CoordinatorLayout) findViewById(R.id.core_view);
-        swipeRefreshLayout= (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
-        swipeRefreshLayout.setOnRefreshListener(this);
+      //  swipeRefreshLayout= (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
+//        swipeRefreshLayout.setOnRefreshListener(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         progressBar= (ProgressBar) findViewById(R.id.progress);
         setSupportActionBar(toolbar);
@@ -125,18 +125,25 @@ public class NewsFeedActivity extends AppCompatActivity implements SwipeRefreshL
         newsfeedResponse.enqueue(new Callback<NewsFeedResponse>() {
             @Override
             public void onResponse(Call<NewsFeedResponse> call, Response<NewsFeedResponse> response) {
-                if(swipeRefreshLayout.isRefreshing()){
-                    swipeRefreshLayout.setRefreshing(false);
-                }
+//                if(swipeRefreshLayout.isRefreshing()){
+//                    swipeRefreshLayout.setRefreshing(false);
+//                }
                 recyclerView.setVisibility(View.VISIBLE);
                 progressBar.setVisibility(View.GONE);
                 if(response!=null&&response.isSuccess()){
                     if(response.body().getFeed()!=null){
                         if(response.body().getFeed().size()>0){
                             Log.d("neesfeed username",response.body().getFeed().get(0).getUsername());
-                            if(list.size()!=0){
+                            if(list.size()!=0)
+                            {
                                 list.remove(list.size()-1);
                                 adapter.refresh (list);
+
+
+                            }
+                            if(list.size()<10)
+                            {
+                                progressBar.setVisibility(View.GONE);
                             }
 
                             list.addAll(response.body().getFeed());
@@ -178,9 +185,9 @@ public class NewsFeedActivity extends AppCompatActivity implements SwipeRefreshL
 
             @Override
             public void onFailure(Call<NewsFeedResponse> call, Throwable t) {
-                if(swipeRefreshLayout.isRefreshing()){
-                    swipeRefreshLayout.setRefreshing(false);
-                }
+//                if(swipeRefreshLayout.isRefreshing()){
+//                    swipeRefreshLayout.setRefreshing(false);
+//                }
 
                 if(list.size()!=0){
                     list.remove(list.size()-1);
